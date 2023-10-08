@@ -1,13 +1,16 @@
-import type { StorybookConfig } from '@storybook/vue3-vite';
+import type { StorybookConfig } from '@storybook/vue3-vite'
 const config: StorybookConfig = {
-  stories: ['../components/stories/**/*.stories.mdx', '../components/stories/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-essentials'],
+  stories: [
+    '../components/stories/**/*.stories.mdx',
+    '../components/stories/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
+  addons: ['@storybook/addon-essentials', 'storybook-addon-nuxt'],
   framework: '@storybook/vue3-vite',
   core: {
-    builder: '@storybook/builder-vite'
+    builder: '@storybook/builder-vite',
   },
   docs: {
-    autodocs: true
-  }
-};
-export default config;
+    autodocs: true,
+  },
+}
+export default config
