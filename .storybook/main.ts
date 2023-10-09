@@ -4,7 +4,11 @@ const config: StorybookConfig = {
     '../components/stories/**/*.stories.mdx',
     '../components/stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  addons: ['@storybook/addon-essentials', 'storybook-addon-nuxt'],
+  addons: [
+    '@storybook/addon-essentials',
+    'storybook-addon-nuxt',
+    '@storybook/addon-controls',
+  ],
   framework: '@storybook/vue3-vite',
   core: {
     builder: '@storybook/builder-vite',
