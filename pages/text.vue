@@ -1,9 +1,7 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 
-const { data: books } = await useFetch<{
-  books: { id: number; title: string; author: string }[]
-}>('/api/test')
+const fetchData = await useFetch('/api/test')
 </script>
 
 <template>
