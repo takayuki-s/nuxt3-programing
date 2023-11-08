@@ -2,8 +2,8 @@
 const config = useRuntimeConfig()
 
 const fetchData = await useFetch('/message')
-console.log(fetchData)
-const message = fetchData.data.message
+console.log(fetchData.data.value)
+const message = fetchData.data.value.message
 </script>
 
 <template>
