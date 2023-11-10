@@ -1,14 +1,18 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
-
-const fetchData = await useFetch('/message')
-console.log(fetchData.data)
-// const message = fetchData.data.value.message
+const { data, pending, error } = await useFetch('/message', { server: false })
 </script>
 
 <template>
   <main>
     <h1>message</h1>
-    <!-- <p>{{ message }}</p> -->
+    <div>
+      <template v-if="pending"> <p>loading...</p></template>
+      <template v-else-if="error">
+        <p>{{ error }}</p></template
+      >
+      <template v-else>
+        <h2>{{ data.message }}</h2>
+      </template>
+    </div>
   </main>
 </template>
