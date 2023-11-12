@@ -5,8 +5,7 @@ const { data, pending, error } = await useFetch('/message', { server: false })
 <template>
   <main>
     <h1>message</h1>
-    <h2>{{ data.message }}</h2>
-    <!-- <div>
+    <div>
       <template v-if="pending"> <p>loading...</p></template>
       <template v-else-if="error">
         <p>{{ error }}</p></template
@@ -14,6 +13,6 @@ const { data, pending, error } = await useFetch('/message', { server: false })
       <template v-else>
         <h2>{{ data.message }}</h2>
       </template>
-    </div> -->
+    </div>
   </main>
 </template>
