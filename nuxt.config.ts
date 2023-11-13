@@ -3,4 +3,5 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   plugins: [{ src: '@/plugins/mock', mode: 'client' }],
   css: ['/assets/css/style.css'],
+  modules: ['@nuxtjs/tailwindcss'],
 })
