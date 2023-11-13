@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.9.4",
     "@storybook/addon-controls": "^7.0.2",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/vue3-vite": "^7.4.0",
