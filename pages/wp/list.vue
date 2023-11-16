@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import postList from '@/components/Organisms/PostList/index.vue'
 const { data, pending, error } = await useFetch(
-  'http://localhost:8000/wp-json/wp/v2/posts/1',
+  'http://localhost:8000/wp-json/wp/v2/posts',
   { server: false },
 )
 console.log(data)
@@ -13,7 +14,8 @@ console.log(data)
       <p>{{ error }}</p></template
     >
     <template v-else>
-      <h2>{{ data }}</h2>
+      <h2>Data</h2>
+      <div>{{ data }}</div>
     </template>
   </div>
 </template>
