@@ -1,19 +1,16 @@
 <script setup lang="ts">
-const { data, pending, error } = await useFetch(
+type ReturnFetchType<T extends string> = ReturnType<
+  typeof useFetch<void, unknown, T>
+>['data']
+const responseData: ReturnFetchType = await useFetch(
   'http://localhost:8000/wp-json/wp/v2/posts',
-  { server: false },
-)
+  {
+    server: false,
+  },
+).data
+console.log(responseData)
 </script>
 
 <template>
-  <div>
-    <template v-if="pending"> <p>loading...</p></template>
-    <template v-else-if="error">
-      <p>{{ error }}</p></template
-    >
-    <template v-else>
-      <h2>Data</h2>
-      <div>{{ data }}</div>
-    </template>
-  </div>
+  <div>{{ responseData }}</div>
 </template>
