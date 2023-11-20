@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
-type ReturnFetchType<T> = ReturnType<typeof useFetch<void, unknown, T>>['data']
-const responseData: ReturnFetchType = await useFetch(
+type ReturnFetchType<T extends string> = ReturnType<
+  typeof useFetch<void, unknown, T>
+>['data']
+const responseData: ReturnFetchType<'/wp-json/wp/v2/posts'> = await useFetch(
   'http://localhost:8000/wp-json/wp/v2/posts',
   {
     server: false,
@@ -10,9 +12,9 @@ const responseData: ReturnFetchType = await useFetch(
 </script>
 
 <template>
-  <div class="grid grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-5">
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
     <ul v-for="data in responseData" :key="data.id">
-      <ArticleCard />
+      <ArticleCard :data="data" />
     </ul>
     <!-- <div
       class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
