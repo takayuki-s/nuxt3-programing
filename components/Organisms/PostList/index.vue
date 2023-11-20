@@ -10,9 +10,11 @@ const responseData: ReturnFetchType = await useFetch(
 </script>
 
 <template>
-  <div v-for="data in responseData" :key="data.id">
-    <ArticleCard />
-    <div
+  <div class="grid grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-5">
+    <ul v-for="data in responseData" :key="data.id">
+      <ArticleCard />
+    </ul>
+    <!-- <div
       class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
     >
       <div class="flex-shrink-0">
@@ -24,6 +26,6 @@ const responseData: ReturnFetchType = await useFetch(
         </div>
         <p class="text-gray-500">{{ data.date }}</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
