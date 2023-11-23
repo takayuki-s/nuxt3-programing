@@ -6,4 +6,5 @@ export type ArticleCardData = {
   modified: string
   title: string
   link: string
+  content: string
 }

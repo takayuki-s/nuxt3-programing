@@ -19,6 +19,7 @@ const filterData = (data: any) => {
     modified: data.modified,
     title: data.title.rendered,
     link: data.link,
+    content: data.content,
   }
   return filteredData
 }
