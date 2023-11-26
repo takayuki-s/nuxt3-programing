@@ -12,5 +12,5 @@ const dataList = computed(() => {
 </script>
 
 <template>
-  <postList :dataList="dataList" />
+  <postList :dataList="dataList" test="test" />
 </template>

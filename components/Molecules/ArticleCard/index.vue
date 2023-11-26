@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps(), {
-  data: 'props',
+  msg: 'hello',
+  labels: () => ['one', 'two'],
 })
 console.log(msg)
 </script>
@@ -9,6 +10,6 @@ console.log(msg)
   <div
     class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
   >
-    <div>hello{{ data }}</div>
+    <div>hello{{ msg }}</div>
   </div>
 </template>

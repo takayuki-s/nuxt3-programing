@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
-const props = defineProps()
-console.log(props)
+const props = defineProps({
+  dataList: {},
+})
+console.log(props.dataList)
 // type ReturnFetchType<T extends string> = ReturnType<
 //   typeof useFetch<void, unknown, T>
 // >['data']
