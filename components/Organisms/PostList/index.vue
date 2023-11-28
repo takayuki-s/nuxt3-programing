@@ -34,10 +34,10 @@ const filterData = (data: any) => {
   <div>
     <div v-if="pending">読み込み中です</div>
     <div v-else-if="error">エラーが発生しました</div>
-    <div>
+    <div v-else>
       <div
         v-if="postList"
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5"
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-6"
       >
         <ul v-for="(data, index) in postList" :key="index">
           <ArticleCard :data="filterData(data)" />
