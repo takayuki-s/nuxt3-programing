@@ -9,22 +9,28 @@ const {
   pending,
   error,
 } = await useFetch<ReturnFetchType<'wp-json/wp/v2/posts'>>(
-  'http://localhost:8000/wp-json/wp/v2/posts',
+  'http://localhost:8000/wp-json/wp/v2/posts?_embed',
   {
     server: false,
   },
 )
 
 const filterData = (data: any) => {
+  // TODO: ホンマにこの判定で良いのか
+  const thumbnailUrl = data._embedded['wp:featuredmedia']
+    ? data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail
+        .source_url
+    : null
   const filteredData: ArticleCardData = {
     id: data.id,
-    author: data.author,
+    author: data._embedded.author[0].name,
     categories: data.categories,
     date: data.date,
     modified: data.modified,
     title: data.title.rendered,
     link: data.link,
     content: data.content,
+    thumbnailUrl: thumbnailUrl,
   }
   return filteredData
 }
