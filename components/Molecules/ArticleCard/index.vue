@@ -11,12 +11,14 @@ const sampleImgPath = () => {
 </script>
 
 <template>
-  <div class="p-6 bg-white rounded-xl shadow-md items-center">
+  <div class="p-6 h-full bg-white rounded-xl shadow-md items-center">
     <img
       class="object-cover h-48 w-full"
       :src="data.thumbnailUrl ? data.thumbnailUrl : sampleImgPath()"
     />
-    <p class="text-lg">{{ data.title }}</p>
-    <p class="text-sm text-slate-400 text-right">{{ data.date }}</p>
+    <div class="py-2 flex flex-col justify-between gap-1">
+      <p class="text-md">{{ data.title }}</p>
+      <p class="text-sm text-slate-400 text-right">{{ data.date }}</p>
+    </div>
   </div>
 </template>
