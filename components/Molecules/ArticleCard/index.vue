@@ -12,8 +12,10 @@ const sampleImgPath = () => {
 
 <template>
   <div class="p-6 bg-white rounded-xl shadow-md items-center">
-    <!-- TODO: 動的画像ファイル -->
-    <img :src="data.thumbnailUrl ? data.thumbnailUrl : sampleImgPath()" />
+    <img
+      class="object-cover h-48 w-full"
+      :src="data.thumbnailUrl ? data.thumbnailUrl : sampleImgPath()"
+    />
     <p class="text-lg">{{ data.title }}</p>
     <p class="text-sm text-slate-400 text-right">{{ data.date }}</p>
   </div>
