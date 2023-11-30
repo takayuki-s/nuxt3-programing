@@ -8,7 +8,7 @@ const {
   data: postList,
   pending,
   error,
-} = await useFetch<ReturnFetchType<'wp-json/wp/v2/posts'>>(
+} = await useFetch<ReturnFetchType<'wp-json/wp/v2/posts?_embed'>>(
   'http://localhost:8000/wp-json/wp/v2/posts?_embed',
   {
     server: false,
