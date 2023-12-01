@@ -11,7 +11,7 @@ const sampleImgPath = () => {
 </script>
 
 <template>
-  <div class="p-6 h-full bg-white rounded-xl shadow-md items-center">
+  <div class="px-5 py-3 h-full bg-white rounded-xl shadow-md items-center">
     <img
       class="object-cover h-48 w-full"
       :src="data.thumbnailUrl ? data.thumbnailUrl : sampleImgPath()"
