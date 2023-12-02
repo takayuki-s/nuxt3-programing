@@ -30,6 +30,7 @@ const filterData = (data: any) => {
     title: data.title.rendered,
     link: data.link,
     content: data.content,
+    excerpt: data.excerpt,
     thumbnailUrl: thumbnailUrl,
   }
   return filteredData

@@ -7,5 +7,6 @@ export type ArticleCardData = {
   title: string
   link: string
   content: string
+  excerpt: string
   thumbnailUrl: string | null
 }
