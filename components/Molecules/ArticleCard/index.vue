@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArticleCardData } from '@/types/article'
+import { omitText } from '@/composables/post/articles'
 type Props = {
   data: ArticleCardData
 }
@@ -11,13 +12,16 @@ const sampleImgPath = () => {
 </script>
 
 <template>
-  <div class="px-5 py-3 h-full bg-white rounded-xl shadow-md items-center">
+  <div
+    class="px-5 py-3 h-full bg-sky-50 rounded-xl shadow-md items-center cursor-pointer hover:bg-sky-100"
+  >
     <img
       class="object-cover h-48 w-full"
       :src="data.thumbnailUrl ? data.thumbnailUrl : sampleImgPath()"
     />
     <div class="py-2 flex flex-col justify-between gap-1">
-      <p class="text-md">{{ data.title }}</p>
+      <p class="text-md font-bold">{{ data.title }}</p>
+      <p class="text-sm">{{ omitText(data.excerpt, 50) }}</p>
       <p class="text-sm text-slate-400 text-right">{{ data.date }}</p>
     </div>
   </div>
