@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArticleCardData } from '@/types/article'
-import { omitText } from '@/composables/post/articles'
+import { omitText, formatDate } from '@/composables/post/articles'
 type Props = {
   data: ArticleCardData
 }
@@ -23,7 +23,9 @@ const sampleImgPath = () => {
       <div class="py-2 flex flex-col justify-between gap-1">
         <p class="text-md font-bold">{{ data.title }}</p>
         <p class="text-sm">{{ omitText(data.excerpt, 50) }}</p>
-        <p class="text-sm text-slate-400 text-right">{{ data.date }}</p>
+        <p class="text-sm text-slate-400 text-right">
+          {{ formatDate(data.date) }}
+        </p>
       </div>
     </div>
   </NuxtLink>
