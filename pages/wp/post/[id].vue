@@ -1,17 +1,22 @@
 <script setup lang="ts">
-type ReturnFetchType<T extends string> = ReturnType<
-  typeof useFetch<void, unknown, T>
->['data']
-type PostData = {
-  title: string
+type AdditionalProperties = {
+  [key: string]: any
+}
+type PostData<V extends AdditionalProperties> = {
+  title: {
+    rendered: string
+  }
+  content: {
+    rendered: string
+  }
+  additionalProperties: V
 }
 const id = useRoute().params.id
-console.log(id)
 const {
   data: post,
   pending,
   error,
-} = await useFetch<ReturnFetchType<`wp-json/wp/v2/posts/id`>>(
+} = await useFetch<PostData<AdditionalProperties>>(
   `http://localhost:8000/wp-json/wp/v2/posts/${id}`,
   {
     server: false,
@@ -26,8 +31,10 @@ const {
       エラーが発生しました（投稿を取得できませんでした）
     </div>
     <div v-else>
-      <div>{{ post.title.rendered }}</div>
-      <div>{{ post.content.rendered }}</div>
+      <div>
+        <p v-if="post?.title">{{ post.title.rendered }}</p>
+      </div>
+      <div v-if="post?.content">{{ post.content.rendered }}</div>
     </div>
   </div>
 </template>
