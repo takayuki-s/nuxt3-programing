@@ -21,3 +21,28 @@ export const formatDate = (date: string) => {
 
   return formattedDate
 }
+
+const escapeHtml = (html: string) => {
+  return html.replace(/[&<"'>]/g, function (match) {
+    switch (match) {
+      case '&':
+        return '&amp;'
+      case '<':
+        return '&lt;'
+      case '>':
+        return '&gt;'
+      case '"':
+        return '&quot;'
+      case "'":
+        return '&#39;'
+      default:
+        return match
+    }
+  })
+}
+
+export const generateDynamicHTMLString = (dynamicContent: string) => {
+  const sanitizedContent = escapeHtml(dynamicContent)
+  const htmlString = `<div>${sanitizedContent}</div>`
+  return htmlString
+}
