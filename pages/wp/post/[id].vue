@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { generateDynamicHTMLString } from '@/composables/post/articles'
+import Article from '@/components/Molecules/Article/index.vue'
+
 type AdditionalProperties = {
   [key: string]: any
 }
@@ -23,21 +24,6 @@ const {
     server: false,
   },
 )
-// const dynamicContentHtml = generateDynamicHTMLString(
-//   post.value.content.rendered,
-// )
-// if (post.value) {
-//   const resultHTML = generateDynamicHTMLString(post.value.content.rendered)
-//   document.getElementById('innerHtml').innerHTML = '<h1>aaa</h1>'
-// }
-onMounted(() => {
-  console.log('mount')
-  if (post.value) {
-    console.log(generateDynamicHTMLString(post.value.content.rendered))
-    const resultHTML = generateDynamicHTMLString(post.value.content.rendered)
-    document.getElementById('innerHtml').innerHTML = resultHTML
-  }
-})
 </script>
 
 <template>
@@ -54,6 +40,7 @@ onMounted(() => {
       </div>
       <div v-if="post?.content">
         {{ post.content.rendered }}
+        <Article :content="post.content.rendered" />
       </div>
     </div>
     <div id="innerHtml"></div>
