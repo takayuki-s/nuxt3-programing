@@ -34,7 +34,6 @@
   "dependencies": {
     "@storybook/builder-vite": "^7.4.6",
     "@storybook/vue3": "^7.4.6",
-    "sanitize-html": "^2.11.0",
     "storybook": "^7.4.6"
   },
   "msw": {
