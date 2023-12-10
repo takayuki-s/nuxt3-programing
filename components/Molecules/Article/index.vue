@@ -1,9 +1,9 @@
 <script setup lang="ts">
 type Props = {
-  content: String
+  content: string
 }
 const props = defineProps<Props>()
-const parseHTMLString = (htmlString) => {
+const parseHTMLString = (htmlString: string) => {
   const parser = new DOMParser()
   const doc = parser.parseFromString(htmlString, 'text/html')
   const elements = Array.from(doc.body.children)
