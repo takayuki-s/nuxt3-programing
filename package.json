@@ -32,6 +32,7 @@
     "wp-types": "^3.64.0"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
     "@storybook/builder-vite": "^7.4.6",
     "@storybook/vue3": "^7.4.6",
     "dompurify": "^3.0.6",
