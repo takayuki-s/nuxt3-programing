@@ -34,7 +34,8 @@
   "dependencies": {
     "@storybook/builder-vite": "^7.4.6",
     "@storybook/vue3": "^7.4.6",
-    "storybook": "^7.4.6"
+    "storybook": "^7.4.6",
+    "vue-dompurify-html": "^4.1.4"
   },
   "msw": {
     "workerDirectory": "public"
