@@ -39,7 +39,6 @@ const {
         </p>
       </div>
       <div v-if="post?.content">
-        {{ post.content.rendered }}
         <Article :content="post.content.rendered" />
       </div>
     </div>
