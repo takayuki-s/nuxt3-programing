@@ -6,5 +6,7 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <div v-dompurify-html="content"></div>
+  <div class="flex justify-center">
+    <div class="flex flex-col gap-5 mt-5" v-dompurify-html="content"></div>
+  </div>
 </template>

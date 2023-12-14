@@ -32,16 +32,24 @@ const {
     <div v-else-if="error">
       エラーが発生しました（投稿を取得できませんでした）
     </div>
-    <div v-else>
-      <div>
-        <p v-if="post?.title" class="text-xl text-center">
-          {{ post.title.rendered }}
-        </p>
-      </div>
-      <div v-if="post?.content">
-        <Article :content="post.content.rendered" />
+    <div v-else class="flex justify-center">
+      <div class="article">
+        <div>
+          <p v-if="post?.title" class="text-4xl">
+            {{ post.title.rendered }}
+          </p>
+        </div>
+        <div v-if="post?.content">
+          <Article :content="post.content.rendered" />
+        </div>
       </div>
     </div>
     <div id="innerHtml"></div>
   </div>
 </template>
+
+<style scoped>
+.article {
+  width: 620px;
+}
+</style>
