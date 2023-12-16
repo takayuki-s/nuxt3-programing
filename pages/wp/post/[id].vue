@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Article from '@/components/Molecules/Article/index.vue'
+import { formatDate } from '@/composables/post/articles'
 
 type AdditionalProperties = {
   [key: string]: any
@@ -11,6 +12,7 @@ type PostData<V extends AdditionalProperties> = {
   content: {
     rendered: string
   }
+  date: string
   additionalProperties: V
 }
 const id = useRoute().params.id
@@ -37,6 +39,9 @@ const {
         <div>
           <p v-if="post?.title" class="text-4xl">
             {{ post.title.rendered }}
+          </p>
+          <p v-if="post?.date" class="text-right">
+            {{ formatDate(post.date) }}
           </p>
         </div>
         <div v-if="post?.content">
