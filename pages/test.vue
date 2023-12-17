@@ -11,7 +11,7 @@ const { data, pending, error } = await useFetch('/message', { server: false })
         <p>{{ error }}</p></template
       >
       <template v-else>
-        <h2>{{ data.message }}</h2>
+        <!-- <h2>{{ data.message }}</h2> -->
       </template>
     </div>
   </main>
