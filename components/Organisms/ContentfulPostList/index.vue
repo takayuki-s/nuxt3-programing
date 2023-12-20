@@ -32,13 +32,13 @@ const filterData = (post: any) => {
   const filteredData: ArticleCardData = {
     id: post.sys.id,
     author: 0,
-    categories: [],
+    categories: post.metadata.tags,
     date: post.sys.createdAt,
     modified: post.sys.updatedAt,
-    title: 'data.title.rendered',
-    link: 'data.link',
-    content: 'data.content',
-    excerpt: 'data.excerpt.rendered',
+    title: post.fields.title,
+    link: '',
+    content: post.fields.excerpt,
+    excerpt: post.fields.excerpt,
     thumbnailUrl: '',
   }
   return filteredData
@@ -56,9 +56,6 @@ const filterData = (post: any) => {
       >
         <ul v-for="(post, index) in postList.items" :key="index">
           <ArticleCard :data="filterData(post)" />
-          {{
-            post
-          }}
         </ul>
       </div>
       <div v-else>投稿データはありません</div>
