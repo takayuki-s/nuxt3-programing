@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { createClient } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
 type AdditionalProperties = {
@@ -15,6 +16,21 @@ type PostData<V extends AdditionalProperties> = {
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
 const accessToken: string = import.meta.env.VITE_CONTENTFUL_CD_ACCESS_TOKEN
+const client = createClient({
+  space: spaceId,
+  accessToken: accessToken,
+})
+const getEntries = async () => {
+  try {
+    const entries = await client.getEntries({
+      content_type: 'blogPage',
+    })
+    console.log('記事一覧:', entries.items)
+  } catch (error) {
+    console.error('記事の取得に失敗しました:', error)
+  }
+}
+getEntries()
 const {
   data: postList,
   pending,
