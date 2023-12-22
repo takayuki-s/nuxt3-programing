@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createClient } from 'contentful'
+import { createClient, EntryCollection } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
 type AdditionalProperties = {
@@ -13,6 +13,33 @@ type PostData<V extends AdditionalProperties> = {
   }
   additionalProperties: V
 }
+// Contentful API レスポンスの型定義
+type ContentfulEntry<T> = {
+  sys: {
+    id: string
+    type: string
+    createdAt: string
+    updatedAt: string
+    revision: number
+  }
+  fields: T
+}
+
+type ArticleFields = {
+  title: string
+  content: string
+  image: {
+    sys: {
+      id: string
+      type: string
+      linkType: string
+    }
+    // 他にも必要なフィールドがあれば追加
+  }
+  // 他にも記事のフィールドがあれば追加
+}
+
+type GetEntriesResponse = EntryCollection<ContentfulEntry<ArticleFields>>
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
 const accessToken: string = import.meta.env.VITE_CONTENTFUL_CD_ACCESS_TOKEN
