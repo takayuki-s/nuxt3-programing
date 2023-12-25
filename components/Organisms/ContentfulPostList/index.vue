@@ -62,11 +62,19 @@ const getEntries = async () => {
       //     // 記事のフィールドにアクセス
       const fields = entry.fields
 
-      // 例: "image" フィールドがある場合
-      console.log(fields)
-      if (fields.thumbnail) {
+      // 例: "thumbnail" フィールドがある場合
+      if (
+        fields.thumbnail &&
+        fields.thumbnail.fields &&
+        'file' in fields.thumbnail.fields
+      ) {
         // 画像にアクセス
-        const imageUrl = fields.thumbnail.fields.file.url
+        const thumbnailFields = fields.thumbnail.fields as {
+          file: {
+            url: string
+          }
+        }
+        const imageUrl = thumbnailFields.file.url
         console.log('Image URL:', imageUrl)
       }
     })
