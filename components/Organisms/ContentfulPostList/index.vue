@@ -29,7 +29,6 @@ type ContentfulEntry<T> = {
 }
 
 // Contentfulのブログページエントリーの型
-      }
 type BlogPageEntry = ContentfulEntry<IBlogPageFields>
 
 // Contentfulのエントリーコレクションの型
