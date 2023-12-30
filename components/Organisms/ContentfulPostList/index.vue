@@ -2,6 +2,7 @@
 import { createClient, EntryCollection } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
+import { IBlogPageFields } from '~/@types/generated/contentful'
 type AdditionalProperties = {
   [key: string]: any
 }
@@ -28,19 +29,8 @@ type ContentfulEntry<T> = {
 }
 
 // Contentfulのブログページエントリーの型
-type BlogPageFields = {
-  title: string
-  description: string
-  thumbnail: {
-    fields: {
-      file: {
-        url: string
       }
-    }
-  }
-}
-
-type BlogPageEntry = ContentfulEntry<BlogPageFields>
+type BlogPageEntry = ContentfulEntry<IBlogPageFields>
 
 // Contentfulのエントリーコレクションの型
 type BlogPageEntryCollection = EntryCollection<BlogPageEntry>
