@@ -41,7 +41,6 @@ const client = createClient({
   space: spaceId,
   accessToken: accessToken,
 })
-const postItems: any = []
 const getEntries = async () => {
   try {
     const entries: BlogPageEntryCollection = await client.getEntries({
@@ -67,14 +66,12 @@ const getEntries = async () => {
         const imageUrl = thumbnailFields.file.url
         console.log('Image URL:', imageUrl)
       }
-      postItems.push(entry)
     })
   } catch (error) {
     console.error('記事の取得に失敗しました:', error)
   }
 }
 getEntries()
-console.log(postItems)
 const {
   data: postList,
   pending,
