@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createClient, EntryCollection } from 'contentful'
+import { createClient } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
@@ -14,25 +14,6 @@ type PostData<V extends AdditionalProperties> = {
   }
   additionalProperties: V
 }
-// Contentfulのエントリーの基本型
-type ContentfulEntry<T> = {
-  sys: {
-    id: string
-    contentType: {
-      sys: {
-        id: string
-      }
-    }
-  }
-  fields: T
-  contentTypeId: string
-}
-
-// Contentfulのブログページエントリーの型
-type BlogPageEntry = ContentfulEntry<IBlogPageFields>
-
-// Contentfulのエントリーコレクションの型
-type BlogPageEntryCollection = EntryCollection<BlogPageEntry>
 
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
@@ -43,21 +24,13 @@ const client = createClient({
 })
 const getEntries = async () => {
   try {
-    const entries: BlogPageEntryCollection = await client.getEntries({
+    const entries = await client.getEntries({
       content_type: 'blogPage',
     })
     console.log('記事一覧:', entries.items)
     entries.items.forEach((entry) => {
-      //     // 記事のフィールドにアクセス
-      const fields = entry.fields
-
-      // 例: "thumbnail" フィールドがある場合
-      if (
-        fields.thumbnail &&
-        fields.thumbnail.fields &&
-        'file' in fields.thumbnail.fields
-      ) {
-        // 画像にアクセス
+      const fields: IBlogPageFields = entry.fields
+      if (fields.thumbnail) {
         const thumbnailFields = fields.thumbnail.fields as {
           file: {
             url: string
