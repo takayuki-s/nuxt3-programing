@@ -3,6 +3,7 @@ import { createClient } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
+
 type AdditionalProperties = {
   [key: string]: any
 }
@@ -14,6 +15,11 @@ type PostData<V extends AdditionalProperties> = {
   }
   additionalProperties: V
 }
+type EntryItem = {
+  fields: IBlogPageFields
+  metadata: {}
+  sys: {}
+}
 
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
@@ -22,29 +28,19 @@ const client = createClient({
   space: spaceId,
   accessToken: accessToken,
 })
+const entryItemList: EntryItem[] = []
 const getEntries = async () => {
   try {
     const entries = await client.getEntries({
       content_type: 'blogPage',
     })
-    console.log('記事一覧:', entries.items)
     entries.items.forEach((entry) => {
-      const fields: IBlogPageFields = entry.fields
-      if (fields.thumbnail) {
-        const thumbnailFields = fields.thumbnail.fields as {
-          file: {
-            url: string
-          }
-        }
-        const imageUrl = thumbnailFields.file.url
-        console.log('Image URL:', imageUrl)
-      }
+      entryItemList.push(entry)
     })
   } catch (error) {
     console.error('記事の取得に失敗しました:', error)
   }
 }
-getEntries()
 const {
   data: postList,
   pending,
@@ -55,10 +51,7 @@ const {
     server: false,
   },
 )
-console.log(postList, typeof postList)
-console.log(postList.value?.includes.Asset)
 const filterData = (post: any) => {
-  console.log(postList.value?.includes.Asset[0].sys.id)
   const filteredData: ArticleCardData = {
     id: post.sys.id,
     author: 0,
@@ -73,6 +66,9 @@ const filterData = (post: any) => {
   }
   return filteredData
 }
+onMounted(() => {
+  getEntries()
+})
 </script>
 
 <template>
@@ -90,5 +86,6 @@ const filterData = (post: any) => {
       </div>
       <div v-else>投稿データはありません</div>
     </div>
+    <div>{{ entryItemList }}</div>
   </div>
 </template>
