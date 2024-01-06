@@ -55,9 +55,6 @@ const filterItem = (item: any) => {
   }
   return filteredData
 }
-// onMounted(() => {
-//   getEntries()
-// })
 </script>
 
 <template>
