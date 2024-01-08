@@ -16,11 +16,16 @@ const sampleImgPath = () => {
     <div
       class="px-5 py-3 h-full bg-sky-50 rounded-xl shadow-md items-center cursor-pointer hover:bg-sky-100"
     >
-      <!-- <img
+      <img
+        v-if="data.thumbnailUrl"
         class="object-cover h-48 w-full"
-        :src="data.thumbnailUrl ? data.thumbnailUrl : sampleImgPath()"
-      /> -->
-      <img class="object-cover h-48 w-full" src="@/assets/images/sample.jpg" />
+        :src="data.thumbnailUrl"
+      />
+      <img
+        v-else
+        class="object-cover h-48 w-full"
+        src="@/assets/images/sample.jpg"
+      />
       <div class="py-2 flex flex-col justify-between gap-1">
         <p class="text-md font-bold">{{ data.title }}</p>
         <p class="text-sm">{{ omitText(data.excerpt, 50) }}</p>
