@@ -20,19 +20,6 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entryItemList: EntryItem[] = []
-// const getEntries = async () => {
-//   try {
-//     const entries = await client.getEntries({
-//       content_type: 'blogPage',
-//     })
-//     entries.items.forEach((entry) => {
-//       entryItemList.push(entry)
-//       console.log(entryItemList)
-//     })
-//   } catch (error) {
-//     console.error('記事の取得に失敗しました:', error)
-//   }
-// }
 const entries = await client.getEntries({
   content_type: 'blogPage',
 })
@@ -41,6 +28,9 @@ entries.items.forEach((entry) => {
   console.log(entryItemList)
 })
 const filterItem = (item: any) => {
+  const thumbnailFileUrl = item.fields.thumbnail
+    ? 'https:' + item.fields.thumbnail.fields.file.url
+    : null
   const filteredData: ArticleCardData = {
     id: item.sys.id,
     author: 0,
@@ -51,7 +41,7 @@ const filterItem = (item: any) => {
     link: '',
     content: item.fields.excerpt,
     excerpt: item.fields.excerpt,
-    thumbnailUrl: '',
+    thumbnailUrl: thumbnailFileUrl,
   }
   return filteredData
 }
