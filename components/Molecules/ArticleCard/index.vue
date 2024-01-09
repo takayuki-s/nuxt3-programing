@@ -6,9 +6,6 @@ type Props = {
 }
 const props = defineProps<Props>()
 console.log('props', props.data)
-const sampleImgPath = () => {
-  return new URL('@/assets/images/sample.jpg', import.meta.url).href
-}
 </script>
 
 <template>
