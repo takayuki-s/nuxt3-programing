@@ -25,7 +25,6 @@ const entries = await client.getEntries({
 })
 entries.items.forEach((entry) => {
   entryItemList.push(entry)
-  console.log(entryItemList)
 })
 const filterItem = (item: any) => {
   const thumbnailFileUrl = item.fields.thumbnail

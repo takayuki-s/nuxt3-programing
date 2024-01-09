@@ -5,11 +5,10 @@ type Props = {
   data: ArticleCardData
 }
 const props = defineProps<Props>()
-console.log('props', props.data)
 </script>
 
 <template>
-  <NuxtLink :to="`/wp/post/${data.id}`">
+  <NuxtLink :to="`/contentful/post/${data.id}`">
     <div
       class="px-5 py-3 h-full bg-sky-50 rounded-xl shadow-md items-center cursor-pointer hover:bg-sky-100"
     >
