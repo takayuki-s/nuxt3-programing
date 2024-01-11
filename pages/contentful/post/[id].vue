@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import Article from '@/components/Molecules/Article/index.vue'
+// import Article from '@/components/Molecules/Article/index.vue'
 import { formatDate } from '@/composables/post/articles'
 import { createClient } from 'contentful'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 const id = useRoute().params.id as string
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
@@ -11,7 +12,8 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entry = await client.getEntry(id)
-console.log(entry)
+console.log(entry.fields.body.content)
+console.log(documentToHtmlString(entry.fields.body.content[3]))
 </script>
 
 <template>
@@ -22,6 +24,12 @@ console.log(entry)
         <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
       </div>
       <div>本文</div>
+      <!-- <article
+        :set:html="{documentToHtmlString(entry.fields.body.content)}"
+      ></article> -->
+      <ul v-for="content in entry.fields.body.content">
+        <li>{{ documentToHtmlString(content) }}</li>
+      </ul>
     </div>
   </div>
 </template>
