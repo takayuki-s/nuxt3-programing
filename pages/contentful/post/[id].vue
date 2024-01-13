@@ -4,6 +4,14 @@ import { formatDate } from '@/composables/post/articles'
 import { createClient } from 'contentful'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
+type Entry = {
+  fields: {
+    body: {
+      content: []
+    }
+  }
+}
+
 const id = useRoute().params.id as string
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const accessToken: string = import.meta.env.VITE_CONTENTFUL_CD_ACCESS_TOKEN
@@ -11,8 +19,8 @@ const client = createClient({
   space: spaceId,
   accessToken: accessToken,
 })
-const entry = await client.getEntry(id)
-console.log(entry.fields.body.content)
+const entry: Entry = await client.getEntry(id)
+console.log(entry?.fields?.body?.content)
 console.log(documentToHtmlString(entry.fields.body.content[3]))
 </script>
 
