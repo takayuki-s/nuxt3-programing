@@ -1,16 +1,7 @@
 <script setup lang="ts">
-// import Article from '@/components/Molecules/Article/index.vue'
 import { formatDate } from '@/composables/post/articles'
 import { createClient } from 'contentful'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-
-type Entry = {
-  fields: {
-    body: {
-      content: []
-    }
-  }
-}
 
 const id = useRoute().params.id as string
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
@@ -19,7 +10,7 @@ const client = createClient({
   space: spaceId,
   accessToken: accessToken,
 })
-const entry: Entry = await client.getEntry(id)
+const entry: any = await client.getEntry(id)
 </script>
 
 <template>
