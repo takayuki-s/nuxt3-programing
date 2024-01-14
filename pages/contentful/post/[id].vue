@@ -20,8 +20,6 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entry: Entry = await client.getEntry(id)
-console.log(entry?.fields?.body?.content)
-console.log(documentToHtmlString(entry.fields.body.content[3]))
 </script>
 
 <template>
@@ -32,9 +30,6 @@ console.log(documentToHtmlString(entry.fields.body.content[3]))
         <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
       </div>
       <div>本文</div>
-      <!-- <article
-        :set:html="{documentToHtmlString(entry.fields.body.content)}"
-      ></article> -->
       <ul v-for="content in entry.fields.body.content">
         <li>{{ documentToHtmlString(content) }}</li>
       </ul>
