@@ -22,7 +22,7 @@ const entry: any = await client.getEntry(id)
       </div>
       <div>本文</div>
       <div v-for="content in entry.fields.body.content">
-        <div v-html="documentToHtmlString(content)" />
+        <div class="html-content" v-html="documentToHtmlString(content)" />
       </div>
     </div>
   </div>
