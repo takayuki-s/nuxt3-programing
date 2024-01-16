@@ -11,7 +11,6 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entry: any = await client.getEntry(id)
-console.log(entry.fields.body.content)
 </script>
 
 <template>
@@ -22,12 +21,9 @@ console.log(entry.fields.body.content)
         <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
       </div>
       <div>本文</div>
-      <ul v-for="content in entry.fields.body.content">
-        <!-- <li>{{ content }}</li>
-        <br /> -->
-        <!-- <li>{{ documentToHtmlString(content) }}</li> -->
-        <li><div v-html="documentToHtmlString(content)" /></li>
-      </ul>
+      <div v-for="content in entry.fields.body.content">
+        <div v-html="documentToHtmlString(content)" />
+      </div>
     </div>
   </div>
 </template>
