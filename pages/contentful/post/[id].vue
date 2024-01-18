@@ -21,7 +21,7 @@ const entry: any = await client.getEntry(id)
         <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
       </div>
       <div>本文</div>
-      <div v-for="content in entry.fields.body.content">
+      <div class="content" v-for="content in entry.fields.body.content">
         <div class="html-content" v-html="documentToHtmlString(content)" />
       </div>
     </div>
@@ -31,5 +31,12 @@ const entry: any = await client.getEntry(id)
 <style scoped>
 .article {
   width: 620px;
+}
+.content ::v-deep li {
+  display: block;
+}
+.content ::v-deep li p:before {
+  content: '・';
+  font-weight: bold;
 }
 </style>
