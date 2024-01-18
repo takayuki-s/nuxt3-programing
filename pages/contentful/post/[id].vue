@@ -2,6 +2,7 @@
 import { formatDate } from '@/composables/post/articles'
 import { createClient } from 'contentful'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import ToHtmlContent from '@/components/Atoms/ToHtmlContent/index.vue'
 
 const id = useRoute().params.id as string
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
@@ -11,6 +12,7 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entry: any = await client.getEntry(id)
+console.log(entry)
 </script>
 
 <template>
@@ -21,8 +23,8 @@ const entry: any = await client.getEntry(id)
         <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
       </div>
       <div>本文</div>
-      <div class="content" v-for="content in entry.fields.body.content">
-        <div class="html-content" v-html="documentToHtmlString(content)" />
+      <div v-for="content in entry.fields.body.content">
+        <ToHtmlContent :content="content" />
       </div>
     </div>
   </div>
@@ -31,12 +33,5 @@ const entry: any = await client.getEntry(id)
 <style scoped>
 .article {
   width: 620px;
-}
-.content ::v-deep li {
-  display: block;
-}
-.content ::v-deep li p:before {
-  content: '・';
-  font-weight: bold;
 }
 </style>
