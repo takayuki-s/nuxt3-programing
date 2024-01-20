@@ -20,11 +20,14 @@ console.log(entry)
     <div class="article">
       <div>
         <p class="text-4xl">タイトル</p>
+      </div>
+      <div>
         <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
       </div>
-      <div>本文</div>
-      <div v-for="content in entry.fields.body.content">
-        <ToHtmlContent :content="content" />
+      <div class="contents">
+        <div v-for="content in entry.fields.body.content">
+          <ToHtmlContent :content="content" />
+        </div>
       </div>
     </div>
   </div>
@@ -33,5 +36,13 @@ console.log(entry)
 <style scoped>
 .article {
   width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 </style>
