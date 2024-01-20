@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { Document } from '@contentful/rich-text-types'
 type Props = {
-  content: {}
+  content: Document
 }
 const props = defineProps<Props>()
 </script>
@@ -9,16 +10,16 @@ const props = defineProps<Props>()
 <template>
   <template
     v-if="
-      (content.nodeType === 'paragraph') |
-        (content.nodeType === 'unordered-list')
+      content.nodeType.valueOf() === 'paragraph' ||
+      content.nodeType.valueOf() === 'unordered-list'
     "
   >
     <div class="html-content" v-html="documentToHtmlString(content)" />
   </template>
-  <template v-else-if="content.nodeType === 'hr'">
+  <template v-else-if="content.nodeType.valueOf() === 'hr'">
     <hr />
   </template>
-  <template v-else-if="content.nodeType === 'blockquote'">
+  <template v-else-if="content.nodeType.valueOf() === 'blockquote'">
     <blockquote class="quote-1">
       <p class="html-content" v-html="documentToHtmlString(content)" />
     </blockquote>
