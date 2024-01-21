@@ -5,6 +5,9 @@ type Props = {
   content: Document
 }
 const props = defineProps<Props>()
+const getImgUrl = (url: string) => {
+  return `https://${url}`
+}
 </script>
 
 <template>
@@ -23,6 +26,14 @@ const props = defineProps<Props>()
     <blockquote class="quote-1">
       <p class="html-content" v-html="documentToHtmlString(content)" />
     </blockquote>
+  </template>
+  <template v-else-if="content.nodeType.valueOf() === 'embedded-asset-block'">
+    <picture>
+      <img
+        :src="getImgUrl(content.data.target.fields.file.url)"
+        :alt="content.data.target.fields.description"
+      />
+    </picture>
   </template>
 </template>
 
