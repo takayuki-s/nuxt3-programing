@@ -29,6 +29,7 @@ console.log(entry)
           <ToHtmlContent :content="content" />
         </div>
       </div>
+      <nuxt-link to="/contentful/list" class="text-right">戻る</nuxt-link>
     </div>
   </div>
 </template>
