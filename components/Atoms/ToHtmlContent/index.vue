@@ -24,7 +24,14 @@ const getImgUrl = (url: string) => {
   </template>
   <template v-else-if="content.nodeType.valueOf() === 'blockquote'">
     <blockquote class="quote-1">
-      <p class="html-content" v-html="documentToHtmlString(content)" />
+      <p
+        class="html-content"
+        v-for="(item, index) in content.content"
+        :key="index"
+      >
+        <!-- @vue-expect-error 型定義にはちゃんとvalue: stringで定義されている -->
+        {{ item.content[0].value }}
+      </p>
     </blockquote>
   </template>
   <template v-else-if="content.nodeType.valueOf() === 'embedded-asset-block'">
