@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { Document } from '@contentful/rich-text-types'
+import { MARKS } from '@contentful/rich-text-types'
 type Props = {
   content: Document
 }
 const props = defineProps<Props>()
+const options = {
+  renderMark: {
+    [MARKS.CODE]: (text: string) => `<pre><code>${text}</code></pre>`,
+  },
+}
 const getImgUrl = (url: string) => {
   return `https://${url}`
 }
@@ -17,7 +23,7 @@ const getImgUrl = (url: string) => {
       content.nodeType.valueOf() === 'unordered-list'
     "
   >
-    <div class="html-content" v-html="documentToHtmlString(content)" />
+    <div class="html-content" v-html="documentToHtmlString(content, options)" />
   </template>
   <template v-else-if="content.nodeType.valueOf() === 'hr'">
     <hr />
@@ -44,6 +50,11 @@ const getImgUrl = (url: string) => {
 .html-content ::v-deep li p:before {
   content: '・';
   font-weight: bold;
+}
+.html-content ::v-deep code {
+  padding: 5px;
+  color: #f2f2f2;
+  background-color: #333333;
 }
 .quote-1 {
   max-width: 500px;
