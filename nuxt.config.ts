@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   plugins: [
     { src: '@/plugins/mock', mode: 'client' },
     { src: '@/plugins/vue-dompurify-html', mode: 'client' },
+    { src: '@/plugins/prism' },
   ],
   css: ['/assets/css/style.css'],
   modules: ['@nuxtjs/tailwindcss'],
