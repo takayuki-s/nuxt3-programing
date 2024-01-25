@@ -2,18 +2,24 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { Document } from '@contentful/rich-text-types'
 import { MARKS } from '@contentful/rich-text-types'
+import Prism from 'prismjs'
+
 type Props = {
   content: Document
 }
 const props = defineProps<Props>()
 const options = {
   renderMark: {
-    [MARKS.CODE]: (text: string) => `<pre><code>${text}</code></pre>`,
+    [MARKS.CODE]: (text: string) =>
+      `<pre v-prism><code class="language-javascript">${text}</code></pre>`,
   },
 }
 const getImgUrl = (url: string) => {
   return `https://${url}`
 }
+onMounted(() => {
+  Prism.highlightAll()
+})
 </script>
 
 <template>
@@ -50,11 +56,6 @@ const getImgUrl = (url: string) => {
 .html-content ::v-deep li p:before {
   content: '・';
   font-weight: bold;
-}
-.html-content ::v-deep code {
-  padding: 5px;
-  color: #f2f2f2;
-  background-color: #333333;
 }
 .quote-1 {
   max-width: 500px;
