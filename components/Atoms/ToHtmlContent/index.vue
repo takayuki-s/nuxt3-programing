@@ -23,20 +23,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <template
-    v-if="
-      content.nodeType.valueOf() === 'paragraph' ||
-      content.nodeType.valueOf() === 'unordered-list'
-    "
-  >
-    <div class="html-content" v-html="documentToHtmlString(content, options)" />
-  </template>
-  <template v-else-if="content.nodeType.valueOf() === 'hr'">
+  <template v-if="content.nodeType.valueOf() === 'hr'">
     <hr />
   </template>
   <template v-else-if="content.nodeType.valueOf() === 'blockquote'">
     <blockquote class="quote-1">
-      <div class="html-content" v-html="documentToHtmlString(content)" />
+      <div v-html="documentToHtmlString(content)" />
     </blockquote>
   </template>
   <template v-else-if="content.nodeType.valueOf() === 'embedded-asset-block'">
@@ -47,16 +39,15 @@ onMounted(() => {
       />
     </picture>
   </template>
+  <template v-else-if="content.nodeType.valueOf() === 'unordered-list'">
+    <ul class="ul-content" v-html="documentToHtmlString(content)" />
+  </template>
+  <template v-else>
+    <div v-html="documentToHtmlString(content, options)" />
+  </template>
 </template>
 
 <style scoped>
-.html-content ::v-deep li {
-  display: block;
-}
-.html-content ::v-deep li p:before {
-  content: '・';
-  font-weight: bold;
-}
 .quote-1 {
   max-width: 500px;
   padding: 0.5rem 1.5rem;

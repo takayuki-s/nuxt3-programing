@@ -8,3 +8,8 @@ a {
 a:visited {
   color: #681da8;
 }
+
+.ul-content li p:before {
+  content: '・';
+  font-weight: bold;
+}
