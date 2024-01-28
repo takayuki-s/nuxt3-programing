@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { formatDate } from '@/composables/post/articles'
 import { createClient } from 'contentful'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import ToHtmlContent from '@/components/Atoms/ToHtmlContent/index.vue'
 
 const id = useRoute().params.id as string
@@ -19,10 +18,10 @@ console.log(entry)
   <div class="flex justify-center">
     <div class="article">
       <div>
-        <p class="text-4xl">タイトル</p>
+        <p class="text-4xl">{{ entry.fields.title }}</p>
       </div>
       <div>
-        <p class="text-right">日付{{ formatDate('2023/12/12') }}</p>
+        <p class="text-right">{{ formatDate(entry.sys.createdAt) }}</p>
       </div>
       <div class="contents">
         <div v-for="content in entry.fields.body.content">
