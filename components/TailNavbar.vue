@@ -18,21 +18,22 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a
-                href="/"
-                class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                >TOP</a
+              <NuxtLink
+                to="/"
+                class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white link-text hover:bg-gray-700 hover:text-white"
               >
-              <a
+                TOP
+              </NuxtLink>
+              <NuxtLink
                 href="/contentful/list"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                >LIST</a
-              >
-              <a
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
+                >LIST
+              </NuxtLink>
+              <NuxtLink
                 href="/about"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                >ABOUT</a
-              >
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
+                >ABOUT
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -57,21 +58,27 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
           as="a"
           href="/"
           class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-          >TOP</DisclosureButton
+          ><NuxtLink to="/">TOP</NuxtLink></DisclosureButton
         >
         <DisclosureButton
           as="a"
           href="/contentful/list"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          >LIST</DisclosureButton
+          ><NuxtLink to="/contentful/list">LIST</NuxtLink></DisclosureButton
         >
         <DisclosureButton
           as="a"
           href="/about"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          >ABOUT</DisclosureButton
+          ><NuxtLink to="/about">ABOUT</NuxtLink></DisclosureButton
         >
       </div>
     </DisclosurePanel>
   </Disclosure>
 </template>
+
+<style scoped>
+.link-text {
+  color: #ffffff;
+}
+</style>
