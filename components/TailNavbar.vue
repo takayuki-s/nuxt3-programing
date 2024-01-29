@@ -10,8 +10,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
         <div class="flex items-center">
           <div class="flex-shrink-0">
             <img
-              class="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              class="h-8 w-auto rounded-full"
+              src="@/assets/images/logo.png"
               alt="Your Company"
             />
           </div>
@@ -57,20 +57,26 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
         <DisclosureButton
           as="a"
           href="/"
-          class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-          ><NuxtLink to="/">TOP</NuxtLink></DisclosureButton
+          class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+          ><NuxtLink to="/"
+            ><span class="link-text">TOP</span></NuxtLink
+          ></DisclosureButton
         >
         <DisclosureButton
           as="a"
           href="/contentful/list"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          ><NuxtLink to="/contentful/list">LIST</NuxtLink></DisclosureButton
+          ><NuxtLink to="/contentful/list"
+            ><span class="link-text">LIST</span></NuxtLink
+          ></DisclosureButton
         >
         <DisclosureButton
           as="a"
           href="/about"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          ><NuxtLink to="/about">ABOUT</NuxtLink></DisclosureButton
+          ><NuxtLink to="/about"
+            ><span class="link-text">ABOUT</span></NuxtLink
+          ></DisclosureButton
         >
       </div>
     </DisclosurePanel>
