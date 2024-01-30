@@ -1,6 +1,18 @@
 <script setup>
+import { computed } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+const route = useRoute()
+
+const isRoot = computed(() => {
+  return route.path === '/' ? true : false
+})
+const isList = computed(() => {
+  return route.path === '/contentful/list' ? true : false
+})
+const isAbout = computed(() => {
+  return route.path === '/about' ? true : false
+})
 </script>
 
 <template>
@@ -20,18 +32,21 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <NuxtLink
                 to="/"
-                class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white link-text hover:bg-gray-700 hover:text-white"
+                class="rounded-md px-3 py-2 text-sm font-medium text-white link-text hover:bg-gray-700 hover:text-white"
+                :class="{ 'bg-gray-900': isRoot }"
               >
                 TOP
               </NuxtLink>
               <NuxtLink
                 href="/contentful/list"
                 class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
+                :class="{ 'bg-gray-900': isList }"
                 >LIST
               </NuxtLink>
               <NuxtLink
                 href="/about"
                 class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
+                :class="{ 'bg-gray-900': isAbout }"
                 >ABOUT
               </NuxtLink>
             </div>
@@ -57,7 +72,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
         <DisclosureButton
           as="a"
           href="/"
-          class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+          class="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+          :class="{ 'bg-gray-900': isRoot }"
           ><NuxtLink to="/"
             ><span class="link-text">TOP</span></NuxtLink
           ></DisclosureButton
@@ -66,6 +82,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
           as="a"
           href="/contentful/list"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          :class="{ 'bg-gray-900': isList }"
           ><NuxtLink to="/contentful/list"
             ><span class="link-text">LIST</span></NuxtLink
           ></DisclosureButton
@@ -74,6 +91,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
           as="a"
           href="/about"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          :class="{ 'bg-gray-900': isAbout }"
           ><NuxtLink to="/about"
             ><span class="link-text">ABOUT</span></NuxtLink
           ></DisclosureButton
