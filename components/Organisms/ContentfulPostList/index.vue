@@ -50,7 +50,7 @@ const filterItem = (item: any) => {
   <div>
     <div
       v-if="entryItemList.length > 0"
-      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-6"
+      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5"
     >
       <ul v-for="(item, index) in entryItemList" :key="index">
         <ArticleCard :data="filterItem(item)" />

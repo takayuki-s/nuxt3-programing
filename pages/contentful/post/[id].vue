@@ -15,7 +15,7 @@ console.log(entry)
 </script>
 
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center p-5">
     <div class="article">
       <div>
         <p class="text-4xl">{{ entry.fields.title }}</p>

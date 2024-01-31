@@ -5,7 +5,7 @@ import TailNavbar from '@/components/TailNavbar.vue'
 <template>
   <div>
     <TailNavbar />
-    <div class="p-3">
+    <div>
       <slot />
     </div>
   </div>
