@@ -24,7 +24,7 @@ const props = defineProps<Props>()
       />
       <div class="py-2 flex flex-col justify-between gap-1">
         <p class="text-md font-bold">{{ data.title }}</p>
-        <p class="text-sm">{{ omitText(data.excerpt, 50) }}</p>
+        <p class="text-sm">{{ omitText(data.excerpt, 30) }}</p>
         <p class="text-sm text-slate-400 text-right">
           {{ formatDate(data.date) }}
         </p>
