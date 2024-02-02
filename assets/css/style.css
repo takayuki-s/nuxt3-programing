@@ -2,10 +2,10 @@ h1 {
   color: gray;
 }
 
-a {
+.p-content a {
   color: #1a0dab;
 }
-a:visited {
+.p-content a:visited {
   color: #681da8;
 }
 

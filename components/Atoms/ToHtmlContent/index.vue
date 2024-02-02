@@ -43,7 +43,7 @@ onMounted(() => {
     <ul class="ul-content" v-html="documentToHtmlString(content)" />
   </template>
   <template v-else>
-    <div v-html="documentToHtmlString(content, options)" />
+    <div class="p-content" v-html="documentToHtmlString(content, options)" />
   </template>
 </template>
 
