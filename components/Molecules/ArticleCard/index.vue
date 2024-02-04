@@ -26,13 +26,12 @@ const props = defineProps<Props>()
         <p class="text-md font-bold">{{ data.title }}</p>
         <p class="text-sm">{{ omitText(data.excerpt, 30) }}</p>
         <p class="text-sm text-right">
-          <!-- <template v-for="tag in data.categories"
-            ><NuxtLink
-              to="#"
+          <template v-for="tag in data.categories"
+            ><span
               class="bg-green-100 z-10 hover:bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
-              >{{ tag.sys.id }}</NuxtLink
+              >{{ tag.sys.id }}</span
             ></template
-          > -->
+          >
         </p>
         <p class="text-sm text-slate-400 text-right">
           {{ formatDate(data.date) }}
