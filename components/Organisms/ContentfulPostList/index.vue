@@ -44,6 +44,7 @@ const filterItem = (item: any) => {
   }
   return filteredData
 }
+console.log(entries)
 </script>
 
 <template>
