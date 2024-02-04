@@ -26,6 +26,11 @@ const entries = await client.getEntries({
 entries.items.forEach((entry) => {
   entryItemList.push(entry)
 })
+const filteredEntryItemList = computed(() => {
+  return entryItemList.filter((entry) => {
+    return entry.sys.id === '1nWWDiE6PFMBBrFP9Pj6uX'
+  })
+})
 const filterItem = (item: any) => {
   const thumbnailFileUrl = item.fields.thumbnail
     ? 'https:' + item.fields.thumbnail.fields.file.url
@@ -44,7 +49,8 @@ const filterItem = (item: any) => {
   }
   return filteredData
 }
-console.log(entries)
+console.log(entryItemList)
+console.log(filteredEntryItemList.value)
 </script>
 
 <template>
