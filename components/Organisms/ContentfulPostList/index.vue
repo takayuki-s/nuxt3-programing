@@ -4,13 +4,16 @@ import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
 
-type EntryItem =
-  | {
-      fields: IBlogPageFields
-      metadata: {}
-      sys: {}
-    }
-  | []
+type Tags = {
+  sys: {
+    id: string
+  }
+}
+type EntryItem = {
+  fields: IBlogPageFields
+  metadata: { tags: Tags[] }
+  sys: {}
+}
 
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
@@ -27,8 +30,10 @@ entries.items.forEach((entry) => {
   entryItemList.push(entry)
 })
 const filteredEntryItemList = computed(() => {
-  return entryItemList.filter((entry) => {
-    return entry.sys.id === '1nWWDiE6PFMBBrFP9Pj6uX'
+  return entryItemList.filter((entry: EntryItem) => {
+    return (entry.metadata.tags as Tags[]).some(
+      (tag: Tags) => tag.sys.id === 'test',
+    )
   })
 })
 const filterItem = (item: any) => {
