@@ -68,12 +68,12 @@ const filterItem = (item: any) => {
   <div class="p-5">
     <div class="pb-5 flex gap-5">
       <Title text="投稿一覧" />
-      <div>
+      <div v-if="filterTag">
         <span
           id="badge-dismiss-green"
           class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
         >
-          Green
+          {{ filterTag }}
           <button
             type="button"
             class="inline-flex items-center p-1 ms-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-800 dark:hover:text-green-300"
