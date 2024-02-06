@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { createClient } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
+import Title from '@/components/Atoms/Title/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
 
@@ -64,10 +65,44 @@ const filterItem = (item: any) => {
 </script>
 
 <template>
-  <div>
+  <div class="p-5">
+    <div class="pb-5 flex gap-5">
+      <Title text="投稿一覧" />
+      <div>
+        <span
+          id="badge-dismiss-green"
+          class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
+        >
+          Green
+          <button
+            type="button"
+            class="inline-flex items-center p-1 ms-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-800 dark:hover:text-green-300"
+            data-dismiss-target="#badge-dismiss-green"
+            aria-label="Remove"
+          >
+            <svg
+              class="w-2 h-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+            <span class="sr-only">Remove badge</span>
+          </button>
+        </span>
+      </div>
+    </div>
     <div
       v-if="entryItemList.length > 0"
-      class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-5 p-5"
+      class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-5"
     >
       <ul v-for="(item, index) in filteredEntryItemList" :key="index">
         <ArticleCard :data="filterItem(item)" v-model="filterTag" />
