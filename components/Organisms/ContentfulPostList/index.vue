@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import { createClient } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
@@ -14,6 +15,8 @@ type EntryItem = {
   metadata: { tags: Tags[] }
   sys: {}
 }
+
+const filterTag = ref<string>('')
 
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
@@ -31,9 +34,13 @@ entries.items.forEach((entry) => {
 })
 const filteredEntryItemList = computed(() => {
   return entryItemList.filter((entry: EntryItem) => {
-    return (entry.metadata.tags as Tags[]).some(
-      (tag: Tags) => tag.sys.id === 'test',
-    )
+    if (filterTag.value) {
+      return (entry.metadata.tags as Tags[]).some(
+        (tag: Tags) => tag.sys.id === filterTag.value,
+      )
+    } else {
+      return entryItemList
+    }
   })
 })
 const filterItem = (item: any) => {
@@ -54,8 +61,6 @@ const filterItem = (item: any) => {
   }
   return filteredData
 }
-console.log(entryItemList)
-console.log(filteredEntryItemList.value)
 </script>
 
 <template>
@@ -64,8 +69,8 @@ console.log(filteredEntryItemList.value)
       v-if="entryItemList.length > 0"
       class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-5 p-5"
     >
-      <ul v-for="(item, index) in entryItemList" :key="index">
-        <ArticleCard :data="filterItem(item)" />
+      <ul v-for="(item, index) in filteredEntryItemList" :key="index">
+        <ArticleCard :data="filterItem(item)" v-model="filterTag" />
       </ul>
     </div>
     <div v-else>投稿データはありません</div>

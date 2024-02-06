@@ -5,12 +5,14 @@ type Props = {
   data: ArticleCardData
 }
 const props = defineProps<Props>()
+const filterTag = defineModel<string>()
 
 const goDetailPage = () => {
   navigateTo(`/contentful/post/${props.data.id}`, { external: true })
 }
-const filterCategory = (event: MouseEvent) => {
+const filterByTag = (id: string, event: MouseEvent) => {
   event.stopPropagation()
+  filterTag.value = id
 }
 </script>
 
@@ -36,7 +38,7 @@ const filterCategory = (event: MouseEvent) => {
         <template v-for="tag in data.categories"
           ><span
             class="bg-green-100 z-10 hover:bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
-            @click="filterCategory"
+            @click="(event) => filterByTag(tag.sys.id, event)"
             >{{ tag.sys.id }}</span
           ></template
         >
