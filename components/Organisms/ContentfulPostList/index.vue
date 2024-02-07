@@ -62,6 +62,9 @@ const filterItem = (item: any) => {
   }
   return filteredData
 }
+const removeFilterTag = () => {
+  filterTag.value = ''
+}
 </script>
 
 <template>
@@ -79,6 +82,7 @@ const filterItem = (item: any) => {
             class="inline-flex items-center p-1 ms-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-800 dark:hover:text-green-300"
             data-dismiss-target="#badge-dismiss-green"
             aria-label="Remove"
+            @click="removeFilterTag"
           >
             <svg
               class="w-2 h-2"
@@ -95,7 +99,7 @@ const filterItem = (item: any) => {
                 d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
               />
             </svg>
-            <span class="sr-only">Remove badge</span>
+            <span class="sr-only">×</span>
           </button>
         </span>
       </div>
