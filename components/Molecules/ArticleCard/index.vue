@@ -5,14 +5,14 @@ type Props = {
   data: ArticleCardData
 }
 const props = defineProps<Props>()
-const filterTag = defineModel<string>()
+const modelValue = defineModel<string>()
 
 const goDetailPage = () => {
   navigateTo(`/contentful/post/${props.data.id}`, { external: true })
 }
 const filterByTag = (id: string, event: MouseEvent) => {
   event.stopPropagation()
-  filterTag.value = id
+  modelValue.value = id
 }
 </script>
 
