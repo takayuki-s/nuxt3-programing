@@ -11,7 +11,6 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entry: any = await client.getEntry(id)
-console.log(entry)
 </script>
 
 <template>
