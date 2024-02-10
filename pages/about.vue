@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import Title from '@/components/Atoms/Title/index.vue'
+</script>
+
 <template>
-  <h1>About Page</h1>
+  <div class="p-5">
+    <Title text="ABOUTページ" />
+  </div>
 </template>
