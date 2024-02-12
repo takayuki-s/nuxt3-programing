@@ -20,7 +20,6 @@ type EntryItem = {
 const filterTag = ref<string>('')
 
 const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
-const environmentId: string = import.meta.env.VITE_CONTENTFUL_ENVIRONMENT_ID
 const accessToken: string = import.meta.env.VITE_CONTENTFUL_CD_ACCESS_TOKEN
 const client = createClient({
   space: spaceId,
