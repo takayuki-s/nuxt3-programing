@@ -23,7 +23,6 @@ const filterData = (data: any) => {
     : null
   const filteredData: ArticleCardData = {
     id: data.id,
-    author: data._embedded.author[0].name,
     categories: data.categories,
     date: data.date,
     modified: data.modified,

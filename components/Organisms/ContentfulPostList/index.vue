@@ -49,7 +49,6 @@ const filterItem = (item: any) => {
     : null
   const filteredData: ArticleCardData = {
     id: item.sys.id,
-    author: 0,
     categories: item.metadata.tags,
     date: item.sys.createdAt,
     modified: item.sys.updatedAt,

@@ -1,6 +1,5 @@
 export type ArticleCardData = {
   id: number
-  author: number
   categories: {
     sys: {
       type: string
