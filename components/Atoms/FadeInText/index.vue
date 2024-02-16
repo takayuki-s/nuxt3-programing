@@ -11,7 +11,6 @@ const props = defineProps<Props>()
 
 <style scoped>
 .fade-in-text {
-  position: relative;
   font-size: 60px;
   opacity: 0;
   transform: translateY(100%);
