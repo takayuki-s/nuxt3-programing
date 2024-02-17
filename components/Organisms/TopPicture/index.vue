@@ -24,6 +24,5 @@ import FadeInText from '@/components/Atoms/FadeInText/index.vue'
   position: absolute;
   top: 50%;
   left: 55%;
-  transform: translate(-50%, -50%);
 }
 </style>
