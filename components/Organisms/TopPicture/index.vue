@@ -22,7 +22,7 @@ import FadeInText from '@/components/Atoms/FadeInText/index.vue'
 }
 .text {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 55%;
 }
 </style>

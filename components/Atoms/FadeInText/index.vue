@@ -6,12 +6,11 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <p class="fade-in-text">{{ text }}</p>
+  <p class="fade-in-text text-4xl md:text-5xl lg:text-6xl">{{ text }}</p>
 </template>
 
 <style scoped>
 .fade-in-text {
-  font-size: 60px;
   opacity: 0;
   transform: translateY(100%);
   animation: fadeInFromBottom 3s forwards;
