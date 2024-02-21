@@ -6,6 +6,13 @@ import Title from '@/components/Atoms/Title/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
 
+type Props = {
+  limit: number
+}
+const props = withDefaults(defineProps<Props>(), {
+  limit: 100,
+})
+
 type Tags = {
   sys: {
     id: string
@@ -28,6 +35,7 @@ const client = createClient({
 const entryItemList: EntryItem[] = []
 const entries = await client.getEntries({
   content_type: 'blogPage',
+  limit: props.limit,
 })
 entries.items.forEach((entry) => {
   entryItemList.push(entry)
