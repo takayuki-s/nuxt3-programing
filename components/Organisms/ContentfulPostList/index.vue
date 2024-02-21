@@ -21,7 +21,6 @@ type Tags = {
 type EntryItem = {
   fields: IBlogPageFields
   metadata: { tags: Tags[] }
-  sys: {}
 }
 
 const filterTag = ref<string>('')
@@ -36,6 +35,7 @@ const entryItemList: EntryItem[] = []
 const entries = await client.getEntries({
   content_type: 'blogPage',
   limit: props.limit,
+  order: ['-sys.createdAt'],
 })
 entries.items.forEach((entry) => {
   entryItemList.push(entry)
