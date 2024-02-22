@@ -8,4 +8,7 @@ const limit = 10
 <template>
   <TopPicture />
   <postList :limit="limit" />
+  <div class="p-5">
+    <Title text="TEKE CAFEについて" />
+  </div>
 </template>
