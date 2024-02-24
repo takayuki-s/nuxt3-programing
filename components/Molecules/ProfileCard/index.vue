@@ -1,7 +1,7 @@
 <template>
-  <div class="flex">
+  <div class="flex gap-5 p-5 profile">
     <span
-      class="inline-block h-14 w-14 overflow-hidden rounded-full bg-gray-100"
+      class="inline-block h-32 w-32 overflow-hidden rounded-full bg-gray-100"
     >
       <svg
         class="h-full w-full text-gray-300"
@@ -16,3 +16,13 @@
     <p>プロフィール説明文</p>
   </div>
 </template>
+
+<style scoped>
+.profile {
+  margin: 2em 0;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+  border-radius: 5px;
+}
+</style>
