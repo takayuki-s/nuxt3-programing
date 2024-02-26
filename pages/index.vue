@@ -4,6 +4,17 @@ import TopPicture from '@/components/Organisms/TopPicture/index.vue'
 import postList from '@/components/Organisms/ContentfulPostList/index.vue'
 import ProfileCard from '@/components/Molecules/ProfileCard/index.vue'
 import { createClient } from 'contentful'
+import { IBlogPageFields } from '~/@types/generated/contentful'
+
+type Tags = {
+  sys: {
+    id: string
+  }
+}
+type EntryItem = {
+  fields: IBlogPageFields
+  metadata: { tags: Tags[] }
+}
 
 const limit = 10
 
@@ -18,13 +29,15 @@ const entries = await client.getEntries({
   limit: limit,
   order: ['-sys.createdAt'],
 })
-
-console.log(entries)
+const entryItemList: EntryItem[] = []
+entries.items.forEach((entry) => {
+  entryItemList.push(entry)
+})
 </script>
 
 <template>
   <TopPicture />
-  <postList :limit="limit" />
+  <postList :entryItemList="entryItemList" />
   <div class="p-5">
     <Title text="TEKE CAFEについて" />
     <ProfileCard />

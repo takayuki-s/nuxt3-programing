@@ -6,13 +6,6 @@ import Title from '@/components/Atoms/Title/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
 
-type Props = {
-  limit: number
-}
-const props = withDefaults(defineProps<Props>(), {
-  limit: 100,
-})
-
 type Tags = {
   sys: {
     id: string
@@ -23,31 +16,21 @@ type EntryItem = {
   metadata: { tags: Tags[] }
 }
 
+type Props = {
+  entryItemList: EntryItem[]
+}
+const props = defineProps<Props>()
+
 const filterTag = ref<string>('')
 
-const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
-const accessToken: string = import.meta.env.VITE_CONTENTFUL_CD_ACCESS_TOKEN
-const client = createClient({
-  space: spaceId,
-  accessToken: accessToken,
-})
-const entryItemList: EntryItem[] = []
-const entries = await client.getEntries({
-  content_type: 'blogPage',
-  limit: props.limit,
-  order: ['-sys.createdAt'],
-})
-entries.items.forEach((entry) => {
-  entryItemList.push(entry)
-})
 const filteredEntryItemList = computed(() => {
-  return entryItemList.filter((entry: EntryItem) => {
+  return props.entryItemList.filter((entry: EntryItem) => {
     if (filterTag.value) {
       return (entry.metadata.tags as Tags[]).some(
         (tag: Tags) => tag.sys.id === filterTag.value,
       )
     } else {
-      return entryItemList
+      return props.entryItemList
     }
   })
 })
