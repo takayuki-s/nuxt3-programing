@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { createClient } from 'contentful'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
-import Title from '@/components/Atoms/Title/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
 
@@ -59,7 +57,6 @@ const removeFilterTag = () => {
 <template>
   <div class="p-5">
     <div class="pb-5 flex gap-5">
-      <Title text="投稿一覧" />
       <div v-if="filterTag">
         <span
           id="badge-dismiss-green"

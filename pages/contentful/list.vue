@@ -2,6 +2,7 @@
 import postList from '@/components/Organisms/ContentfulPostList/index.vue'
 import { createClient } from 'contentful'
 import { IBlogPageFields } from '~/@types/generated/contentful'
+import Title from '@/components/Atoms/Title/index.vue'
 
 type Tags = {
   sys: {
@@ -33,5 +34,6 @@ entries.items.forEach((entry) => {
 </script>
 
 <template>
+  <Title text="投稿一覧" />
   <postList :entryItemList="entryItemList" />
 </template>

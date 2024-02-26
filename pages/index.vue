@@ -33,11 +33,22 @@ const entryItemList: EntryItem[] = []
 entries.items.forEach((entry) => {
   entryItemList.push(entry)
 })
+const specialTag = 'kyoto'
+const filteredEntryItemList = computed(() => {
+  return entryItemList.filter((entry: EntryItem) => {
+    return (entry.metadata.tags as Tags[]).some(
+      (tag: Tags) => tag.sys.id === specialTag,
+    )
+  })
+})
 </script>
 
 <template>
   <TopPicture />
+  <Title text="新着記事" />
   <postList :entryItemList="entryItemList" />
+  <Title text="京都特集" />
+  <postList :entryItemList="filteredEntryItemList" />
   <div class="p-5">
     <Title text="TEKE CAFEについて" />
     <ProfileCard />
