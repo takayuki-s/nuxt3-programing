@@ -45,12 +45,14 @@ const filteredEntryItemList = computed(() => {
 
 <template>
   <TopPicture />
-  <Title text="新着記事" />
-  <postList :entryItemList="entryItemList" />
-  <Title text="京都特集" />
-  <postList :entryItemList="filteredEntryItemList" />
   <div class="p-5">
+    <Title text="新着記事" />
+    <postList :entryItemList="entryItemList" />
+    <Title text="京都特集" />
+    <postList :entryItemList="filteredEntryItemList" />
     <Title text="TEKE CAFEについて" />
-    <ProfileCard />
+    <div class="p-5">
+      <ProfileCard />
+    </div>
   </div>
 </template>

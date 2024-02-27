@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center gap-5 m-2 p-5 profile">
+  <div class="flex items-center gap-5 p-5 profile">
     <img
       class="inline-block rounded-full h-16 w-16 sm:h-28 sm:w-28"
       src="@/assets/images/logo.png"
