@@ -34,6 +34,8 @@ entries.items.forEach((entry) => {
 </script>
 
 <template>
-  <Title text="投稿一覧" />
-  <postList :entryItemList="entryItemList" />
+  <div class="p-5">
+    <Title text="投稿一覧" />
+    <postList :entryItemList="entryItemList" />
+  </div>
 </template>

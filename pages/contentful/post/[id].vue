@@ -27,7 +27,9 @@ const entry: any = await client.getEntry(id)
           <ToHtmlContent :content="content" />
         </div>
       </div>
-      <nuxt-link to="/contentful/list" class="text-right link">戻る</nuxt-link>
+      <nuxt-link to="/contentful/list" class="text-right link"
+        >記事一覧ページへ</nuxt-link
+      >
     </div>
   </div>
 </template>
