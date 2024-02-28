@@ -5,7 +5,9 @@ import Footer from '@/components/Footer.vue'
 
 <template>
   <div class="layout-container">
-    <TailNavbar />
+    <div class="header">
+      <TailNavbar />
+    </div>
     <div>
       <slot />
     </div>
@@ -18,6 +20,9 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+.header {
+  margin-bottom: 64px;
 }
 .footer {
   margin-top: auto;
