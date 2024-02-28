@@ -56,8 +56,8 @@ const removeFilterTag = () => {
 
 <template>
   <div class="p-5">
-    <div class="flex gap-5">
-      <div v-if="filterTag">
+    <div v-if="filterTag" class="flex mb-5 gap-5">
+      <div>
         <span
           id="badge-dismiss-green"
           class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
