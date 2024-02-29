@@ -18,7 +18,7 @@ const filterByTag = (id: string, event: MouseEvent) => {
 
 <template>
   <div
-    class="px-5 py-3 h-full bg-sky-50 rounded-xl shadow-md items-center cursor-pointer hover:bg-sky-100"
+    class="article-card px-5 py-3 h-full items-center cursor-pointer hover:bg-sky-50"
     @click="goDetailPage"
   >
     <img
@@ -49,3 +49,26 @@ const filterByTag = (id: string, event: MouseEvent) => {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* .article-card {
+  border: double 5px #4ec4d3;
+} */
+
+.article-card {
+  position: relative;
+  border: 8px solid #eee; /* 線の太さ・種類・色 */
+  z-index: 0;
+}
+.article-card:before {
+  background-color: #cca497; /* ワインポイントの色 */
+  content: '';
+  display: block;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 8px;
+  height: 8px;
+  z-index: 1;
+}
+</style>
