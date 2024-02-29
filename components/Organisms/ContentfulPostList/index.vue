@@ -92,7 +92,7 @@ const removeFilterTag = () => {
     </div>
     <div
       v-if="entryItemList.length > 0"
-      class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-5"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-5"
     >
       <ul v-for="(item, index) in filteredEntryItemList" :key="index">
         <ArticleCard :data="filterItem(item)" v-model="filterTag" />
