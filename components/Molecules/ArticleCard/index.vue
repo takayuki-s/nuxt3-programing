@@ -18,7 +18,7 @@ const filterByTag = (id: string, event: MouseEvent) => {
 
 <template>
   <div
-    class="article-card px-5 py-3 h-full items-center cursor-pointer hover:bg-sky-50"
+    class="article-card px-5 py-3 h-full items-center cursor-pointer bg-white"
     @click="goDetailPage"
   >
     <img

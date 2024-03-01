@@ -4,7 +4,7 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <div class="layout-container">
+  <div class="layout-container bg-amber-50">
     <div class="header">
       <TailNavbar />
     </div>

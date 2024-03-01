@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center gap-5 p-5 profile">
+  <div class="flex items-center gap-5 p-5 profile bg-amber-100">
     <img
       class="inline-block rounded-full h-16 w-16 sm:h-28 sm:w-28"
       src="@/assets/images/logo.png"
@@ -25,7 +25,6 @@
 <style scoped>
 .profile {
   color: #232323;
-  background: #fff8e8;
   border-left: solid 10px #ffc06e;
   border-radius: 5px;
 }
