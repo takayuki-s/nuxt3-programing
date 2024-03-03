@@ -51,14 +51,15 @@ const filterByTag = (id: string, event: MouseEvent) => {
 </template>
 
 <style scoped>
-/* .article-card {
-  border: double 5px #4ec4d3;
-} */
-
 .article-card {
   position: relative;
   border: 5px solid #eee; /* 線の太さ・種類・色 */
   z-index: 0;
+  transition: all 0.4s;
+}
+.article-card:hover {
+  top: -3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 .article-card:before {
   background-color: #cca497; /* ワインポイントの色 */
