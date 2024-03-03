@@ -57,7 +57,7 @@ const filterByTag = (id: string, event: MouseEvent) => {
 
 .article-card {
   position: relative;
-  border: 8px solid #eee; /* 線の太さ・種類・色 */
+  border: 5px solid #eee; /* 線の太さ・種類・色 */
   z-index: 0;
 }
 .article-card:before {
@@ -65,10 +65,10 @@ const filterByTag = (id: string, event: MouseEvent) => {
   content: '';
   display: block;
   position: absolute;
-  top: -8px;
-  left: -8px;
-  width: 8px;
-  height: 8px;
+  top: -5px;
+  left: -5px;
+  width: 5px;
+  height: 5px;
   z-index: 1;
 }
 </style>
