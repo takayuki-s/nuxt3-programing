@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     { src: '@/plugins/prism' },
   ],
   css: ['/assets/css/style.css'],
-  modules: ['@nuxtjs/tailwindcss', '@nuxt-alt/markdown-it'],
+  modules: ['@nuxtjs/tailwindcss'],
   vite: {
     vue: {
       script: {
@@ -15,8 +15,5 @@ export default defineNuxtConfig({
         propsDestructure: true,
       },
     },
-  },
-  markdownit: {
-    runtime: true,
   },
 })
