@@ -26,6 +26,10 @@ const entry: any = await client.getEntry(id)
         <div v-for="content in entry.fields.body.content">
           <ToHtmlContent :content="content" />
         </div>
+        <div
+          v-if="entry.fields.markdown"
+          v-html="$md.render(entry.fields.markdown)"
+        ></div>
       </div>
       <nuxt-link to="/contentful/list" class="text-right link"
         >記事一覧ページへ</nuxt-link
