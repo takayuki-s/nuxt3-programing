@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { marked } from 'marked'
 import { formatDate } from '@/composables/post/articles'
 import { createClient } from 'contentful'
 import ToHtmlContent from '@/components/Atoms/ToHtmlContent/index.vue'
@@ -27,6 +28,10 @@ const entry: any = await client.getEntry(id)
           <ToHtmlContent :content="content" />
         </div>
       </div>
+      <div
+        v-if="entry.fields.markdown"
+        v-html="marked(entry.fields.markdown)"
+      ></div>
       <nuxt-link to="/contentful/list" class="text-right link"
         >記事一覧ページへ</nuxt-link
       >
