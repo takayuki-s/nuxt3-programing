@@ -12,8 +12,6 @@ const client = createClient({
   accessToken: accessToken,
 })
 const entry: any = await client.getEntry(id)
-console.log(entry.fields.body.content)
-console.log(entry.fields.body.content[8].content[0].marks[0].type)
 </script>
 
 <template>
