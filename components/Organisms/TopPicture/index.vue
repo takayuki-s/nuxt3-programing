@@ -7,7 +7,6 @@ import FadeInText from '@/components/Atoms/FadeInText/index.vue'
     <picture>
       <img class="top-image" src="@/assets/images/top.jpg" />
     </picture>
-    <FadeInText class="text" text="TEKE CAFE" />
   </div>
 </template>
 
