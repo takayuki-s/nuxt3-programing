@@ -14,6 +14,25 @@ const filterByTag = (id: string, event: MouseEvent) => {
   event.stopPropagation()
   modelValue.value = id
 }
+
+// JapaneseTranslationsの型定義
+type JapaneseTranslationsType = {
+  cafe: string
+  kyoto: string
+  test: string
+}
+
+// JapaneseTranslationsオブジェクト
+const JapaneseTranslations: JapaneseTranslationsType = {
+  cafe: 'カフェ',
+  kyoto: '京都',
+  test: 'テスト',
+}
+
+// displayTagName関数
+const displayTagName = (id: string) => {
+  return JapaneseTranslations[id as keyof JapaneseTranslationsType]
+}
 </script>
 
 <template>
@@ -39,7 +58,7 @@ const filterByTag = (id: string, event: MouseEvent) => {
           ><span
             class="bg-green-100 z-10 hover:bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
             @click="(event) => filterByTag(tag.sys.id, event)"
-            >{{ tag.sys.id }}</span
+            >{{ displayTagName(tag.sys.id) }}</span
           ></template
         >
       </p>
