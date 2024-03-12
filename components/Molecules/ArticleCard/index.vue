@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ArticleCardData } from '@/types/article'
 import { omitText, formatDate } from '@/composables/post/articles'
+import { displayTagName } from '@/utils/article'
 type Props = {
   data: ArticleCardData
 }
@@ -13,25 +14,6 @@ const goDetailPage = () => {
 const filterByTag = (id: string, event: MouseEvent) => {
   event.stopPropagation()
   modelValue.value = id
-}
-
-// JapaneseTranslationsの型定義
-type JapaneseTranslationsType = {
-  cafe: string
-  kyoto: string
-  test: string
-}
-
-// JapaneseTranslationsオブジェクト
-const JapaneseTranslations: JapaneseTranslationsType = {
-  cafe: 'カフェ',
-  kyoto: '京都',
-  test: 'テスト',
-}
-
-// displayTagName関数
-const displayTagName = (id: string) => {
-  return JapaneseTranslations[id as keyof JapaneseTranslationsType]
 }
 </script>
 

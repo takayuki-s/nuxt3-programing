@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import ArticleCard from '@/components/Molecules/ArticleCard/index.vue'
 import { ArticleCardData } from '@/types/article'
 import { IBlogPageFields } from '~/@types/generated/contentful'
+import { displayTagName } from '@/utils/article'
 
 type Tags = {
   sys: {
@@ -62,7 +63,7 @@ const removeFilterTag = () => {
           id="badge-dismiss-green"
           class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
         >
-          {{ filterTag }}
+          {{ displayTagName(filterTag) }}
           <button
             type="button"
             class="inline-flex items-center p-1 ms-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-800 dark:hover:text-green-300"
