@@ -71,7 +71,7 @@ const isAbout = computed(() => {
         </div>
       </div>
 
-      <DisclosurePanel class="sm:hidden">
+      <DisclosurePanel class="sp-menu sm:hidden" :class="{ 'is-active': open }">
         <div class="space-y-1 px-2 pb-3 pt-2">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <DisclosureButton
@@ -115,5 +115,12 @@ const isAbout = computed(() => {
 }
 .link-text {
   color: #ffffff;
+}
+.sp-menu {
+  transform: translateX(100vw);
+  transition: all 0.3s linear;
+}
+.is-active {
+  transform: translateX(0);
 }
 </style>
