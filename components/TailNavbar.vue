@@ -17,7 +17,11 @@ const isAbout = computed(() => {
 
 <template>
   <div class="header">
-    <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
+    <Disclosure
+      as="nav"
+      class="bg-gray-800 animate-slide-in-top"
+      v-slot="{ open }"
+    >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
@@ -71,7 +75,7 @@ const isAbout = computed(() => {
         </div>
       </div>
 
-      <DisclosurePanel class="sm:hidden animate-slide-in-top">
+      <DisclosurePanel class="sm:hidden">
         <div class="space-y-1 px-2 pb-3 pt-2">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <DisclosureButton
