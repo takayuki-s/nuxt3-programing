@@ -8,20 +8,27 @@ const client = createClient({
   space: spaceId,
   accessToken: accessToken,
 })
-const entries = await client.getEntries({
-  content_type: 'blogPage',
-  limit: LIMIT,
-  order: ['-sys.createdAt'],
-})
 
 export const getEntriesByContentful = async () => {
-  return await client.getEntries({
-    content_type: 'blogPage',
-    limit: LIMIT,
-    order: ['-sys.createdAt'],
-  })
+  try {
+    const entries = await client.getEntries({
+      content_type: 'blogPage',
+      limit: LIMIT,
+      order: ['-sys.createdAt'],
+    })
+    return entries
+  } catch {
+    console.log('エラーが発生しました')
+    return []
+  }
 }
 
 export const getEntryByContentful = async (id: string) => {
-  return await client.getEntry(id)
+  try {
+    const entry = await client.getEntry(id)
+    return entry
+  } catch {
+    console.log('エラーが発生しました')
+    return {}
+  }
 }
