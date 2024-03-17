@@ -21,3 +21,7 @@ export const getEntriesByContentful = async () => {
     order: ['-sys.createdAt'],
   })
 }
+
+export const getEntryByContentful = async (id: string) => {
+  return await client.getEntry(id)
+}

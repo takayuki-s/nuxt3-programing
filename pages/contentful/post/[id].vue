@@ -1,16 +1,10 @@
 <script setup lang="ts">
 import { formatDate } from '@/composables/post/articles'
-import { createClient } from 'contentful'
+import { getEntryByContentful } from '@/api/contentful'
 import ToHtmlContent from '@/components/Atoms/ToHtmlContent/index.vue'
 
 const id = useRoute().params.id as string
-const spaceId: string = import.meta.env.VITE_CONTENTFUL_SPACE_ID
-const accessToken: string = import.meta.env.VITE_CONTENTFUL_CD_ACCESS_TOKEN
-const client = createClient({
-  space: spaceId,
-  accessToken: accessToken,
-})
-const entry: any = await client.getEntry(id)
+const entry: any = await getEntryByContentful(id)
 </script>
 
 <template>
