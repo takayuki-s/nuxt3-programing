@@ -16,7 +16,7 @@ type EntryItem = {
   metadata: { tags: Tags[] }
 }
 
-const entries = await getEntriesByContentful()
+const entries: any = await getEntriesByContentful()
 const entryItemList: EntryItem[] = []
 entries.items.forEach((entry) => {
   entryItemList.push(entry)
