@@ -18,7 +18,7 @@ type EntryItem = {
 
 const entries: any = await getEntriesByContentful()
 const entryItemList: EntryItem[] = []
-entries.items.forEach((entry) => {
+entries.items.forEach((entry: any) => {
   entryItemList.push(entry)
 })
 const specialTag = 'kyoto'
