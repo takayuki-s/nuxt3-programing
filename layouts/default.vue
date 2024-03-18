@@ -20,6 +20,7 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('/assets/images/bg_corkboard.jpg');
 }
 .header {
   margin-bottom: 64px;
