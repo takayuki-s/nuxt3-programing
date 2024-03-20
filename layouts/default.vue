@@ -4,7 +4,9 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <div class="layout-container bg-amber-50">
+  <div
+    class="layout-container bg-gradient-to-br from-amber-50 to-amber-50 via-orange-50"
+  >
     <div class="header">
       <TailNavbar />
     </div>
@@ -20,7 +22,6 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url('/assets/images/bg_corkboard.jpg');
 }
 .header {
   margin-bottom: 64px;

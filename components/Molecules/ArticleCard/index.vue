@@ -55,13 +55,11 @@ const filterByTag = (id: string, event: MouseEvent) => {
 .article-card {
   position: relative;
   z-index: 0;
-  border: 5px solid #ffffff;
+  border: 5px solid #eee;
   transition: all 0.4s;
 }
 .article-card:hover {
-  /* top: -3px; */
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  border: 5px solid #eee;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 .article-card:after {
   width: 80px;
