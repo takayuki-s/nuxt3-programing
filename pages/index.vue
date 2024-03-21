@@ -15,7 +15,6 @@ type EntryItem = {
   fields: IBlogPageFields
   metadata: { tags: Tags[] }
 }
-
 const entries: any = await getEntriesByContentful()
 const entryItemList: EntryItem[] = []
 entries.items.forEach((entry: any) => {
@@ -35,7 +34,10 @@ const filteredEntryItemList = computed(() => {
   <TopPicture />
   <div class="p-5">
     <Title text="新着記事" />
-    <postList :entryItemList="entryItemList" />
+    <Suspense>
+      <postList :entryItemList="entryItemList" />
+      <template #fallback> Loading... </template>
+    </Suspense>
     <Title text="京都特集" />
     <postList :entryItemList="filteredEntryItemList" />
     <Title text="TEKE CAFEについて" />
