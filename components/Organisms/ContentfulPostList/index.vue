@@ -53,15 +53,6 @@ const filterItem = (item: any) => {
 const removeFilterTag = () => {
   filterTag.value = ''
 }
-async function waitOneSecond() {
-  console.log('wait!')
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve()
-    }, 1000) // 1000ミリ秒 = 1秒
-  })
-}
-await waitOneSecond()
 </script>
 
 <template>
