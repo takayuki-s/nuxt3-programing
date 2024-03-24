@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Async from '@/components/Organisms/Async.vue'
 const { data, pending, error } = await useFetch('/message', { server: false })
 </script>
 
@@ -14,9 +15,9 @@ const { data, pending, error } = await useFetch('/message', { server: false })
         <h2>{{ data.message }}</h2>
       </template>
     </div> -->
-    <Suspense>
+    <Suspense timeout="0">
       <template #default>
-        <div>{{ data }}</div>
+        <Async />
       </template>
       <template #fallback>
         <div>loading</div>
