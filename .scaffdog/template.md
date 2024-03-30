@@ -1,16 +1,33 @@
 ---
 name: 'template'
 root: '.'
-output: '**/*'
+output: '.'
 ignore: []
 questions:
-  value: 'Please enter any text.'
+  name: 'コンポーネント名を入力してください'
+  level:
+    message: 'コンポーネントの粒度を選択してください'
+    choices:
+      - 'atoms'
+      - 'molecules'
+      - 'organisms'
+      - 'templates'
 ---
 
-# `{{ inputs.value }}.md`
+# `components/{{ inputs.level }}/{{ inputs.name }}/index.vue`
 
-```markdown
-Let's make a document!
-See scaffdog documentation for details.
-https://scaff.dog/docs/templates
+```
+
+```
+
+# `components/{{ inputs.level }}/{{ inputs.name }}/index.stories.ts`
+
+```
+
+```
+
+# `components/{{ inputs.level }}/{{ inputs.name }}/index.test.ts`
+
+```
+
 ```
