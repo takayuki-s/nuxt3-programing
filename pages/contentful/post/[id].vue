@@ -21,6 +21,7 @@ const entry: any = await getEntryByContentful(id)
           <ToHtmlContent :content="content" />
         </div>
       </div>
+      <nuxt-link to="/" class="text-right link">トップページへ</nuxt-link>
       <nuxt-link to="/contentful/list" class="text-right link"
         >記事一覧ページへ</nuxt-link
       >
@@ -33,11 +34,11 @@ const entry: any = await getEntryByContentful(id)
   width: 620px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 .contents {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 </style>
