@@ -18,6 +18,9 @@ export interface IBlogPageFields {
 
   /** excerpt */
   excerpt?: string | undefined
+
+  /** markdown */
+  markdown?: string | undefined
 }
 
 /** Blog page with title, body, image, thumbnail, date, and other recommended posts */
