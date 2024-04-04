@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { formatDate } from '@/composables/post/articles'
-import { getEntryByContentful } from '@/api/contentful'
+import { fetchEntryByContentful } from '@/api/contentful'
 import ToHtmlContent from '@/components/Atoms/ToHtmlContent/index.vue'
 
 const id = useRoute().params.id as string
-const entry: any = await getEntryByContentful(id)
+const entry: any = await fetchEntryByContentful(id)
 </script>
 
 <template>

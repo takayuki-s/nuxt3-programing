@@ -9,7 +9,7 @@ const client = createClient({
   accessToken: accessToken,
 })
 
-export const getEntriesByContentful = async () => {
+export const fetchEntriesByContentful = async () => {
   try {
     const entries = await client.getEntries({
       content_type: 'blogPage',
@@ -23,7 +23,7 @@ export const getEntriesByContentful = async () => {
   }
 }
 
-export const getEntryByContentful = async (id: string) => {
+export const fetchEntryByContentful = async (id: string) => {
   try {
     const entry = await client.getEntry(id)
     return entry

@@ -3,7 +3,7 @@ import Title from '@/components/Atoms/Title/index.vue'
 import TopPicture from '@/components/Organisms/TopPicture/index.vue'
 import postList from '@/components/Organisms/ContentfulPostList/index.vue'
 import ProfileCard from '@/components/Molecules/ProfileCard/index.vue'
-import { getEntriesByContentful } from '@/api/contentful'
+import { fetchEntriesByContentful } from '@/api/contentful'
 import { IBlogPageFields } from '~/@types/generated/contentful'
 
 type Tags = {
@@ -15,7 +15,7 @@ type EntryItem = {
   fields: IBlogPageFields
   metadata: { tags: Tags[] }
 }
-const entries: any = await getEntriesByContentful()
+const entries: any = await fetchEntriesByContentful()
 const entryItemList: EntryItem[] = []
 entries.items.forEach((entry: any) => {
   entryItemList.push(entry)

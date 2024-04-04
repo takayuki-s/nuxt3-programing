@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import postList from '@/components/Organisms/ContentfulPostList/index.vue'
 import { IBlogPageFields } from '~/@types/generated/contentful'
-import { getEntriesByContentful } from '@/api/contentful'
+import { fetchEntriesByContentful } from '@/api/contentful'
 import Title from '@/components/Atoms/Title/index.vue'
 
 type Tags = {
@@ -14,7 +14,7 @@ type EntryItem = {
   metadata: { tags: Tags[] }
 }
 
-const entries: any = await getEntriesByContentful()
+const entries: any = await fetchEntriesByContentful()
 const entryItemList: EntryItem[] = []
 entries.items.forEach((entry: any) => {
   entryItemList.push(entry)
