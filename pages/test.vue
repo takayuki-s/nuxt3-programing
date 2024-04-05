@@ -8,7 +8,9 @@ const updateMessage = (event: Event) => {
     if (/^\d+$/.test(inputValue)) {
       message.value = inputValue
     } else {
-      message.value = ''
+      const sanitizedValue = inputValue.replace(/[^\d]+/g, '')
+      event.target.value = sanitizedValue
+      message.value = sanitizedValue
     }
   }
 }
