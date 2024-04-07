@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import InputNum from '@/components/Molecules/Input/InputNum.vue'
+import InputNum from '@/components/Molecules/InputNum/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 </script>
 
