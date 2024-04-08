@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 /**
  * Props
  */
@@ -18,18 +16,17 @@ const emit = defineEmits<{
   (e: 'updateValue', value: number | string): void
 }>()
 
-const message = ref('')
+/**
+ * Methods
+ */
 const updateMessage = (event: Event) => {
   if (event.target instanceof HTMLInputElement) {
     const inputValue = event.target.value.trim()
     if (/^\d+$/.test(inputValue)) {
-      message.value = inputValue
       emit('updateValue', inputValue)
     } else {
       const sanitizedValue = inputValue.replace(/[^\d]+/g, '')
-      console.log(sanitizedValue)
       event.target.value = sanitizedValue
-      message.value = sanitizedValue
       emit('updateValue', sanitizedValue)
     }
   }
@@ -37,13 +34,7 @@ const updateMessage = (event: Event) => {
 </script>
 
 <template>
-  <p>Child component Message is: {{ message }}</p>
-  <input
-    class="text"
-    :value="message"
-    @input="(e) => updateMessage(e)"
-    placeholder=""
-  />
+  <input class="text" @input="(e) => updateMessage(e)" placeholder="" />
 </template>
 
 <style scoped>
