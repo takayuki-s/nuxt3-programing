@@ -14,7 +14,6 @@ const valueWithDefineModel = ref<number | string>('')
  * Methods
  */
 const updateValue = (inputValue: number | string) => {
-  console.log('hello')
   value.value = inputValue
 }
 </script>
