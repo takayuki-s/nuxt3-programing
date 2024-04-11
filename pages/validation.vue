@@ -1,18 +1,30 @@
 <script setup>
-import { useField } from 'vee-validate'
+import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-const { value, errorMessage } = useField(
-  'test',
-  yup.string().required('この項目は必須です'),
-)
+const schema = yup.object({
+  name: yup.string().required('必須項目です'),
+  email: yup
+    .string()
+    .required('必須項目です')
+    .email('メールアドレスの形式ではありません。'),
+})
+const { errors } = useForm({
+  validationSchema: schema,
+})
+const { value: name } = useField('name')
+const { value: email } = useField('email')
 </script>
 
 <template>
   <div class="p-5 validation-field">
     <h1>バリデーションテスト（必須）</h1>
-    <input type="text" v-model="value" />
-    <p>{{ errorMessage }}</p>
+    <p>名前</p>
+    <input type="text" v-model="name" />
+    <p>{{ errors.name }}</p>
+    <p>メールアドレス</p>
+    <input type="text" v-model="email" />
+    <p>{{ errors.email }}</p>
   </div>
 </template>
 
