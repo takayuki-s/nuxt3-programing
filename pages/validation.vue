@@ -12,18 +12,18 @@ const schema = yup.object({
 const { errors } = useForm({
   validationSchema: schema,
 })
-const { value: name } = useField('name')
-const { value: email } = useField('email')
+const { value: name, handleChange: handleChangeName } = useField('name')
+const { value: email, handleChange: handleChangeEmail } = useField('email')
 </script>
 
 <template>
   <div class="p-5 validation-field">
     <h1>バリデーションテスト（必須）</h1>
     <p>名前</p>
-    <input type="text" v-model="name" />
+    <input type="text" :value="name" @blur="handleChangeName" />
     <p class="error-message">{{ errors.name }}</p>
     <p>メールアドレス</p>
-    <input type="text" v-model="email" />
+    <input type="text" :value="email" @blur="handleChangeEmail" />
     <p class="error-message">{{ errors.email }}</p>
   </div>
 </template>
