@@ -7,7 +7,7 @@ const schema = yup.object({
   email: yup
     .string()
     .required('必須項目です')
-    .email('メールアドレスの形式ではありません。'),
+    .email('メールアドレスの形式ではありません'),
 })
 const { errors } = useForm({
   validationSchema: schema,
@@ -21,10 +21,10 @@ const { value: email } = useField('email')
     <h1>バリデーションテスト（必須）</h1>
     <p>名前</p>
     <input type="text" v-model="name" />
-    <p>{{ errors.name }}</p>
+    <p class="error-message">{{ errors.name }}</p>
     <p>メールアドレス</p>
     <input type="text" v-model="email" />
-    <p>{{ errors.email }}</p>
+    <p class="error-message">{{ errors.email }}</p>
   </div>
 </template>
 
@@ -35,5 +35,9 @@ const { value: email } = useField('email')
     padding: 5px;
     font-size: 16px;
   }
+}
+.error-message {
+  margin: 5px;
+  font-size: 12px;
 }
 </style>
