@@ -9,7 +9,7 @@ const schema = yup.object({
     .required('必須項目です')
     .email('メールアドレスの形式ではありません'),
 })
-const { errors } = useForm({
+const { errors, meta } = useForm({
   validationSchema: schema,
 })
 const { value: name, handleChange: handleChangeName } = useField('name')
@@ -25,6 +25,8 @@ const { value: email, handleChange: handleChangeEmail } = useField('email')
     <p>メールアドレス</p>
     <input type="text" :value="email" @blur="handleChangeEmail" />
     <p class="error-message">{{ errors.email }}</p>
+    <p>メタデータ</p>
+    <p>{{ meta }}</p>
   </div>
 </template>
 
