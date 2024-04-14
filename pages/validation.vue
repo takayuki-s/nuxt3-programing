@@ -14,6 +14,10 @@ const { errors, meta } = useForm({
 })
 const { value: name, handleChange: handleChangeName } = useField('name')
 const { value: email, handleChange: handleChangeEmail } = useField('email')
+
+const submitButton = () => {
+  console.log('submit')
+}
 </script>
 
 <template>
@@ -27,6 +31,14 @@ const { value: email, handleChange: handleChangeEmail } = useField('email')
     <p class="error-message">{{ errors.email }}</p>
     <p>メタデータ</p>
     <p>{{ meta }}</p>
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      :class="{ 'opacity-50 cursor-not-allowed': !meta.valid }"
+      :disabled="!meta.valid"
+      @click="submitButton"
+    >
+      Button
+    </button>
   </div>
 </template>
 
