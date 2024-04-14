@@ -1,4 +1,5 @@
 <script setup>
+import InputForm from '@/components/atoms/InputForm/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
@@ -8,12 +9,14 @@ const schema = yup.object({
     .string()
     .required('必須項目です')
     .email('メールアドレスの形式ではありません'),
+  phone: yup.string().required('必須項目です'),
 })
 const { errors, meta } = useForm({
   validationSchema: schema,
 })
 const { value: name, handleChange: handleChangeName } = useField('name')
 const { value: email, handleChange: handleChangeEmail } = useField('email')
+const { value: phone, handleChange: handleChangePhone } = useField('phone')
 
 const submitButton = () => {
   console.log('submit')
@@ -29,6 +32,12 @@ const submitButton = () => {
     <p>メールアドレス</p>
     <input type="text" :value="email" @blur="handleChangeEmail" />
     <p class="error-message">{{ errors.email }}</p>
+    <InputForm
+      label="電話番号"
+      v-model="phone"
+      @handle-change="handleChangePhone"
+      :error-message="errors.phone"
+    />
     <p>メタデータ</p>
     <p>{{ meta }}</p>
     <button
