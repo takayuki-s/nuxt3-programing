@@ -3,8 +3,8 @@
  * Props
  */
 type Props = {
-  label: String
-  errorMessage: String
+  label: string
+  errorMessage?: string
 }
 const props = withDefaults(defineProps<Props>(), {
   label: '',
@@ -18,6 +18,7 @@ type Emits = {
   (e: 'handleChange'): void
 }
 const emit = defineEmits<Emits>()
+
 /**
  * defineModel
  */
@@ -26,9 +27,9 @@ const modelValue = defineModel()
 
 <template>
   <div class="flex flex-col">
-    <label>{{ label }}</label>
+    <label>{{ props.label }}</label>
     <input class="input" v-model="modelValue" @blur="emit('handleChange')" />
-    <p class="error-message">{{ errorMessage }}</p>
+    <p class="error-message">{{ props.errorMessage }}</p>
   </div>
 </template>
 
