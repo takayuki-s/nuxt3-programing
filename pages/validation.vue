@@ -1,5 +1,5 @@
 <script setup>
-import InputForm from '@/components/atoms/InputForm/index.vue'
+import InputForm from '@/components/Atoms/InputForm/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
