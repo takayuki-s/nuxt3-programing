@@ -21,10 +21,6 @@ const { value: phone, handleChange: handleChangePhone } = useField('phone')
 const submitButton = () => {
   console.log('submit')
 }
-
-const change = (value) => {
-  handleChangePhone(value)
-}
 </script>
 
 <template>
@@ -40,7 +36,11 @@ const change = (value) => {
       label="電話番号"
       v-model="phone"
       :error-message="errors.phone"
-      @handle-change="change"
+      @handle-change="
+        (value) => {
+          handleChangePhone(value)
+        }
+      "
     />
     <p>メタデータ</p>
     <p>{{ meta }}</p>
