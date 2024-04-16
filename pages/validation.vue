@@ -26,12 +26,26 @@ const submitButton = () => {
 <template>
   <div class="p-5 validation-field">
     <h1>バリデーションテスト（必須）</h1>
-    <p>名前</p>
-    <input type="text" :value="name" @blur="handleChangeName" />
-    <p class="error-message">{{ errors.name }}</p>
-    <p>メールアドレス</p>
-    <input type="text" :value="email" @blur="handleChangeEmail" />
-    <p class="error-message">{{ errors.email }}</p>
+    <InputForm
+      label="名前"
+      v-model="name"
+      :error-message="errors.name"
+      @handle-change="
+        (value) => {
+          handleChangeName(value)
+        }
+      "
+    />
+    <InputForm
+      label="メールアドレス"
+      v-model="email"
+      :error-message="errors.email"
+      @handle-change="
+        (value) => {
+          handleChangeEmail(value)
+        }
+      "
+    />
     <InputForm
       label="電話番号"
       v-model="phone"
