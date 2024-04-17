@@ -21,6 +21,14 @@ const { value: phone, handleChange: handleChangePhone } = useField('phone')
 const submitButton = () => {
   console.log('submit')
 }
+
+const isValid = computed(() => {
+  return meta.value.valid
+})
+
+watch(isValid, () => {
+  console.log(isValid.value)
+})
 </script>
 
 <template>
