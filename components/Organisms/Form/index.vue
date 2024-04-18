@@ -1,7 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import InputForm from '@/components/Atoms/InputForm/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
+
+type Props = {
+  isValid: boolean
+}
+const props = withDefaults(defineProps<Props>(), {
+  isValid: false,
+})
+
+type Emits = {
+  (e: 'updateIsValid', value: boolean): void
+}
+const emit = defineEmits<Emits>()
 
 const schema = yup.object({
   name: yup.string().required('必須項目です'),
@@ -28,6 +40,7 @@ const isValid = computed(() => {
 
 watch(isValid, () => {
   console.log(isValid.value)
+  emit('updateIsValid', isValid)
 })
 </script>
 
