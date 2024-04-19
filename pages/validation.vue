@@ -7,8 +7,8 @@ import Form from '@/components/Organisms/Form/index.vue'
  */
 const isValid = ref<string>(false)
 
-const updateIsValid = (isValid) => {
-  isValid.value = isValid
+const updateIsValid = (emitIsValid) => {
+  isValid.value = emitIsValid.value
 }
 </script>
 
