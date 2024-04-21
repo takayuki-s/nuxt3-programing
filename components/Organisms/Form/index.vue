@@ -40,7 +40,7 @@ const isValid = computed(() => {
 
 watch(isValid, () => {
   console.log(isValid.value)
-  emit('updateIsValid', isValid)
+  emit('updateIsValid', isValid.value)
 })
 </script>
 

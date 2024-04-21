@@ -5,10 +5,10 @@ import Form from '@/components/Organisms/Form/index.vue'
 /**
  * Refs
  */
-const isValid = ref<string>(false)
+const isValid = ref<boolean>(false)
 
-const updateIsValid = (emitIsValid) => {
-  isValid.value = emitIsValid.value
+const updateIsValid = (emitIsValid: boolean) => {
+  isValid.value = emitIsValid
 }
 </script>
 
