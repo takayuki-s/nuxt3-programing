@@ -30,16 +30,11 @@ const { value: name, handleChange: handleChangeName } = useField('name')
 const { value: email, handleChange: handleChangeEmail } = useField('email')
 const { value: phone, handleChange: handleChangePhone } = useField('phone')
 
-const submitButton = () => {
-  console.log('submit')
-}
-
 const isValid = computed(() => {
   return meta.value.valid
 })
 
 watch(isValid, () => {
-  console.log(isValid.value)
   emit('updateIsValid', isValid.value)
 })
 </script>
@@ -77,16 +72,6 @@ watch(isValid, () => {
         }
       "
     />
-    <p>メタデータ</p>
-    <p>{{ meta }}</p>
-    <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      :class="{ 'opacity-50 cursor-not-allowed': !meta.valid }"
-      :disabled="!meta.valid"
-      @click="submitButton"
-    >
-      Button
-    </button>
   </div>
 </template>
 

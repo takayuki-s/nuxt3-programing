@@ -10,12 +10,23 @@ const isValid = ref<boolean>(false)
 const updateIsValid = (emitIsValid: boolean) => {
   isValid.value = emitIsValid
 }
+
+const submitButton = () => {
+  console.log('submit')
+}
 </script>
 
 <template>
   <div class="p-5">
     <Form :is-valid="isValid" @update-is-valid="updateIsValid" />
-    {{ isValid }}
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      :class="{ 'opacity-50 cursor-not-allowed': !isValid }"
+      :disabled="!isValid"
+      @click="submitButton"
+    >
+      Button
+    </button>
   </div>
 </template>
 
