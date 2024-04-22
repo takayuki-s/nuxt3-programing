@@ -3,12 +3,12 @@ import InputForm from '@/components/Atoms/InputForm/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-type Props = {
-  isValid: boolean
-}
-const props = withDefaults(defineProps<Props>(), {
-  isValid: false,
-})
+// type Props = {
+//   isValid: boolean
+// }
+// const props = withDefaults(defineProps<Props>(), {
+//   isValid: false,
+// })
 
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
