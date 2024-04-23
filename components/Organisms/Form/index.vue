@@ -12,6 +12,7 @@ import * as yup from 'yup'
 
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
+  (e: 'updateFormData', value: {}): void
 }
 const emit = defineEmits<Emits>()
 
@@ -33,6 +34,14 @@ const { value: phone, handleChange: handleChangePhone } = useField('phone')
 const isValid = computed(() => {
   return meta.value.valid
 })
+
+const formData = computed(() => {
+  return { name: name.value, email: email.value, phone: phone.value }
+})
+
+const updateFormData = () => {
+  emit('updateFormData', formData)
+}
 
 watch(isValid, () => {
   emit('updateIsValid', isValid.value)
