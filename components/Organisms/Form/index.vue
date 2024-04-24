@@ -40,7 +40,7 @@ const formData = computed(() => {
 })
 
 const updateFormData = () => {
-  emit('updateFormData', formData)
+  emit('updateFormData', formData.value)
 }
 
 watch(isValid, () => {
@@ -58,6 +58,7 @@ watch(isValid, () => {
       @handle-change="
         (value) => {
           handleChangeName(value)
+          updateFormData()
         }
       "
     />
@@ -68,6 +69,7 @@ watch(isValid, () => {
       @handle-change="
         (value) => {
           handleChangeEmail(value)
+          updateFormData()
         }
       "
     />
@@ -78,9 +80,11 @@ watch(isValid, () => {
       @handle-change="
         (value) => {
           handleChangePhone(value)
+          updateFormData()
         }
       "
     />
+    <p>{{ formData }}</p>
   </div>
 </template>
 

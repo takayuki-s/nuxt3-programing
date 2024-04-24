@@ -13,13 +13,12 @@ const updateIsValid = (emitIsValid: boolean) => {
   isValid.value = emitIsValid
 }
 const updateFormData = (data: {}) => {
-  console.log(data)
+  formData.value = data
 }
 
 const submitButton = () => {
   console.log('submit')
-  console.log(form.value)
-  form.value.updateFormData()
+  console.log(formData.value)
 }
 </script>
 
