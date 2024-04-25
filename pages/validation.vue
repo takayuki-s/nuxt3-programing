@@ -37,6 +37,7 @@ const submitButton = () => {
     >
       Button
     </button>
+    <p>{{ formData }}</p>
   </div>
 </template>
 

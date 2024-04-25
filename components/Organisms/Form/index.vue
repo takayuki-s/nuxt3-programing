@@ -84,7 +84,6 @@ watch(isValid, () => {
         }
       "
     />
-    <p>{{ formData }}</p>
   </div>
 </template>
 
