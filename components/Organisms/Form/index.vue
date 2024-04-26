@@ -3,12 +3,7 @@ import InputForm from '@/components/Atoms/InputForm/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-// type Props = {
-//   isValid: boolean
-// }
-// const props = withDefaults(defineProps<Props>(), {
-//   isValid: false,
-// })
+const model = defineModel()
 
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
@@ -53,7 +48,7 @@ watch(isValid, () => {
     <h1>バリデーションテスト（必須）</h1>
     <InputForm
       label="名前"
-      v-model="name"
+      v-model="model.name"
       :error-message="errors.name"
       @handle-change="
         (value) => {
@@ -84,6 +79,9 @@ watch(isValid, () => {
         }
       "
     />
+  </div>
+  <div>
+    {{ model }}
   </div>
 </template>
 
