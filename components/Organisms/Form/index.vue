@@ -3,7 +3,7 @@ import InputForm from '@/components/Atoms/InputForm/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-const model = defineModel()
+const model: any = defineModel()
 
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
@@ -22,21 +22,13 @@ const schema = yup.object({
 const { errors, meta } = useForm({
   validationSchema: schema,
 })
-const { value: name, handleChange: handleChangeName } = useField('name')
-const { value: email, handleChange: handleChangeEmail } = useField('email')
-const { value: phone, handleChange: handleChangePhone } = useField('phone')
+const { handleChange: handleChangeName } = useField('name')
+const { handleChange: handleChangeEmail } = useField('email')
+const { handleChange: handleChangePhone } = useField('phone')
 
 const isValid = computed(() => {
   return meta.value.valid
 })
-
-const formData = computed(() => {
-  return { name: name.value, email: email.value, phone: phone.value }
-})
-
-const updateFormData = () => {
-  emit('updateFormData', formData.value)
-}
 
 watch(isValid, () => {
   emit('updateIsValid', isValid.value)
@@ -53,35 +45,29 @@ watch(isValid, () => {
       @handle-change="
         (value) => {
           handleChangeName(value)
-          updateFormData()
         }
       "
     />
     <InputForm
       label="メールアドレス"
-      v-model="email"
+      v-model="model.email"
       :error-message="errors.email"
       @handle-change="
         (value) => {
           handleChangeEmail(value)
-          updateFormData()
         }
       "
     />
     <InputForm
       label="電話番号"
-      v-model="phone"
+      v-model="model.phone"
       :error-message="errors.phone"
       @handle-change="
         (value) => {
           handleChangePhone(value)
-          updateFormData()
         }
       "
     />
-  </div>
-  <div>
-    {{ model }}
   </div>
 </template>
 
