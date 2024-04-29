@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import InputForm from '@/components/Atoms/InputForm/index.vue'
+import InputFormWithValidation from '@/components/Molecules/InputFormWithValidation/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
@@ -29,6 +30,10 @@ const { handleChange: handleChangePhone } = useField('phone')
 const isValid = computed(() => {
   return meta.value.valid
 })
+
+const updateIsValidInputForm = (emitIsValid: boolean) => {
+  console.log(emitIsValid)
+}
 
 watch(isValid, () => {
   emit('updateIsValid', isValid.value)
@@ -67,6 +72,10 @@ watch(isValid, () => {
           handleChangePhone(value)
         }
       "
+    />
+    <InputFormWithValidation
+      label="test"
+      @update-is-valid="updateIsValidInputForm"
     />
   </div>
 </template>
