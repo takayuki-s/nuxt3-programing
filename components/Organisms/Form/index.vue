@@ -27,12 +27,14 @@ const { handleChange: handleChangeName } = useField('name')
 const { handleChange: handleChangeEmail } = useField('email')
 const { handleChange: handleChangePhone } = useField('phone')
 
+const isValidInputForm = ref(false)
+
 const isValid = computed(() => {
-  return meta.value.valid
+  return isValidInputForm.value && meta.value.valid
 })
 
 const updateIsValidInputForm = (emitIsValid: boolean) => {
-  console.log(emitIsValid)
+  isValidInputForm.value = emitIsValid
 }
 
 watch(isValid, () => {
