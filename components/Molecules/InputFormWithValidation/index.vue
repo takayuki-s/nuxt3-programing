@@ -37,7 +37,12 @@ watch(isValid, () => {
 <template>
   <div class="flex flex-col">
     <label>{{ props.label }}</label>
-    <input class="input" v-model="title" @blur="handleChange" />
+    <input
+      class="input"
+      v-model="title"
+      @blur="handleChange"
+      @input="handleChange"
+    />
     <p class="error-message">{{ errors.title }}</p>
   </div>
 </template>
@@ -45,6 +50,9 @@ watch(isValid, () => {
 <style scoped>
 .input {
   width: 300px;
+  height: 30px;
+  padding: 5px;
+  font-size: 16px;
 }
 .error-message {
   margin: 5px;
