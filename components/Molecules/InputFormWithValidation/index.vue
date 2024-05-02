@@ -2,6 +2,8 @@
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
+const model = defineModel()
+
 /**
  * Props
  */
@@ -23,7 +25,7 @@ const schema = yup.object({
 const { errors, meta } = useForm({
   validationSchema: schema,
 })
-const { value: title, handleChange } = useField('title')
+const { handleChange } = useField('title')
 
 const isValid = computed(() => {
   return meta.value.valid
@@ -39,7 +41,7 @@ watch(isValid, () => {
     <label>{{ props.label }}</label>
     <input
       class="input"
-      v-model="title"
+      v-model="model"
       @blur="handleChange"
       @input="handleChange"
     />

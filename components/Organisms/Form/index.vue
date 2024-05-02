@@ -77,6 +77,7 @@ watch(isValid, () => {
     />
     <InputFormWithValidation
       label="test"
+      v-model="model.test"
       @update-is-valid="updateIsValidInputForm"
     />
   </div>
