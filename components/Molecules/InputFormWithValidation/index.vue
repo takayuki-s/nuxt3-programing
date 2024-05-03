@@ -19,9 +19,12 @@ type Emits = {
 }
 const emit = defineEmits<Emits>()
 
-const schema = yup.object({
-  title: yup.string().required('必須項目です'),
-})
+const createSchema = () => {
+  return yup.object({
+    title: yup.string().required('必須項目です'),
+  })
+}
+const schema = createSchema()
 const { errors, meta } = useForm({
   validationSchema: schema,
 })
