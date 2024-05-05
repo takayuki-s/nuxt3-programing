@@ -55,7 +55,7 @@ watch(isValid, () => {
 <style scoped>
 .input {
   width: 300px;
-  height: 30px;
+  height: 24px;
   padding: 5px;
   font-size: 16px;
 }
