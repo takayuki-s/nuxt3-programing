@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import Form from '@/components/Organisms/Form/index.vue'
 
 /**
  * Refs
  */
 const isValid = ref<boolean>(false)
-const form = ref()
 const formData = ref<{}>({})
 
 const updateIsValid = (emitIsValid: boolean) => {
@@ -25,7 +23,6 @@ const submitButton = () => {
 <template>
   <div class="p-5">
     <Form
-      ref="form"
       @update-is-valid="updateIsValid"
       @update-form-data="updateFormData"
       v-model="formData"
