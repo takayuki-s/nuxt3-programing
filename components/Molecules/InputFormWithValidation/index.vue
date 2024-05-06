@@ -42,12 +42,7 @@ watch(isValid, () => {
 <template>
   <div class="flex flex-col">
     <label>{{ props.label }}</label>
-    <input
-      class="input"
-      v-model="model"
-      @blur="handleChange"
-      @input="handleChange"
-    />
+    <input class="input" v-model="model" @blur="handleChange" />
     <p class="error-message">{{ errors.title }}</p>
   </div>
 </template>
