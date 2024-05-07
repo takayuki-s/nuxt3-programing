@@ -9,6 +9,7 @@ const model: any = defineModel()
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
   (e: 'updateFormData', value: {}): void
+  (e: 'submit'): void
 }
 const emit = defineEmits<Emits>()
 
@@ -37,9 +38,12 @@ const updateIsValidInputForm = (emitIsValid: boolean) => {
   isValidInputForm.value = emitIsValid
 }
 
-watch(isValid, () => {
-  emit('updateIsValid', isValid.value)
-})
+const handleSubmit = () => {
+  if (!isValid.value) {
+    return
+  }
+  emit('submit')
+}
 </script>
 
 <template>
@@ -80,6 +84,14 @@ watch(isValid, () => {
       v-model="model.test"
       @update-is-valid="updateIsValidInputForm"
     />
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      :class="{ 'opacity-50 cursor-not-allowed': !isValid }"
+      :disabled="!isValid"
+      @click="handleSubmit"
+    >
+      Button
+    </button>
   </div>
 </template>
 
