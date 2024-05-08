@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     { src: '@/plugins/prism' },
   ],
   css: ['/assets/css/style.css'],
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', 'radix-vue/nuxt'],
   vite: {
     vue: {
       script: {
