@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import InputNum from '@/components/Molecules/InputNum/index.vue'
-import InputNumDefineModel from '@/components/Molecules/InputNumDefineModel/index.vue'
+import Accordion from '@/components/Molecules/Accordion/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 
 /**
@@ -36,6 +36,9 @@ const updateValue = (inputValue: number | string) => {
     />
     <p>Parent component valueWithDefineModel is: {{ valueWithDefineModel }}</p>
     <InputNumDefineModel v-model="valueWithDefineModel" />
+    <div>
+      <Accordion />
+    </div>
   </main>
 </template>
 
