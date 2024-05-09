@@ -30,31 +30,21 @@ const accordionItems = [
 
 <template>
   <AccordionRoot
-    class="bg-mauve6 w-[300px] rounded-md shadow-[0_2px_10px] shadow-black/5"
-    default-value="item-1"
+    class="AccordionRoot"
+    default-value="'item-1'"
     type="single"
     :collapsible="true"
   >
     <template v-for="item in accordionItems" :key="item.value">
-      <AccordionItem
-        class="focus-within:shadow-mauve12 mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10 focus-within:shadow-[0_0_0_2px]"
-        :value="item.value"
-      >
-        <AccordionHeader class="flex">
-          <AccordionTrigger
-            class="text-grass11 shadow-mauve6 hover:bg-mauve2 flex h-[45px] flex-1 cursor-default items-center justify-between bg-white px-5 text-[15px] leading-none shadow-[0_1px_0] outline-none group"
-          >
+      <AccordionItem class="AccordionItem" :value="item.value">
+        <AccordionHeader class="AccordionHeader">
+          <AccordionTrigger class="AccordionTrigger">
             <span>{{ item.title }}</span>
-            <Icon
-              icon="radix-icons:chevron-down"
-              class="text-green10 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
-            />
+            <Icon icon="radix-icons:chevron-down" class="AccordionChevron" />
           </AccordionTrigger>
         </AccordionHeader>
-        <AccordionContent
-          class="text-mauve11 bg-mauve2 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]"
-        >
-          <div class="px-5 py-4">
+        <AccordionContent class="AccordionContent">
+          <div class="AccordionContentText">
             {{ item.content }}
           </div>
         </AccordionContent>
@@ -62,3 +52,106 @@ const accordionItems = [
     </template>
   </AccordionRoot>
 </template>
+
+<style scoped>
+button,
+h3 {
+  all: unset;
+}
+
+.AccordionRoot {
+  border-radius: 6px;
+  width: 300px;
+  background-color: var(--mauve-6);
+  box-shadow: 0 2px 10px var(--black-a4);
+}
+
+.AccordionItem {
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.AccordionItem:first-child {
+  margin-top: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.AccordionItem:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.AccordionItem:focus-within {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 2px var(--mauve-12);
+}
+
+.AccordionHeader {
+  display: flex;
+}
+
+.AccordionTrigger {
+  font-family: inherit;
+  background-color: transparent;
+  padding: 0 20px;
+  height: 45px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--grass-11);
+  box-shadow: 0 1px 0 var(--mauve-6);
+  background-color: white;
+}
+
+.AccordionTrigger:hover {
+  background-color: var(--mauve-2);
+}
+
+.AccordionContent {
+  overflow: hidden;
+  font-size: 15px;
+  color: var(--mauve-11);
+  background-color: var(--mauve-2);
+}
+.AccordionContent[data-state='open'] {
+  animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+.AccordionContent[data-state='closed'] {
+  animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.AccordionContentText {
+  padding: 15px 20px;
+}
+
+.AccordionChevron {
+  color: var(--grass-10);
+  transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+.AccordionTrigger[data-state='open'] > .AccordionChevron {
+  transform: rotate(180deg);
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+</style>
