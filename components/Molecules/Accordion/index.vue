@@ -6,7 +6,7 @@ import {
   AccordionRoot,
   AccordionTrigger,
 } from 'radix-vue'
-// import { Icon } from '@iconify/vue'
+import { Icon } from '@iconify/vue'
 import './style.css'
 
 const accordionItems = [
