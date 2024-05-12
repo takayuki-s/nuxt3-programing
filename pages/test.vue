@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import InputNum from '@/components/Molecules/InputNum/index.vue'
 import Accordion from '@/components/Molecules/Accordion/index.vue'
+import Combobox from '@/components/Molecules/Combobox/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 
 /**
@@ -19,7 +20,7 @@ const updateValue = (inputValue: number | string) => {
 </script>
 
 <template>
-  <main class="p-5">
+  <main class="p-5 flex flex-col gap-3">
     <h1>message</h1>
     <Suspense timeout="0">
       <template #default>
@@ -31,6 +32,7 @@ const updateValue = (inputValue: number | string) => {
     </Suspense>
     <p>Parent component value is: {{ value }}</p>
     <InputNum
+      class="w-1/4"
       :value="value"
       @update-value="(inputValue) => updateValue(inputValue)"
     />
@@ -38,6 +40,9 @@ const updateValue = (inputValue: number | string) => {
     <InputNumDefineModel v-model="valueWithDefineModel" />
     <div>
       <Accordion />
+    </div>
+    <div>
+      <Combobox />
     </div>
   </main>
 </template>

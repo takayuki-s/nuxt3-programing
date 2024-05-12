@@ -42,5 +42,6 @@ const updateMessage = (event: Event) => {
   height: 30px;
   padding: 5px;
   font-size: 16px;
+  background-color: #ffffff;
 }
 </style>
