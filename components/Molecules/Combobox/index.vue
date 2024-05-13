@@ -18,13 +18,13 @@ import {
 import { Icon } from '@iconify/vue'
 import './style.css'
 
-const v = ref('')
+const item = ref('')
 const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
 const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
 </script>
 
 <template>
-  <ComboboxRoot v-model="v" class="ComboboxRoot">
+  <ComboboxRoot v-model="item" class="ComboboxRoot">
     <ComboboxAnchor class="ComboboxAnchor">
       <ComboboxInput class="ComboboxInput" placeholder="Placeholder..." />
       <ComboboxTrigger>
@@ -74,4 +74,5 @@ const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
       </ComboboxViewport>
     </ComboboxContent>
   </ComboboxRoot>
+  <div>選んだもの: {{ item }}</div>
 </template>
