@@ -18,8 +18,28 @@ import {
 import { Icon } from '@iconify/vue'
 import './style.css'
 
+/**
+ * Props
+ */
+type Props = {
+  additionalFruit: string
+}
+const props = withDefaults(defineProps<Props>(), {
+  additionalFruit: 'Orange',
+})
+
+/**
+ * Constants
+ */
 const item = ref('')
-const options = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
+const options = [
+  'Apple',
+  'Banana',
+  'Blueberry',
+  'Grapes',
+  'Pineapple',
+  props.additionalFruit,
+]
 const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
 </script>
 
