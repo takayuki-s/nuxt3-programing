@@ -54,6 +54,12 @@ const isAbout = computed(() => {
                   :class="{ 'bg-gray-900': isAbout }"
                   >ABOUT
                 </NuxtLink>
+                <NuxtLink
+                  href="/test"
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
+                  :class="{ 'bg-gray-900': isAbout }"
+                  >TEST
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -103,6 +109,15 @@ const isAbout = computed(() => {
             :class="{ 'bg-gray-900': isAbout }"
             ><NuxtLink to="/about"
               ><span class="link-text">ABOUT</span></NuxtLink
+            ></DisclosureButton
+          >
+          <DisclosureButton
+            as="a"
+            href="/test"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            :class="{ 'bg-gray-900': isAbout }"
+            ><NuxtLink to="/about"
+              ><span class="link-text">TEST</span></NuxtLink
             ></DisclosureButton
           >
         </div>
