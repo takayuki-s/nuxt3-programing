@@ -42,7 +42,7 @@ const updateValue = (inputValue: number | string) => {
       <Accordion />
     </div>
     <div>
-      <Combobox />
+      <Combobox :additional-items="['beef', 'pork', 'chicken']" />
     </div>
   </main>
 </template>

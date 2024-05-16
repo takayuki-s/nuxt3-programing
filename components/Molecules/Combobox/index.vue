@@ -22,7 +22,8 @@ import './style.css'
  * Props
  */
 type Props = {
-  additionalFruit: string
+  additionalFruit?: string
+  additionalItems?: string[] | []
 }
 const props = withDefaults(defineProps<Props>(), {
   additionalFruit: 'Orange',
@@ -79,6 +80,22 @@ const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
           <ComboboxLabel class="ComboboxLabel"> Vegetables </ComboboxLabel>
           <ComboboxItem
             v-for="(option, index) in vegetables"
+            :key="index"
+            class="ComboboxItem"
+            :value="option"
+          >
+            <ComboboxItemIndicator class="ComboboxItemIndicator">
+              <Icon icon="radix-icons:check" />
+            </ComboboxItemIndicator>
+            <span>
+              {{ option }}
+            </span>
+          </ComboboxItem>
+        </ComboboxGroup>
+        <ComboboxGroup>
+          <ComboboxLabel class="ComboboxLabel"> AdditionalItems </ComboboxLabel>
+          <ComboboxItem
+            v-for="(option, index) in additionalItems"
             :key="index"
             class="ComboboxItem"
             :value="option"
