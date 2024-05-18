@@ -111,5 +111,5 @@ const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
       </ComboboxViewport>
     </ComboboxContent>
   </ComboboxRoot>
-  <div>選んだもの: {{ item }}</div>
+  <div class="pt-3">選んだもの: {{ item }}</div>
 </template>
