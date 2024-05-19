@@ -46,7 +46,7 @@ const updateValue = (inputValue: number | string) => {
       <Combobox :additional-items="['beef', 'pork', 'chicken']" />
     </div>
     <div>
-      <Progress />
+      <Progress :progress-value="50" />
     </div>
   </main>
 </template>
