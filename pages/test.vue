@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import InputNum from '@/components/Molecules/InputNum/index.vue'
 import Accordion from '@/components/Molecules/Accordion/index.vue'
 import Combobox from '@/components/Molecules/Combobox/index.vue'
+import Progress from '@/components/Molecules/Progress/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 
 /**
@@ -43,6 +44,9 @@ const updateValue = (inputValue: number | string) => {
     </div>
     <div>
       <Combobox :additional-items="['beef', 'pork', 'chicken']" />
+    </div>
+    <div>
+      <Progress />
     </div>
   </main>
 </template>
