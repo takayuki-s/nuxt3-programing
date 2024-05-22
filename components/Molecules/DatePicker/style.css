@@ -43,7 +43,7 @@
   padding: 0.25rem;
 }
 
-.DateFieldSegment:hover{
+.DateFieldSegment:hover {
   background-color: var(--grass-4);
 }
 
@@ -115,7 +115,7 @@
 }
 
 .CalendarGridRow {
-  display: grid
+  display: grid;
   margin-bottom: 0.25rem;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   width: 100%;
@@ -167,7 +167,7 @@
 
 .CalendarCellTrigger[data-disabled] {
   cursor: none;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .CalendarCellTrigger[data-selected] {
@@ -177,11 +177,11 @@
 }
 
 .CalendarCellTrigger[data-selected]::before {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .CalendarCellTrigger[data-unavailable] {
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
   text-decoration: line-through;
 }
 
@@ -193,7 +193,7 @@
   width: 0.25rem;
   height: 0.25rem;
   border-radius: 9999px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .CalendarCellTrigger[data-today]::before {
@@ -210,13 +210,17 @@
   padding: 20px;
   width: 260px;
   background-color: white;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 .PopoverContent:focus {
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px,
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px,
     0 0 0 2px var(--grass-7);
 }
 .PopoverContent[data-state='open'][data-side='top'] {
