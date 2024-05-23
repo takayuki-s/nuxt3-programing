@@ -5,6 +5,7 @@ import Accordion from '@/components/Molecules/Accordion/index.vue'
 import Combobox from '@/components/Molecules/Combobox/index.vue'
 import Progress from '@/components/Molecules/Progress/index.vue'
 import DatePicker from '@/components/Molecules/DatePicker/index.vue'
+import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 
 /**
@@ -51,6 +52,9 @@ const updateValue = (inputValue: number | string) => {
     </div>
     <div class="w-max">
       <DatePicker />
+    </div>
+    <div>
+      <Dialog />
     </div>
   </main>
 </template>
