@@ -11,6 +11,9 @@ import {
 } from 'radix-vue'
 import { Icon } from '@iconify/vue'
 import './style.css'
+
+const name = defineModel('name')
+const username = defineModel('username')
 </script>
 
 <template>
@@ -25,11 +28,11 @@ import './style.css'
         </DialogDescription>
         <fieldset class="Fieldset">
           <label class="Label" for="name"> Name </label>
-          <input id="name" class="Input" defaultValue="Pedro Duarte" />
+          <input id="name" class="Input" v-model="name" />
         </fieldset>
         <fieldset class="Fieldset">
           <label class="Label" for="username"> Username </label>
-          <input id="username" class="Input" defaultValue="@peduarte" />
+          <input id="username" class="Input" v-model="username" />
         </fieldset>
         <div
           :style="{
