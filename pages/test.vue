@@ -13,6 +13,8 @@ import Async from '@/components/Organisms/Async.vue'
  */
 const value = ref<number | string>('')
 const valueWithDefineModel = ref<number | string>('')
+const name = ref('')
+const username = ref('')
 
 /**
  * Methods
@@ -54,7 +56,7 @@ const updateValue = (inputValue: number | string) => {
       <DatePicker />
     </div>
     <div>
-      <Dialog />
+      <Dialog v-model:name="name" v-model:username="username"/>
     </div>
   </main>
 </template>
