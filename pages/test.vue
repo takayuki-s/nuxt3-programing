@@ -6,6 +6,7 @@ import Combobox from '@/components/Molecules/Combobox/index.vue'
 import Progress from '@/components/Molecules/Progress/index.vue'
 import DatePicker from '@/components/Molecules/DatePicker/index.vue'
 import Dialog from '@/components/Molecules/Dialog/index.vue'
+import Toast from '@/components/Molecules/Toast/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 
 /**
@@ -59,6 +60,9 @@ const updateValue = (inputValue: number | string) => {
       <Dialog v-model:name="name" v-model:username="username" />
       <p>name: {{ name }}</p>
       <p>username: {{ username }}</p>
+    </div>
+    <div>
+      <Toast />
     </div>
   </main>
 </template>
