@@ -7,6 +7,7 @@ import Progress from '@/components/Molecules/Progress/index.vue'
 import DatePicker from '@/components/Molecules/DatePicker/index.vue'
 import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
+import Switch from '@/components/Molecules/Switch/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 
 /**
@@ -63,6 +64,9 @@ const updateValue = (inputValue: number | string) => {
     </div>
     <div>
       <Toast />
+    </div>
+    <div>
+      <Switch />
     </div>
   </main>
 </template>
