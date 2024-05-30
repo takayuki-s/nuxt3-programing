@@ -58,7 +58,11 @@ const updateValue = (inputValue: number | string) => {
       <DatePicker />
     </div>
     <div>
-      <Dialog v-model:name="name" v-model:username="username" />
+      <Dialog
+        :labels="['name', 'username']"
+        v-model:name="name"
+        v-model:username="username"
+      />
       <p>name: {{ name }}</p>
       <p>username: {{ username }}</p>
     </div>
