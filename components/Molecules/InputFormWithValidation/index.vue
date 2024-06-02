@@ -51,6 +51,7 @@ watch(isValid, () => {
 .input {
   width: 300px;
   height: 24px;
+  background-color: white;
   padding: 5px;
   font-size: 16px;
 }

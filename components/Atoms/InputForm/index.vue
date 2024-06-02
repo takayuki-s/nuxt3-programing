@@ -39,6 +39,8 @@ const updateValue = () => {
 
 <style scoped>
 .input {
+  background-color: white;
+  padding: 5px;
   width: 300px;
 }
 .error-message {
