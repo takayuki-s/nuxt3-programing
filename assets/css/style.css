@@ -19,3 +19,8 @@ h1 {
 .error-message {
   color: #ffa500;
 }
+
+:root {
+  --black-a9: rgba(0, 0, 0, 0.9);
+  --black-a7: rgba(0, 0, 0, 0.7);
+}
