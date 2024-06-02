@@ -13,6 +13,9 @@ const isList = computed(() => {
 const isAbout = computed(() => {
   return route.path === '/about' ? true : false
 })
+const isTest = computed(() => {
+  return route.path === '/test' ? true : false
+})
 </script>
 
 <template>
@@ -57,7 +60,7 @@ const isAbout = computed(() => {
                 <NuxtLink
                   href="/test"
                   class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
-                  :class="{ 'bg-gray-900': isAbout }"
+                  :class="{ 'bg-gray-900': isTest }"
                   >TEST
                 </NuxtLink>
               </div>
@@ -115,7 +118,7 @@ const isAbout = computed(() => {
             as="a"
             href="/test"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            :class="{ 'bg-gray-900': isAbout }"
+            :class="{ 'bg-gray-900': isTest }"
             ><NuxtLink to="/about"
               ><span class="link-text">TEST</span></NuxtLink
             ></DisclosureButton
