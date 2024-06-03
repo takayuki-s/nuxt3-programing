@@ -32,7 +32,12 @@ const updateValue = () => {
 <template>
   <div class="flex flex-col">
     <label>{{ props.label }}</label>
-    <input class="input" v-model="modelValue" @blur="updateValue" />
+    <input
+      class="input"
+      v-model="modelValue"
+      @blur="updateValue"
+      @input="updateValue"
+    />
     <p class="error-message">{{ props.errorMessage }}</p>
   </div>
 </template>
