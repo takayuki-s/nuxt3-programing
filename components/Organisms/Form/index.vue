@@ -85,7 +85,7 @@ const handleSubmit = () => {
       @update-is-valid="updateIsValidInputForm"
     />
     <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
       :class="{ 'opacity-50 cursor-not-allowed': !isValid }"
       :disabled="!isValid"
       @click="handleSubmit"
