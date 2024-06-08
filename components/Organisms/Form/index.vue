@@ -19,7 +19,10 @@ const schema = yup.object({
     .string()
     .required('必須項目です')
     .email('メールアドレスの形式ではありません'),
-  phone: yup.number().typeError('数字を入力してください'),
+  phone: yup
+    .number()
+    .required('必須項目です')
+    .typeError('数字を入力してください'),
 })
 const { errors, meta } = useForm({
   validationSchema: schema,
