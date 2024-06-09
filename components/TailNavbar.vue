@@ -63,6 +63,12 @@ const isTest = computed(() => {
                   :class="{ 'bg-gray-900': isTest }"
                   >TEST
                 </NuxtLink>
+                <NuxtLink
+                  href="/validation"
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 link-text hover:bg-gray-700 hover:text-white"
+                  :class="{ 'bg-gray-900': isTest }"
+                  >VALIDATION
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -119,8 +125,17 @@ const isTest = computed(() => {
             href="/test"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             :class="{ 'bg-gray-900': isTest }"
-            ><NuxtLink to="/about"
+            ><NuxtLink to="/test"
               ><span class="link-text">TEST</span></NuxtLink
+            ></DisclosureButton
+          >
+          <DisclosureButton
+            as="a"
+            href="/test"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            :class="{ 'bg-gray-900': isTest }"
+            ><NuxtLink to="/validation"
+              ><span class="link-text">VALIDATION</span></NuxtLink
             ></DisclosureButton
           >
         </div>
