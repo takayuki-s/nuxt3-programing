@@ -31,7 +31,8 @@ const { errors, meta } = useForm({
 const { handleChange: handleChangeName } = useField('name')
 const { handleChange: handleChangeEmail } = useField('email')
 const { handleChange: handleChangePhone } = useField('phone')
-const { handleChange: handleChangeAddress } = useField('address')
+const { value: address, handleChange: handleChangeAddress } =
+  useField('address')
 
 const isValidInputForm = ref(false)
 
@@ -42,6 +43,16 @@ const isValid = computed(() => {
 const updateIsValidInputForm = (emitIsValid: boolean) => {
   isValidInputForm.value = emitIsValid
 }
+
+const formData = computed(() => {
+  return {
+    name: model.value.name,
+    email: model.value.email,
+    phone: model.value.phone,
+    test: model.value.test,
+    address: address.value,
+  }
+})
 
 const handleSubmit = () => {
   if (!isValid.value) {
@@ -91,14 +102,10 @@ const handleSubmit = () => {
     />
     <div class="input-area">
       <label>住所</label>
-      <input
-        class="address"
-        v-model="model.address"
-        @change="handleChangeAddress"
-      />
+      <input class="address" v-model="address" @blur="handleChangeAddress" />
       <p class="error-message">{{ errors.address }}</p>
     </div>
-    {{ model }}
+    {{ formData }}
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
       :class="{ 'opacity-50 cursor-not-allowed hover:bg-blue-500': !isValid }"
