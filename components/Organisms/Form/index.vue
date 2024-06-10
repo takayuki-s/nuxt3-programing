@@ -4,8 +4,9 @@ import InputFormWithValidation from '@/components/Molecules/InputFormWithValidat
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-const test = ref<string>('')
-
+/**
+ * Emits
+ */
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
   (e: 'updateFormData', value: {}): void
@@ -13,6 +14,9 @@ type Emits = {
 }
 const emit = defineEmits<Emits>()
 
+/**
+ * Validation
+ */
 const schema = yup.object({
   name: yup.string().required('必須項目です'),
   email: yup
@@ -34,16 +38,19 @@ const { value: phone, handleChange: handleChangePhone } = useField('phone')
 const { value: address, handleChange: handleChangeAddress } =
   useField('address')
 
+/**
+ * Refs
+ */
+const test = ref<string>('')
 const isValidInputForm = ref(false)
+
+/**
+ * Computed
+ */
 
 const isValid = computed(() => {
   return isValidInputForm.value && meta.value.valid
 })
-
-const updateIsValidInputForm = (emitIsValid: boolean) => {
-  isValidInputForm.value = emitIsValid
-}
-
 const formData = computed(() => {
   return {
     name: name.value,
@@ -54,6 +61,12 @@ const formData = computed(() => {
   }
 })
 
+/**
+ * Methods
+ */
+const updateIsValidInputForm = (emitIsValid: boolean) => {
+  isValidInputForm.value = emitIsValid
+}
 const handleSubmit = () => {
   if (!isValid.value) {
     return
