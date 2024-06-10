@@ -4,7 +4,7 @@ import InputFormWithValidation from '@/components/Molecules/InputFormWithValidat
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-const model: any = defineModel()
+const test = ref<string>('')
 
 type Emits = {
   (e: 'updateIsValid', value: boolean): void
@@ -28,9 +28,9 @@ const schema = yup.object({
 const { errors, meta } = useForm({
   validationSchema: schema,
 })
-const { handleChange: handleChangeName } = useField('name')
-const { handleChange: handleChangeEmail } = useField('email')
-const { handleChange: handleChangePhone } = useField('phone')
+const { value: name, handleChange: handleChangeName } = useField('name')
+const { value: email, handleChange: handleChangeEmail } = useField('email')
+const { value: phone, handleChange: handleChangePhone } = useField('phone')
 const { value: address, handleChange: handleChangeAddress } =
   useField('address')
 
@@ -46,10 +46,10 @@ const updateIsValidInputForm = (emitIsValid: boolean) => {
 
 const formData = computed(() => {
   return {
-    name: model.value.name,
-    email: model.value.email,
-    phone: model.value.phone,
-    test: model.value.test,
+    name: name.value,
+    email: email.value,
+    phone: phone.value,
+    test: test.value,
     address: address.value,
   }
 })
@@ -67,7 +67,7 @@ const handleSubmit = () => {
     <h1>バリデーションテスト（必須）</h1>
     <InputForm
       label="名前"
-      v-model="model.name"
+      v-model="name"
       :error-message="errors.name"
       @handle-change="
         (value) => {
@@ -77,7 +77,7 @@ const handleSubmit = () => {
     />
     <InputForm
       label="メールアドレス"
-      v-model="model.email"
+      v-model="email"
       :error-message="errors.email"
       @handle-change="
         (value) => {
@@ -87,7 +87,7 @@ const handleSubmit = () => {
     />
     <InputForm
       label="電話番号"
-      v-model="model.phone"
+      v-model="phone"
       :error-message="errors.phone"
       @handle-change="
         (value) => {
@@ -97,7 +97,7 @@ const handleSubmit = () => {
     />
     <InputFormWithValidation
       label="test"
-      v-model="model.test"
+      v-model="test"
       @update-is-valid="updateIsValidInputForm"
     />
     <div class="input-area">
