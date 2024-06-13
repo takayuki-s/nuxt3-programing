@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import InputForm from '@/components/Atoms/InputForm/index.vue'
+import InputSlotForm from '@/components/Atoms/InputSlotForm/index.vue'
 import InputFormWithValidation from '@/components/Molecules/InputFormWithValidation/index.vue'
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
@@ -27,6 +28,10 @@ const schema = yup.object({
     .number()
     .required('必須項目です')
     .typeError('数字を入力してください'),
+  postcode: yup
+    .number()
+    .required('必須項目です')
+    .typeError('数字を入力してください'),
   address: yup.string().required('必須項目です'),
 })
 const { errors, meta } = useForm({
@@ -35,6 +40,8 @@ const { errors, meta } = useForm({
 const { value: name, handleChange: handleChangeName } = useField('name')
 const { value: email, handleChange: handleChangeEmail } = useField('email')
 const { value: phone, handleChange: handleChangePhone } = useField('phone')
+const { value: postcode, handleChange: handleChangePostcode } =
+  useField('postcode')
 const { value: address, handleChange: handleChangeAddress } =
   useField('address')
 
@@ -113,6 +120,13 @@ const handleSubmit = () => {
       v-model="test"
       @update-is-valid="updateIsValidInputForm"
     />
+    <InputSlotForm label="郵便番号" :error-message="errors.postcode">
+      <input
+        v-model="postcode"
+        @blur="handleChangePostcode"
+        @input="handleChangePostcode"
+      />
+    </InputSlotForm>
     <div class="input-area">
       <label>住所</label>
       <input class="address" v-model="address" @blur="handleChangeAddress" />
