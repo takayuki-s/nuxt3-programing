@@ -129,7 +129,12 @@ const handleSubmit = () => {
     </InputSlotForm>
     <div class="input-area">
       <label>住所</label>
-      <input class="address" v-model="address" @blur="handleChangeAddress" />
+      <input
+        class="address"
+        v-model="address"
+        @blur="handleChangeAddress"
+        @input="handleChangePostcode"
+      />
       <p class="error-message">{{ errors.address }}</p>
     </div>
     {{ formData }}
