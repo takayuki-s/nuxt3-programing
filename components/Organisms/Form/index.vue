@@ -19,20 +19,20 @@ const emit = defineEmits<Emits>()
  * Validation
  */
 const schema = yup.object({
-  name: yup.string().required('必須項目です'),
+  name: yup.string().required('入力してください'),
   email: yup
     .string()
-    .required('必須項目です')
+    .required('入力してください')
     .email('メールアドレスの形式ではありません'),
   phone: yup
     .number()
-    .required('必須項目です')
+    .required('入力してください')
     .typeError('数字を入力してください'),
   postcode: yup
     .number()
-    .required('必須項目です')
+    .required('入力してください')
     .typeError('数字を入力してください'),
-  address: yup.string().required('必須項目です'),
+  address: yup.string().required('入力してください'),
 })
 const { errors, meta } = useForm({
   validationSchema: schema,
@@ -137,7 +137,6 @@ const handleSubmit = () => {
       />
       <p class="error-message">{{ errors.address }}</p>
     </div>
-    {{ formData }}
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
       :class="{ 'opacity-50 cursor-not-allowed hover:bg-blue-500': !isValid }"

@@ -21,7 +21,7 @@ const emit = defineEmits<Emits>()
 
 const createSchema = () => {
   return yup.object({
-    title: yup.string().required('必須項目です'),
+    title: yup.string().required('入力してください'),
   })
 }
 const schema = createSchema()
