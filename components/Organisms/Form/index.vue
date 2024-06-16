@@ -85,26 +85,27 @@ const handleSubmit = () => {
 <template>
   <div class="validation-form-field">
     <h1>バリデーションテスト（必須）</h1>
-    <InputForm
-      label="名前"
-      v-model="name"
-      :error-message="errors.name"
-      @handle-change="
-        (value) => {
-          handleChangeName(value)
-        }
-      "
-    />
-    <InputForm
-      label="メールアドレス"
-      v-model="email"
-      :error-message="errors.email"
-      @handle-change="
-        (value) => {
-          handleChangeEmail(value)
-        }
-      "
-    />
+    <InputSlotForm label="名前" :error-message="errors.name">
+      <input
+        v-model="name"
+        @blur="handleChangeName"
+        @input="handleChangeName"
+      />
+    </InputSlotForm>
+    <InputSlotForm label="メールアドレス" :error-message="errors.email">
+      <input
+        v-model="email"
+        @blur="handleChangeEmail"
+        @input="handleChangeEmail"
+      />
+    </InputSlotForm>
+    <InputSlotForm label="電話番号" :error-message="errors.phone">
+      <input
+        v-model="email"
+        @blur="handleChangePhone"
+        @input="handleChangePhone"
+      />
+    </InputSlotForm>
     <InputForm
       label="電話番号"
       v-model="phone"
