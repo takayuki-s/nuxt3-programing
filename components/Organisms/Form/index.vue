@@ -101,21 +101,11 @@ const handleSubmit = () => {
     </InputSlotForm>
     <InputSlotForm label="電話番号" :error-message="errors.phone">
       <input
-        v-model="email"
+        v-model="phone"
         @blur="handleChangePhone"
         @input="handleChangePhone"
       />
     </InputSlotForm>
-    <InputForm
-      label="電話番号"
-      v-model="phone"
-      :error-message="errors.phone"
-      @handle-change="
-        (value) => {
-          handleChangePhone(value)
-        }
-      "
-    />
     <InputFormWithValidation
       label="test"
       v-model="test"
