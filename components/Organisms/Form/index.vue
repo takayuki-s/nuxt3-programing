@@ -118,16 +118,14 @@ const handleSubmit = () => {
         @input="handleChangePostcode"
       />
     </InputSlotForm>
-    <div class="input-area">
-      <label>住所</label>
+    <InputSlotForm label="住所" :error-message="errors.address">
       <input
         class="address"
         v-model="address"
         @blur="handleChangeAddress"
-        @input="handleChangePostcode"
+        @input="handleChangeAddress"
       />
-      <p class="error-message">{{ errors.address }}</p>
-    </div>
+    </InputSlotForm>
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
       :class="{ 'opacity-50 cursor-not-allowed hover:bg-blue-500': !isValid }"
