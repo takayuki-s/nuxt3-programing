@@ -48,7 +48,6 @@ const { value: address, handleChange: handleChangeAddress } =
 /**
  * Refs
  */
-const test = ref<string>('')
 const isValidInputForm = ref(false)
 
 /**
@@ -63,7 +62,6 @@ const formData = computed(() => {
     name: name.value,
     email: email.value,
     phone: phone.value,
-    test: test.value,
     address: address.value,
   }
 })
@@ -71,9 +69,6 @@ const formData = computed(() => {
 /**
  * Methods
  */
-const updateIsValidInputForm = (emitIsValid: boolean) => {
-  isValidInputForm.value = emitIsValid
-}
 const handleSubmit = () => {
   if (!isValid.value) {
     return
