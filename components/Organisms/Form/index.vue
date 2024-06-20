@@ -56,7 +56,7 @@ const isValidInputForm = ref(false)
  */
 
 const isValid = computed(() => {
-  return isValidInputForm.value && meta.value.valid
+  return meta.value.valid
 })
 const formData = computed(() => {
   return {
@@ -106,11 +106,6 @@ const handleSubmit = () => {
         @input="handleChangePhone"
       />
     </InputSlotForm>
-    <InputFormWithValidation
-      label="test"
-      v-model="test"
-      @update-is-valid="updateIsValidInputForm"
-    />
     <InputSlotForm label="郵便番号" :error-message="errors.postcode">
       <input
         v-model="postcode"
