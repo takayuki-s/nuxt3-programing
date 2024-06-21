@@ -46,11 +46,6 @@ const { value: address, handleChange: handleChangeAddress } =
   useField('address')
 
 /**
- * Refs
- */
-const isValidInputForm = ref(false)
-
-/**
  * Computed
  */
 
