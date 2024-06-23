@@ -24,14 +24,8 @@ const schema = yup.object({
     .string()
     .required('入力してください')
     .email('メールアドレスの形式ではありません'),
-  phone: yup
-    .number()
-    .required('入力してください')
-    .typeError('数字を入力してください'),
-  postcode: yup
-    .number()
-    .required('入力してください')
-    .typeError('数字を入力してください'),
+  phone: yup.number().typeError('数字を入力してください'),
+  postcode: yup.number().typeError('数字を入力してください'),
   address: yup.string().required('入力してください'),
 })
 const { errors, meta } = useForm({
