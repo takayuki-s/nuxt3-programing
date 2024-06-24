@@ -30,7 +30,6 @@ const filteredEntryItemList = computed(() => {
 })
 const { data: zennArticles } = await useFetch(
   import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
-  { server: false },
 )
 console.log(zennArticles)
 </script>
