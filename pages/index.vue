@@ -51,7 +51,7 @@ console.log(zennArticles)
     </div>
     <Title text="Zenn 記事一覧" />
     <div class="p-5">
-      <ZennArticles :articles="zennArticles" />
+      <ZennArticles :articles="zennArticles.articles" />
     </div>
   </div>
 </template>
