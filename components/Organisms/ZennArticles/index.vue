@@ -5,7 +5,7 @@ type Props = {
 }
 const props = defineProps<Props>()
 
-const getZennUrl = (path) => {
+const getZennUrl = (path: string) => {
   return 'https://zenn.dev' + path
 }
 </script>
