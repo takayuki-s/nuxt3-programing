@@ -12,9 +12,11 @@ const getZennUrl = (path: string) => {
 
 <template>
   <p v-for="article in articles" :key="article.id">
-    <nuxt-link class="link" :to="getZennUrl(article.path)" target="_blank">{{
-      article.title
-    }}</nuxt-link>
+    <li>
+      <nuxt-link class="link" :to="getZennUrl(article.path)" target="_blank">{{
+        article.title
+      }}</nuxt-link>
+    </li>
   </p>
 </template>
 
