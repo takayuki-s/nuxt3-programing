@@ -51,7 +51,12 @@ console.log(zennArticles)
     </div>
     <Title text="Zenn 記事一覧" />
     <div class="p-5">
-      <ZennArticles :articles="zennArticles.articles" />
+      <ClientOnly>
+        <ZennArticles :articles="zennArticles.articles" />
+        <template #fallback>
+          <p>loading</p>
+        </template>
+      </ClientOnly>
     </div>
   </div>
 </template>
