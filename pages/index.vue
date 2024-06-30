@@ -49,7 +49,7 @@ console.log(zennArticles)
     <div class="p-5">
       <ProfileCard />
     </div>
-    <Title text="Zenn 記事一覧" />
+    <Title text="Zenn 新着記事" />
     <div class="p-5">
       <ClientOnly>
         <ZennArticles :articles="zennArticles.articles" />
