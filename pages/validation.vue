@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Form from '@/components/Organisms/Form/index.vue'
+import FormNew from '@/components/Organisms/FormNew/index.vue'
 
 /**
  * Refs
@@ -23,6 +24,7 @@ const submit = () => {
       @submit="submit"
       v-model="formData"
     />
+    <FormNew @submit="submit" />
   </div>
 </template>
 
