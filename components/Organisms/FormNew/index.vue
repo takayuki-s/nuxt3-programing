@@ -32,6 +32,14 @@ const { handleSubmit, meta } = useForm({
 const onSubmit = handleSubmit((values) => {
   alert(JSON.stringify(values, null, 2))
 })
+
+const formValue = ref({
+  name: '',
+  email: '',
+  phone: '',
+  postcode: '',
+  address: '',
+})
 </script>
 
 <template>
@@ -53,6 +61,7 @@ const onSubmit = handleSubmit((values) => {
       >
         Button
       </button>
+      <p>{{ formValue }}</p>
     </form>
   </div>
 </template>
@@ -62,11 +71,5 @@ const onSubmit = handleSubmit((values) => {
   display: flex;
   flex-direction: column;
   gap: 5px;
-
-  .input-area {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
 }
 </style>
