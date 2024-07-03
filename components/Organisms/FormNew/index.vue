@@ -46,11 +46,27 @@ const formValue = ref({
   <div>
     <h1>バリデーションテスト（必須）</h1>
     <form class="validation-form-field" @submit="onSubmit">
-      <InputText name="name" />
-      <InputText name="email" type="email" />
-      <InputText name="phone" />
-      <InputText name="postcode" />
-      <InputText name="address" />
+      <InputText
+        name="name"
+        @update-value="(value) => (formValue.name = value)"
+      />
+      <InputText
+        name="email"
+        type="email"
+        @update-value="(value) => (formValue.email = value)"
+      />
+      <InputText
+        name="phone"
+        @update-value="(value) => (formValue.phone = value)"
+      />
+      <InputText
+        name="postcode"
+        @update-value="(value) => (formValue.postcode = value)"
+      />
+      <InputText
+        name="address"
+        @update-value="(value) => (formValue.address = value)"
+      />
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
         :class="{
