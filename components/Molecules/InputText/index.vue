@@ -1,23 +1,27 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
 
-const props = defineProps({
-  name: String,
-  type: String,
-})
+type Props = {
+  name: string
+  type?: string
+}
+
+const props = defineProps<Props>()
 
 /**
  * Emit
  */
 type Emits = {
-  (e: 'updateValue', value: unknown | string): void
+  (e: 'updateValue', value: string): void
 }
 const emit = defineEmits<Emits>()
 
 const { value, errorMessage } = useField(() => props.name)
 
-const updateValue = (e) => {
-  emit('updateValue', e.target.value)
+const updateValue = (e: Event) => {
+  if (e.target instanceof HTMLInputElement) {
+    emit('updateValue', e.target.value)
+  }
 }
 </script>
 

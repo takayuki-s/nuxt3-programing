@@ -5,12 +5,34 @@ import * as yup from 'yup'
 import InputText from '@/components/Molecules/InputText/index.vue'
 
 /**
+ * Types
+ */
+type FormValue = {
+  name: string
+  email: string
+  phone: string
+  postcode: string
+  address: string
+}
+
+/**
  * Emits
  */
 type Emits = {
   (e: 'submit'): void
 }
 const emit = defineEmits<Emits>()
+
+/**
+ * Refs
+ */
+const formValue = ref<FormValue>({
+  name: '',
+  email: '',
+  phone: '',
+  postcode: '',
+  address: '',
+})
 
 /**
  * Validation
@@ -29,16 +51,11 @@ const { handleSubmit, meta } = useForm({
   validationSchema: schema,
 })
 
+/**
+ * Methods
+ */
 const onSubmit = handleSubmit((values) => {
   alert(JSON.stringify(values, null, 2))
-})
-
-const formValue = ref({
-  name: '',
-  email: '',
-  phone: '',
-  postcode: '',
-  address: '',
 })
 </script>
 
@@ -48,7 +65,7 @@ const formValue = ref({
     <form class="validation-form-field" @submit="onSubmit">
       <InputText
         name="name"
-        @update-value="(value) => (formValue.name = value)"
+        @update-value="(value: string) => (formValue.name = value)"
       />
       <InputText
         name="email"
