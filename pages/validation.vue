@@ -6,6 +6,7 @@ import FormNew from '@/components/Organisms/FormNew/index.vue'
  * Refs
  */
 const formData = ref<{}>({})
+const formDataNew = ref<{}>({})
 
 const updateFormData = (data: {}) => {
   formData.value = data
@@ -24,7 +25,7 @@ const submit = () => {
       @submit="submit"
       v-model="formData"
     />
-    <FormNew @submit="submit" />
+    <FormNew @submit="submit" v-model="formDataNew" />
   </div>
 </template>
 
