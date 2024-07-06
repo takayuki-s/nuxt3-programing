@@ -26,13 +26,7 @@ const emit = defineEmits<Emits>()
 /**
  * Refs
  */
-const formValue = ref<FormValue>({
-  name: '',
-  email: '',
-  phone: '',
-  postcode: '',
-  address: '',
-})
+const formValue = defineModel<FormValue>()
 
 /**
  * Validation
@@ -94,7 +88,6 @@ const onSubmit = handleSubmit((values) => {
       >
         Button
       </button>
-      <p>{{ formValue }}</p>
     </form>
   </div>
 </template>

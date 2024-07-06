@@ -2,11 +2,25 @@
 import Form from '@/components/Organisms/Form/index.vue'
 import FormNew from '@/components/Organisms/FormNew/index.vue'
 
+type FormValue = {
+  name: string
+  email: string
+  phone: string
+  postcode: string
+  address: string
+}
+
 /**
  * Refs
  */
 const formData = ref<{}>({})
-const formDataNew = ref<{}>({})
+const formValue = ref<FormValue>({
+  name: '',
+  email: '',
+  phone: '',
+  postcode: '',
+  address: '',
+})
 
 const updateFormData = (data: {}) => {
   formData.value = data
@@ -25,7 +39,8 @@ const submit = () => {
       @submit="submit"
       v-model="formData"
     />
-    <FormNew @submit="submit" v-model="formDataNew" />
+    <FormNew @submit="submit" v-model="formValue" />
+    {{ formValue }}
   </div>
 </template>
 
