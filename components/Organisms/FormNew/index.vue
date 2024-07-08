@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useForm, useFormValues } from 'vee-validate'
+import { useForm } from 'vee-validate'
 import * as yup from 'yup'
 
 import InputText from '@/components/Molecules/InputText/index.vue'
@@ -7,7 +7,7 @@ import InputText from '@/components/Molecules/InputText/index.vue'
 /**
  * Types
  */
-type FormValue = {
+type ModelValue = {
   name: string
   email: string
   phone: string
@@ -26,7 +26,7 @@ const emit = defineEmits<Emits>()
 /**
  * Refs
  */
-const modelValue = defineModel<FormValue>({ required: true })
+const modelValue = defineModel<ModelValue>({ required: true })
 
 /**
  * Validation
@@ -55,6 +55,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div>
+    {{ modelValue.name }}
     <h1>バリデーションテスト（必須）</h1>
     <form class="validation-form-field" @submit="onSubmit">
       <InputText
