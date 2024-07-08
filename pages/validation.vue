@@ -14,7 +14,7 @@ type FormValue = {
  * Refs
  */
 const formData = ref<{}>({})
-const formValue = ref<FormValue>({
+const formValue = ref({
   name: '',
   email: '',
   phone: '',
