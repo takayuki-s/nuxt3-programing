@@ -103,46 +103,51 @@ const isValidation = computed(() => {
             href="/"
             class="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
             :class="{ 'bg-gray-900': isRoot }"
-            ><NuxtLink to="/"
-              ><span class="link-text">TOP</span></NuxtLink
-            ></DisclosureButton
           >
+            <NuxtLink to="/">
+              <span class="link-text">TOP</span>
+            </NuxtLink>
+          </DisclosureButton>
           <DisclosureButton
             as="a"
             href="/contentful/list"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             :class="{ 'bg-gray-900': isList }"
-            ><NuxtLink to="/contentful/list"
-              ><span class="link-text">LIST</span></NuxtLink
-            ></DisclosureButton
           >
+            <NuxtLink to="/contentful/list">
+              <span class="link-text">LIST</span>
+            </NuxtLink>
+          </DisclosureButton>
           <DisclosureButton
             as="a"
             href="/about"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             :class="{ 'bg-gray-900': isAbout }"
-            ><NuxtLink to="/about"
-              ><span class="link-text">ABOUT</span></NuxtLink
-            ></DisclosureButton
           >
+            <NuxtLink to="/about">
+              <span class="link-text">ABOUT</span>
+            </NuxtLink>
+          </DisclosureButton>
           <DisclosureButton
             as="a"
             href="/test"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             :class="{ 'bg-gray-900': isTest }"
-            ><NuxtLink to="/test"
-              ><span class="link-text">TEST</span></NuxtLink
-            ></DisclosureButton
           >
+            <NuxtLink to="/test">
+              <span class="link-text">TEST</span>
+            </NuxtLink>
+          </DisclosureButton>
           <DisclosureButton
             as="a"
             href="/test"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             :class="{ 'bg-gray-900': isValidation }"
-            ><NuxtLink to="/validation"
-              ><span class="link-text">VALIDATION</span></NuxtLink
-            ></DisclosureButton
           >
+            <NuxtLink to="/validation">
+              <span class="link-text">VALIDATION</span>
+            </NuxtLink>
+          </DisclosureButton>
         </div>
       </DisclosurePanel>
     </Disclosure>
