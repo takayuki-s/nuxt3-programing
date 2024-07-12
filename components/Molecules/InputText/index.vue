@@ -3,6 +3,7 @@ import { useField } from 'vee-validate'
 
 type Props = {
   name: string
+  label: string
   type?: string
 }
 
@@ -26,6 +27,7 @@ const updateValue = (e: Event) => {
 </script>
 
 <template>
+  <label>{{ props.label }}</label>
   <input
     class="input"
     v-model="value"

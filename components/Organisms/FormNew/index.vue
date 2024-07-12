@@ -59,23 +59,28 @@ const onSubmit = handleSubmit((values) => {
     <h1>バリデーションテスト（必須）</h1>
     <form class="validation-form-field" @submit="onSubmit">
       <InputText
+        label="名前"
         name="name"
         @update-value="(value: string) => (modelValue.name = value)"
       />
       <InputText
+        label="メールアドレス"
         name="email"
         type="email"
         @update-value="(value) => (modelValue.email = value)"
       />
       <InputText
+        label="電話番号"
         name="phone"
         @update-value="(value) => (modelValue.phone = value)"
       />
       <InputText
+        label="郵便番号"
         name="postcode"
         @update-value="(value) => (modelValue.postcode = value)"
       />
       <InputText
+        label="住所"
         name="address"
         @update-value="(value) => (modelValue.address = value)"
       />
