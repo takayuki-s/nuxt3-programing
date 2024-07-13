@@ -29,6 +29,7 @@ const updateFormData = (data: {}) => {
 const submit = () => {
   console.log('submit')
   console.log(formData.value)
+  console.log(formValue.value)
 }
 </script>
 

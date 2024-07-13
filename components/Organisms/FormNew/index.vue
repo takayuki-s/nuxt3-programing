@@ -50,6 +50,7 @@ const { handleSubmit, meta } = useForm({
  */
 const onSubmit = handleSubmit((values) => {
   alert(JSON.stringify(values, null, 2))
+  emit('submit')
 })
 </script>
 
