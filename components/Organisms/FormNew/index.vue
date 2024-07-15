@@ -56,7 +56,6 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div>
-    {{ modelValue.name }}
     <h1>バリデーションテスト（必須）</h1>
     <form class="validation-form-field" @submit="onSubmit">
       <InputText

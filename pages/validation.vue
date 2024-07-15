@@ -41,7 +41,6 @@ const submit = () => {
       v-model="formData"
     />
     <FormNew @submit="submit" v-model="formValue" />
-    {{ formValue }}
   </div>
 </template>
 
