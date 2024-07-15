@@ -60,6 +60,7 @@
     "storybook": "^7.4.6",
     "vee-validate": "^4.12.6",
     "vue-dompurify-html": "^4.1.4",
+    "vue-i18n": "^9.13.1",
     "yup": "^1.4.0"
   },
   "msw": {
