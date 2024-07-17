@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     { src: '@/plugins/prism' },
   ],
   css: ['/assets/css/style.css'],
-  modules: ['@nuxtjs/tailwindcss', 'radix-vue/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', 'radix-vue/nuxt', '@nuxtjs/i18n'],
   vite: {
     vue: {
       script: {
@@ -15,5 +15,10 @@ export default defineNuxtConfig({
         propsDestructure: true,
       },
     },
+  },
+  i18n: {
+    strategy: 'prefix_except_default',
+    defaultLocale: 'ja',
+    locales: ['ja', 'en'],
   },
 })
