@@ -42,6 +42,7 @@ const submit = () => {
     />
     <FormNew @submit="submit" v-model="formValue" />
     {{ $t('welcome') }}
+    {{ $t('test') }}
   </div>
 </template>
 
