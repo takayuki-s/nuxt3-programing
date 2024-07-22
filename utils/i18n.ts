@@ -11,3 +11,7 @@ export const setLocale = (locale: string) => {
   }
   localStorage.setItem(LOCAL_STORAGE_KEY, locale)
 }
+
+export const getLocale = (locale: string) => {
+  return localStorage.getItem(LOCAL_STORAGE_KEY)
+}
