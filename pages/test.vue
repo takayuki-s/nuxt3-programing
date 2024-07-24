@@ -9,6 +9,7 @@ import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
 import Async from '@/components/Organisms/Async.vue'
+import { setLocale } from '@/utils/i18n'
 
 /**
  * Refs
@@ -72,6 +73,9 @@ const updateValue = (inputValue: number | string) => {
     <div>
       <Switch />
     </div>
+    <button @click="setLocale('ja')">locale: ja</button>
+    <button @click="setLocale('en')">locale: en</button>
+    <div>{{ $t('test') }}</div>
   </main>
 </template>
 
