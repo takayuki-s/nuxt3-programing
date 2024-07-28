@@ -17,5 +17,5 @@ export const getLocale = () => {
 }
 
 export const setInitialLocale = () => {
-  return 'ja'
+  return getLocale() || 'ja'
 }

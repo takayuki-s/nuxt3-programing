@@ -73,6 +73,9 @@ const updateValue = (inputValue: number | string) => {
     <div>
       <Switch />
     </div>
+    <button @click="saveLocale('ja')">locale: ja</button>
+    <button @click="saveLocale('en')">locale: en</button>
+    <div>{{ $t('test') }}</div>
   </main>
 </template>
 
