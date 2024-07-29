@@ -8,6 +8,7 @@ import DatePicker from '@/components/Molecules/DatePicker/index.vue'
 import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
+import NavigationMenu from '@/components/Molecules/NavigationMenu/index.vue'
 import Async from '@/components/Organisms/Async.vue'
 import { saveLocale } from '@/utils/i18n'
 
@@ -76,6 +77,9 @@ const updateValue = (inputValue: number | string) => {
     <button @click="saveLocale('ja')">locale: ja</button>
     <button @click="saveLocale('en')">locale: en</button>
     <div>{{ $t('test') }}</div>
+    <div>
+      <NavigationMenu />
+    </div>
   </main>
 </template>
 

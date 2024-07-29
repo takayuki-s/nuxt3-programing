@@ -11,9 +11,9 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from 'radix-vue'
-import './styles.css'
+// import './styles.css'
 
-import NavigationMenuListItem from './NavigationMenuListItem.vue'
+import NavigationMenuListItem from './listitem.vue'
 
 const currentTrigger = ref('')
 </script>
