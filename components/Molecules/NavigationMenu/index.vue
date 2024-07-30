@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from 'radix-vue'
-// import './styles.css'
+import './style.css'
 
 import NavigationMenuListItem from './listitem.vue'
 
