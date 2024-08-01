@@ -28,16 +28,8 @@ const currentTrigger = ref('')
         </NavigationMenuTrigger>
         <NavigationMenuContent class="NavigationMenuContent">
           <ul class="List two">
-            <NavigationMenuListItem
-              title="Introduction"
-              href="/docs/primitives/overview/introduction"
-            >
-            </NavigationMenuListItem>
-            <NavigationMenuListItem
-              title="Getting started"
-              href="/docs/primitives/overview/getting-started"
-            >
-            </NavigationMenuListItem>
+            <NavigationMenuListItem title="日本語"> </NavigationMenuListItem>
+            <NavigationMenuListItem title="English"> </NavigationMenuListItem>
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
