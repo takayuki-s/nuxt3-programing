@@ -20,3 +20,9 @@ const props = defineProps({
     </NavigationMenuLink>
   </li>
 </template>
+
+<style scoped>
+.ListItemHeading {
+  cursor: pointer;
+}
+</style>
