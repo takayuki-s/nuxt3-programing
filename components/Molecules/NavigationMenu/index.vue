@@ -5,7 +5,6 @@ import {
   NavigationMenuContent,
   NavigationMenuIndicator,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuRoot,
   NavigationMenuTrigger,
@@ -14,6 +13,8 @@ import {
 import './style.css'
 
 import NavigationMenuListItem from './listitem.vue'
+
+import { saveLocale } from '@/utils/i18n'
 
 const currentTrigger = ref('')
 </script>
@@ -28,10 +29,8 @@ const currentTrigger = ref('')
         </NavigationMenuTrigger>
         <NavigationMenuContent class="NavigationMenuContent">
           <ul class="List two">
-            <NavigationMenuListItem title="日本語" @click="saveLocale('ja')">
-            </NavigationMenuListItem>
-            <NavigationMenuListItem title="English" @click="saveLocale('en')">
-            </NavigationMenuListItem>
+            <NavigationMenuListItem title="日本語" @click="saveLocale('ja')" />
+            <NavigationMenuListItem title="English" @click="saveLocale('en')" />
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>

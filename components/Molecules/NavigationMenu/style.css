@@ -152,7 +152,7 @@ p {
   .List.two {
     width: 200px;
     grid-auto-flow: column;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 
