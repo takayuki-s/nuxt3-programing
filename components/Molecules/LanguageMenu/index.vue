@@ -24,7 +24,7 @@ const currentTrigger = ref('')
     <NavigationMenuList class="NavigationMenuList">
       <NavigationMenuItem>
         <NavigationMenuTrigger class="NavigationMenuTrigger">
-          Overview
+          Language
           <Icon icon="radix-icons:caret-down" class="CaretDown" />
         </NavigationMenuTrigger>
         <NavigationMenuContent class="NavigationMenuContent">
