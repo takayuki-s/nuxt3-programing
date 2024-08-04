@@ -28,8 +28,10 @@ const currentTrigger = ref('')
         </NavigationMenuTrigger>
         <NavigationMenuContent class="NavigationMenuContent">
           <ul class="List two">
-            <NavigationMenuListItem title="日本語"> </NavigationMenuListItem>
-            <NavigationMenuListItem title="English"> </NavigationMenuListItem>
+            <NavigationMenuListItem title="日本語" @click="saveLocale('ja')">
+            </NavigationMenuListItem>
+            <NavigationMenuListItem title="English" @click="saveLocale('en')">
+            </NavigationMenuListItem>
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
