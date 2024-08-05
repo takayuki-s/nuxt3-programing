@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import LanguageMenu from '@/components/Molecules/LanguageMenu/index.vue'
+
 const route = useRoute()
 
 const isRoot = computed(() => {
@@ -39,7 +41,7 @@ const isValidation = computed(() => {
               />
             </div>
             <div class="hidden sm:ml-6 sm:block">
-              <div class="flex space-x-4">
+              <div class="items-center justify-between">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <NuxtLink
                   to="/"
@@ -75,6 +77,8 @@ const isValidation = computed(() => {
               </div>
             </div>
           </div>
+          <LanguageMenu />
+
           <div class="-mr-2 flex sm:hidden">
             <!-- Mobile menu button -->
             <ClientOnly>
