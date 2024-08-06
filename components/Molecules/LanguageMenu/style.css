@@ -146,17 +146,16 @@ p {
 }
 @media only screen and (min-width: 600px) {
   .List.one {
-    width: 200px;
     grid-template-columns: 0.75fr 1fr;
   }
   .List.two {
-    width: 200px;
     grid-auto-flow: column;
     grid-template-rows: repeat(2, 1fr);
   }
 }
 
 .ListItemLink {
+  width: 100%;
   display: block;
   outline: none;
   text-decoration: none;
