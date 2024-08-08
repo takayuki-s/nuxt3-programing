@@ -10,6 +10,7 @@ export const saveLocale = (locale: string) => {
     return
   }
   localStorage.setItem(LOCAL_STORAGE_KEY, locale)
+  location.reload()
 }
 
 export const getLocale = () => {
