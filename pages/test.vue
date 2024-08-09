@@ -8,9 +8,7 @@ import DatePicker from '@/components/Molecules/DatePicker/index.vue'
 import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
-import LanguageMenu from '@/components/Molecules/LanguageMenu/index.vue'
 import Async from '@/components/Organisms/Async.vue'
-import { saveLocale } from '@/utils/i18n'
 
 /**
  * Refs
@@ -74,7 +72,6 @@ const updateValue = (inputValue: number | string) => {
     <div>
       <Switch />
     </div>
-    <div>{{ $t('test') }}</div>
   </main>
 </template>
 
