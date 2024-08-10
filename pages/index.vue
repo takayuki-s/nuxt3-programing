@@ -51,7 +51,8 @@ const { data: zennArticles } = await useFetch(
     <Title text="Zenn 新着記事" />
     <div class="p-5">
       <ClientOnly>
-        <ZennArticles :articles="zennArticles.articles" />
+        <ZennArticles v-if="zennArticles" :articles="zennArticles.articles" />
+        <div v-else>記事の取得に失敗しました</div>
         <template #fallback>
           <p>loading</p>
         </template>
