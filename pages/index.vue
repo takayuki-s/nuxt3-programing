@@ -29,13 +29,9 @@ const filteredEntryItemList = computed(() => {
     )
   })
 })
-// const { data: zennArticles } = await useFetch(
-//   import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
-// )
-// onMounted(async () => {
-//   const { data } = await useFetch(import.meta.env.VITE_ZENN_ARTICLES_FETCH_API)
-//   console.log(data)
-// })
+const { data: zennArticles } = await useFetch(
+  import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
+)
 </script>
 
 <template>
