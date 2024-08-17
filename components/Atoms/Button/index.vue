@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'MyButton',
+  name: 'Button',
   props: {
     text: {
       type: String,
