@@ -1,9 +1,3 @@
-<template>
-  <div class="button-style" :class="colorSelector()">
-    <div class="button">{{ text }}</div>
-  </div>
-</template>
-
 <script>
 import { defineComponent } from 'vue'
 
@@ -36,6 +30,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div class="button-style" :class="colorSelector()">
+    <div class="button">{{ text }}</div>
+  </div>
+</template>
 
 <style>
 .button {

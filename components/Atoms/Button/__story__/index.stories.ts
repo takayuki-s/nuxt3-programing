@@ -20,8 +20,5 @@ export const Primary: Story = {
     },
     template: '<Button v-bind="args" />',
   }),
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+  args: {},
 }
