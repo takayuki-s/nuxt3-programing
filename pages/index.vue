@@ -29,9 +29,33 @@ const filteredEntryItemList = computed(() => {
     )
   })
 })
-const { data: zennArticles } = await useFetch(
-  import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
-)
+// const { data: zennArticles } = await useFetch(
+//   import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
+// )
+
+const fetchData = async () => {
+  try {
+    const response = await fetch(import.meta.env.VITE_ZENN_ARTICLES_FETCH_API, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+    })
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+
+    const zennArticles = await response.json()
+    console.log(zennArticles)
+    return zennArticles
+  } catch (error) {
+    console.error('Fetch error:', error)
+  }
+}
+
+fetchData()
 </script>
 
 <template>
