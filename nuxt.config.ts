@@ -16,5 +16,13 @@ export default defineNuxtConfig({
         propsDestructure: true,
       },
     },
+    server: {
+      proxy: {
+        '/api/': {
+          target: process.env.PROXY_API_URL,
+          secure: false,
+        },
+      },
+    },
   },
 })
