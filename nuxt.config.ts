@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     },
     server: {
       proxy: {
-        '/api/': {
+        'https://zenn.dev/api/': {
           target: process.env.PROXY_API_URL,
           secure: false,
         },
