@@ -61,7 +61,7 @@ const onSubmit = handleSubmit((values) => {
       <InputText
         label="名前"
         name="name"
-        @update-value="(value: string) => (modelValue.name = value)"
+        @update-value="(value) => (modelValue.name = value)"
       />
       <InputText
         label="メールアドレス"
