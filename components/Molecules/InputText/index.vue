@@ -20,6 +20,7 @@ const emit = defineEmits<Emits>()
 const { value, errorMessage } = useField(() => props.name)
 
 const updateValue = (e: Event) => {
+  console.log('updateValue')
   if (e.target instanceof HTMLInputElement) {
     emit('updateValue', e.target.value)
   }
@@ -33,6 +34,7 @@ const updateValue = (e: Event) => {
     v-model="value"
     :type="type || 'text'"
     @input="updateValue"
+    @blur="updateValue"
   />
   <span class="error-message">{{ errorMessage }}</span>
 </template>
