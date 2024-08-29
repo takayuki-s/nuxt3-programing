@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import FileButton from '@/components/Atoms/FIleButton.vue'
+import FileButton from '~/components/Atoms/FileButton/index.vue'
 import InputNum from '@/components/Molecules/InputNum/index.vue'
 import Accordion from '@/components/Molecules/Accordion/index.vue'
 import Combobox from '@/components/Molecules/Combobox/index.vue'
