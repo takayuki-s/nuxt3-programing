@@ -39,6 +39,7 @@ const inputElement = ref<HTMLInputElement | null>(null)
   <input
     ref="inputElement"
     type="file"
+    class="input"
     :accept="props.accept"
     :readonly="props.readonly"
     :disabled="props.disabled"
