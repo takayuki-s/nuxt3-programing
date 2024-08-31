@@ -43,6 +43,7 @@ export default defineComponent({
   width: auto;
   text-align: center;
   vertical-align: baseline;
+  cursor: pointer;
 }
 .button-style {
   padding: 10px 20px;
