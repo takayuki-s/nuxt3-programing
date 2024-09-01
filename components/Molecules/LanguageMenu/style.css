@@ -170,6 +170,7 @@ p {
 }
 .ListItemLink:hover {
   background-color: var(--mauve-3);
+  cursor: pointer;
 }
 
 .ListItemHeading {
