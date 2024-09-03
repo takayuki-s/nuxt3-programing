@@ -29,9 +29,9 @@ const filteredEntryItemList = computed(() => {
     )
   })
 })
-const { data: zennArticles } = await useFetch(
-  import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
-)
+// const { data: zennArticles } = await useFetch(
+//   import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
+// )
 </script>
 
 <template>
@@ -48,7 +48,7 @@ const { data: zennArticles } = await useFetch(
     <div class="p-5">
       <ProfileCard />
     </div>
-    <Title text="Zenn 新着記事" />
+    <!-- <Title text="Zenn 新着記事" />
     <div class="p-5">
       <ClientOnly>
         <ZennArticles v-if="zennArticles" :articles="zennArticles.articles" />
@@ -57,6 +57,6 @@ const { data: zennArticles } = await useFetch(
           <p>loading</p>
         </template>
       </ClientOnly>
-    </div>
+    </div> -->
   </div>
 </template>
