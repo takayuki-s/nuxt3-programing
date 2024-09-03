@@ -7,8 +7,8 @@ import Title from '@/components/Atoms/Title/index.vue'
     <Title text="ABOUTページ" />
     <div class="flex justify-center p-5">
       <div class="profile">
-        <p>こんにちは、てけです</p>
-        <p>自分の経歴を簡単に紹介します！</p>
+        <p>{{ $t('about.greeting_1') }}</p>
+        <p>{{ $t('about.greeting_2') }}</p>
       </div>
     </div>
   </div>
