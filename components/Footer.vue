@@ -7,7 +7,7 @@
           Reserved.
         </span>
         <div class="flex mt-4 sm:justify-center sm:mt-0">
-          <a
+          <!-- <a
             href="#"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
@@ -99,7 +99,7 @@
               />
             </svg>
             <span class="sr-only">Dribbble account</span>
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
