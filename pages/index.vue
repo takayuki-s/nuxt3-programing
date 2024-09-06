@@ -2,7 +2,7 @@
 import Title from '@/components/Atoms/Title/index.vue'
 import TopPicture from '@/components/Organisms/TopPicture/index.vue'
 import postList from '@/components/Organisms/ContentfulPostList/index.vue'
-import ZennArticles from '@/components/Organisms/ZennArticles/index.vue'
+// import ZennArticles from '@/components/Organisms/ZennArticles/index.vue'
 import ProfileCard from '@/components/Molecules/ProfileCard/index.vue'
 import { fetchEntriesByContentful } from '@/api/contentful'
 import { IBlogPageFields } from '~/@types/generated/contentful'
