@@ -29,15 +29,6 @@ const updateValue = (inputValue: number | string) => {
 
 <template>
   <main class="p-5 flex flex-col gap-3">
-    <h1>message</h1>
-    <Suspense timeout="0">
-      <template #default>
-        <Async />
-      </template>
-      <template #fallback>
-        <div>loading</div>
-      </template>
-    </Suspense>
     <p>Parent component value is: {{ value }}</p>
     <InputNum
       class="w-1/4"
