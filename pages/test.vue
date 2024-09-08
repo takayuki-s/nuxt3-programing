@@ -29,12 +29,6 @@ const updateValue = (inputValue: number | string) => {
 
 <template>
   <main class="p-5 flex flex-col gap-3">
-    <p>Parent component value is: {{ value }}</p>
-    <InputNum
-      class="w-1/4"
-      :value="value"
-      @update-value="(inputValue) => updateValue(inputValue)"
-    />
     <p>Parent component valueWithDefineModel is: {{ valueWithDefineModel }}</p>
     <InputNumDefineModel v-model="valueWithDefineModel" />
     <div>
