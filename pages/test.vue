@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import FileButton from '~/components/Atoms/FileButton/index.vue'
-import InputNum from '@/components/Molecules/InputNum/index.vue'
 import Accordion from '@/components/Molecules/Accordion/index.vue'
 import Combobox from '@/components/Molecules/Combobox/index.vue'
 import Progress from '@/components/Molecules/Progress/index.vue'
@@ -9,7 +8,6 @@ import DatePicker from '@/components/Molecules/DatePicker/index.vue'
 import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
-import Async from '@/components/Organisms/Async.vue'
 
 /**
  * Refs
