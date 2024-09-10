@@ -12,17 +12,9 @@ import Switch from '@/components/Molecules/Switch/index.vue'
 /**
  * Refs
  */
-const value = ref<number | string>('')
 const valueWithDefineModel = ref<number | string>('')
 const name = ref('')
 const username = ref('')
-
-/**
- * Methods
- */
-const updateValue = (inputValue: number | string) => {
-  value.value = inputValue
-}
 </script>
 
 <template>
