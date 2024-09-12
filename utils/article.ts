@@ -12,6 +12,13 @@ const JapaneseTranslations: JapaneseTranslationsType = {
   test: 'テスト',
 }
 
+// EnglishTranslationsオブジェクト
+const EnglishTranslations: JapaneseTranslationsType = {
+  cafe: 'cafe',
+  kyoto: 'kyoto',
+  test: 'test',
+}
+
 // displayTagName関数
 export const displayTagName = (id: string) => {
   return JapaneseTranslations[id as keyof JapaneseTranslationsType]
