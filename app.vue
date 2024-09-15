@@ -1,7 +1,7 @@
 <script setup>
 useSeoMeta({
-  title: 'Meet Nuxt',
-  description: 'The Intuitive Vue Framework.',
+  title: 'nuxt blog',
+  description: 'The blog',
 })
 </script>
 
