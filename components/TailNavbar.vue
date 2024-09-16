@@ -34,11 +34,12 @@ const isValidation = computed(() => {
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img
-                class="h-8 w-auto rounded-full"
-                src="@/assets/images/logo.png"
-                alt="Your Company"
-              />
+              <NuxtLink to="/">
+                <img
+                  class="h-8 w-auto rounded-full"
+                  src="@/assets/images/logo.png"
+                  alt="Your Company"
+              /></NuxtLink>
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <div class="items-center justify-between">
