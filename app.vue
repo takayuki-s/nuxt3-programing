@@ -1,6 +1,6 @@
 <script setup>
 useSeoMeta({
-  title: 'nuxt blog',
+  title: 'てけブログ',
   description: 'Teke blog',
 })
 </script>
