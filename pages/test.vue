@@ -52,12 +52,14 @@ const open = ref(false)
       <FileButton />
     </div>
     <button @click="open = true">Open Modal</button>
-    <Teleport to="#teleports">
-      <div v-if="open" class="modal">
-        <p>Hello from the modal!</p>
-        <button @click="open = false">Close</button>
-      </div>
-    </Teleport>
+    <ClientOnly>
+      <Teleport to="#teleports">
+        <div v-if="open" class="modal">
+          <p>Hello from the modal!</p>
+          <button @click="open = false">Close</button>
+        </div>
+      </Teleport>
+    </ClientOnly>
   </main>
 </template>
 
