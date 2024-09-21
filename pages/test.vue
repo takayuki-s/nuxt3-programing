@@ -15,6 +15,7 @@ import Switch from '@/components/Molecules/Switch/index.vue'
 const valueWithDefineModel = ref<number | string>('')
 const name = ref('')
 const username = ref('')
+const open = ref(false)
 </script>
 
 <template>
@@ -50,7 +51,19 @@ const username = ref('')
     <div>
       <FileButton />
     </div>
+    <button @click="open = true">Open Modal</button>
+    <Teleport to="#teleports">
+      <div v-if="open" class="modal">
+        <p>Hello from the modal!</p>
+        <button @click="open = false">Close</button>
+      </div>
+    </Teleport>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.modal {
+  width: 400px;
+  height: 400px;
+}
+</style>
