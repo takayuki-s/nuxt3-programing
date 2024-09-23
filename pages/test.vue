@@ -8,6 +8,7 @@ import DatePicker from '@/components/Molecules/DatePicker/index.vue'
 import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
+import { TZDate } from '@date-fns/tz'
 
 /**
  * Refs
@@ -16,6 +17,12 @@ const valueWithDefineModel = ref<number | string>('')
 const name = ref('')
 const username = ref('')
 const open = ref(false)
+
+/**
+ * Methods
+ */
+const date = new Date()
+const SingaporeDate = new TZDate(new Date(), 'Asia/Singapore')
 </script>
 
 <template>
@@ -60,6 +67,11 @@ const open = ref(false)
         </div>
       </Teleport>
     </ClientOnly>
+    <div class="flex flex-col">
+      <p>TimeZone</p>
+      <p>date: {{ date }}</p>
+      <p>SingaporeDate: {{ SingaporeDate }}</p>
+    </div>
   </main>
 </template>
 
