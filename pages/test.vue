@@ -9,6 +9,7 @@ import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
 import { TZDate } from '@date-fns/tz'
+import { format } from 'date-fns'
 
 /**
  * Refs
@@ -19,10 +20,12 @@ const username = ref('')
 const open = ref(false)
 
 /**
- * Methods
+ * Constants
  */
 const date = new Date()
+const formattedDate = format(date, 'yyyy/MM/dd HH:mm')
 const SingaporeDate = new TZDate(new Date(), 'Asia/Singapore')
+const formattedSingaporeDate = format(SingaporeDate, 'yyyy/MM/dd HH:mm')
 </script>
 
 <template>
@@ -70,7 +73,9 @@ const SingaporeDate = new TZDate(new Date(), 'Asia/Singapore')
     <div class="flex flex-col">
       <p>TimeZone</p>
       <p>date: {{ date }}</p>
+      <p>formattedDate: {{ formattedDate }}</p>
       <p>SingaporeDate: {{ SingaporeDate }}</p>
+      <p>formattedSingaporeDate: {{ formattedSingaporeDate }}</p>
     </div>
   </main>
 </template>
