@@ -53,6 +53,7 @@
     "contentful": "^10.6.21",
     "contentful-management": "^11.7.0",
     "contentful-typescript-codegen": "^3.4.0",
+    "date-fns": "^4.1.0",
     "highlight.js": "^11.9.0",
     "marked": "^12.0.0",
     "marked-highlight": "^2.1.1",
