@@ -9,7 +9,7 @@ import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
 import { TZDate } from '@date-fns/tz'
-import { format } from 'date-fns'
+import { format, compareAsc } from 'date-fns'
 import { addHours } from 'date-fns'
 
 /**
@@ -28,6 +28,12 @@ const addHoursDate = addHours(date, 2).toString()
 const formattedDate = format(date, 'yyyy/MM/dd HH:mm')
 const SingaporeDate = new TZDate(new Date(), 'Asia/Singapore')
 const formattedSingaporeDate = format(SingaporeDate, 'yyyy/MM/dd HH:mm')
+const dates = [
+  new Date(1995, 6, 2),
+  new Date(1987, 1, 11),
+  new Date(1989, 6, 10),
+]
+const sortedDates = dates.sort(compareAsc)
 </script>
 
 <template>
@@ -79,6 +85,7 @@ const formattedSingaporeDate = format(SingaporeDate, 'yyyy/MM/dd HH:mm')
       <p>addHoursDate: {{ addHoursDate }}</p>
       <p>SingaporeDate: {{ SingaporeDate }}</p>
       <p>formattedSingaporeDate: {{ formattedSingaporeDate }}</p>
+      <p>sortedDates: {{ sortedDates }}</p>
     </div>
   </main>
 </template>
