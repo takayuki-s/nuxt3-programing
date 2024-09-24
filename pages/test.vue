@@ -10,6 +10,7 @@ import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
 import { TZDate } from '@date-fns/tz'
 import { format } from 'date-fns'
+import { addHours } from 'date-fns'
 
 /**
  * Refs
@@ -23,6 +24,7 @@ const open = ref(false)
  * Constants
  */
 const date = new Date()
+const addHoursDate = addHours(date, 2).toString()
 const formattedDate = format(date, 'yyyy/MM/dd HH:mm')
 const SingaporeDate = new TZDate(new Date(), 'Asia/Singapore')
 const formattedSingaporeDate = format(SingaporeDate, 'yyyy/MM/dd HH:mm')
@@ -74,6 +76,7 @@ const formattedSingaporeDate = format(SingaporeDate, 'yyyy/MM/dd HH:mm')
       <p>TimeZone</p>
       <p>date: {{ date }}</p>
       <p>formattedDate: {{ formattedDate }}</p>
+      <p>addHoursDate: {{ addHoursDate }}</p>
       <p>SingaporeDate: {{ SingaporeDate }}</p>
       <p>formattedSingaporeDate: {{ formattedSingaporeDate }}</p>
     </div>
