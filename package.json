@@ -51,6 +51,7 @@
     "@radix-ui/colors": "^3.0.0",
     "@storybook/builder-vite": "^7.4.6",
     "@storybook/vue3": "^7.4.6",
+    "axios": "^1.7.7",
     "contentful": "^10.6.21",
     "contentful-management": "^11.7.0",
     "contentful-typescript-codegen": "^3.4.0",
