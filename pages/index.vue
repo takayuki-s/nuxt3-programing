@@ -6,6 +6,7 @@ import postList from '@/components/Organisms/ContentfulPostList/index.vue'
 import ProfileCard from '@/components/Molecules/ProfileCard/index.vue'
 import { fetchEntriesByContentful } from '@/api/contentful'
 import { IBlogPageFields } from '~/@types/generated/contentful'
+import axios from 'axios'
 
 type Tags = {
   sys: {
@@ -32,6 +33,19 @@ const filteredEntryItemList = computed(() => {
 // const { data: zennArticles } = await useFetch(
 //   import.meta.env.VITE_ZENN_ARTICLES_FETCH_API,
 // )
+axios
+  .get(import.meta.env.VITE_ZENN_ARTICLES_FETCH_API)
+  .then(function (response) {
+    // handle success
+    console.log(response)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error)
+  })
+  .finally(function () {
+    // always executed
+  })
 </script>
 
 <template>
