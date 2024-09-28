@@ -35,15 +35,15 @@ const filteredEntryItemList = computed(() => {
 // )
 axios
   .get(import.meta.env.VITE_ZENN_ARTICLES_FETCH_API)
-  .then(function (response) {
+  .then((response) => {
     // handle success
     console.log(response)
   })
-  .catch(function (error) {
+  .catch((error) => {
     // handle error
     console.log(error)
   })
-  .finally(function () {
+  .finally(() => {
     // always executed
   })
 </script>
