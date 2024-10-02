@@ -8,7 +8,12 @@ export default defineNuxtConfig({
     { src: '@/plugins/prism' },
   ],
   css: ['/assets/css/style.css'],
-  modules: ['@nuxtjs/tailwindcss', 'radix-vue/nuxt', '@nuxtjs/i18n'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'radix-vue/nuxt',
+    '@nuxtjs/i18n',
+    '@pinia/nuxt',
+  ],
   vite: {
     vue: {
       script: {
