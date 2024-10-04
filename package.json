@@ -53,6 +53,7 @@
     "@storybook/builder-vite": "^7.4.6",
     "@storybook/vue3": "^7.4.6",
     "axios": "^1.7.7",
+    "chart.js": "^4.4.4",
     "contentful": "^10.6.21",
     "contentful-management": "^11.7.0",
     "contentful-typescript-codegen": "^3.4.0",
@@ -64,6 +65,7 @@
     "radix-vue": "^1.7.4",
     "storybook": "^7.4.6",
     "vee-validate": "^4.12.6",
+    "vue-chartjs": "^5.3.1",
     "vue-dompurify-html": "^4.1.4",
     "yup": "^1.4.0"
   },
