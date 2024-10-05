@@ -11,6 +11,7 @@ import Switch from '@/components/Molecules/Switch/index.vue'
 import { TZDate } from '@date-fns/tz'
 import { format, compareAsc } from 'date-fns'
 import { addHours } from 'date-fns'
+import { Bar } from 'vue-chartjs'
 
 /**
  * Refs
