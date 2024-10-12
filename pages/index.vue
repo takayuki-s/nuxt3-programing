@@ -5,7 +5,7 @@ import postList from '@/components/Organisms/ContentfulPostList/index.vue'
 // import ZennArticles from '@/components/Organisms/ZennArticles/index.vue'
 import ProfileCard from '@/components/Molecules/ProfileCard/index.vue'
 import { fetchEntriesByContentful } from '@/api/contentful'
-import { IBlogPageFields } from '~/@types/generated/contentful'
+import type { IBlogPageFields } from '~/@types/generated/contentful'
 
 type Tags = {
   sys: {
