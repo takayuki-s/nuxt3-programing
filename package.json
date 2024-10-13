@@ -61,6 +61,7 @@
     "highlight.js": "^11.9.0",
     "marked": "^12.0.0",
     "marked-highlight": "^2.1.1",
+    "pinia": "^2.2.4",
     "prismjs": "^1.29.0",
     "radix-vue": "^1.7.4",
     "storybook": "^7.4.6",
@@ -71,5 +72,8 @@
   },
   "msw": {
     "workerDirectory": "public"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
