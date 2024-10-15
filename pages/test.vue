@@ -11,6 +11,8 @@ import Switch from '@/components/Molecules/Switch/index.vue'
 import { TZDate } from '@date-fns/tz'
 import { format, compareAsc } from 'date-fns'
 import { addHours } from 'date-fns'
+import { useCounterStore } from '@/stores/Counter'
+import { storeToRefs } from 'pinia'
 
 /**
  * Refs
@@ -19,6 +21,14 @@ const valueWithDefineModel = ref<number | string>('')
 const name = ref('')
 const username = ref('')
 const open = ref(false)
+
+/**
+ * Stores
+ */
+const counter = useCounterStore()
+const counterStore = useCounterStore()
+const { increment } = counterStore
+const { count } = storeToRefs(counterStore)
 
 /**
  * Constants
@@ -86,6 +96,11 @@ const sortedDates = dates.sort(compareAsc)
       <p>SingaporeDate: {{ SingaporeDate }}</p>
       <p>formattedSingaporeDate: {{ formattedSingaporeDate }}</p>
       <p>sortedDates: {{ sortedDates }}</p>
+    </div>
+    <div>
+      <h1>Count:{{ count }}</h1>
+      <button @click="increment">+1する</button>
+      <nuxt-link to="/" class="ml-4">もどる</nuxt-link>
     </div>
   </main>
 </template>
