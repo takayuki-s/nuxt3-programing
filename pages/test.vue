@@ -25,7 +25,6 @@ const open = ref(false)
 /**
  * Stores
  */
-const counter = useCounterStore()
 const counterStore = useCounterStore()
 const { increment } = counterStore
 const { count } = storeToRefs(counterStore)
@@ -100,7 +99,6 @@ const sortedDates = dates.sort(compareAsc)
     <div>
       <h1>Count:{{ count }}</h1>
       <button @click="increment">+1する</button>
-      <nuxt-link to="/" class="ml-4">もどる</nuxt-link>
     </div>
   </main>
 </template>
