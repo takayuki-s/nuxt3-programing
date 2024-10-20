@@ -26,3 +26,7 @@ logs
 # Wordpress
 db_data
 wp-content
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
