@@ -7,6 +7,10 @@ import ProfileCard from '@/components/Molecules/ProfileCard/index.vue'
 import { fetchEntriesByContentful } from '@/api/contentful'
 import type { IBlogPageFields } from '~/@types/generated/contentful'
 
+useHead({
+  title: 'てけブログ | TOP',
+})
+
 type Tags = {
   sys: {
     id: string
