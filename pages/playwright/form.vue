@@ -28,7 +28,7 @@ const callApi = async () => {
 
 <template>
   <div>
-    <label for="first">1人目</label>
+    <label htmlFor="first">1人目:</label>
     <input
       type="text"
       v-model="first"
@@ -37,7 +37,7 @@ const callApi = async () => {
       placeholder="1人目の名前を入力"
     />
     <br />
-    <label for="second">2人目</label>
+    <label htmlFor="second">2人目:</label>
     <input
       type="text"
       v-model="second"
@@ -46,7 +46,7 @@ const callApi = async () => {
       placeholder="2人目の名前を入力"
     />
     <br />
-    <label for="third">3人目</label>
+    <label htmlFor="third">3人目:</label>
     <input
       type="text"
       v-model="third"
