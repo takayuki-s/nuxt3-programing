@@ -11,8 +11,10 @@ const callApi = async () => {
     (member) => member,
   )
 
+  console.log(members)
+
   if (members.length > 0) {
-    const res = await fetch('/api/shuffle', {
+    const res = await fetch('/server/api/playwright/form', {
       method: 'POST',
       body: JSON.stringify({ members }),
       headers: { 'Content-Type': 'application/json' },
