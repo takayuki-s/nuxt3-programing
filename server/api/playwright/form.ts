@@ -1,5 +1,6 @@
 export default defineEventHandler(async (event) => {
-  const body = await useBody(event)
+  console.log('test')
+  const body = await readBody(event) // useBody -> readBody
   const { members } = body
   console.log(members)
   return { members }
