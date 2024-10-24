@@ -7,7 +7,5 @@ test('フォーム操作のテスト', async ({ page }) => {
   await page.getByPlaceholder(/2人目の名前を入力/).click()
   await page.getByPlaceholder(/2人目の名前を入力/).fill('B')
   await page.getByRole('button', { name: /シャッフル/ }).click()
-  await expect(page.getByRole('status', { name: /結果 / })).toHaveText(
-    /(A → B) | (B → A)/,
-  )
+  await expect(page.getByLabel('結果')).toHaveText(/A → B|B → A/)
 })
