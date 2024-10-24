@@ -1,7 +1,6 @@
 export default defineEventHandler(async (event) => {
-  console.log('test')
   const body = await readBody(event) // useBody -> readBody
   const { members } = body
-  console.log(members)
-  return { members }
+  const result = members.sort(() => Math.random() - 0.5)
+  return { result }
 })

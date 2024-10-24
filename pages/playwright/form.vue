@@ -11,8 +11,6 @@ const callApi = async () => {
     (member) => member,
   )
 
-  console.log(members)
-
   if (members.length > 0) {
     const res = await fetch('/api/playwright/form', {
       method: 'POST',
@@ -22,7 +20,7 @@ const callApi = async () => {
 
     if (res.ok) {
       const data = await res.json()
-      result.value = data.members
+      result.value = data.result
     }
   }
 }
