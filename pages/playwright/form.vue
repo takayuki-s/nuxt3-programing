@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Button from '@/components/Atoms/Button/index.vue'
 
 const first = ref('')
 const second = ref('')
@@ -55,7 +56,7 @@ const callApi = async () => {
       placeholder="3人目の名前を入力"
     />
     <br />
-    <button @click="callApi">シャッフル</button>
+    <Button @click="callApi">シャッフル</Button>
     <br />
     <label for="result">結果</label>
     <output id="result">{{ result.join(' → ') }}</output>
