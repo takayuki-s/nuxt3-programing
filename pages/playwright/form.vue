@@ -56,7 +56,7 @@ const callApi = async () => {
       placeholder="3人目の名前を入力"
     />
     <br />
-    <Button @click="callApi">シャッフル</Button>
+    <Button text="シャッフル" @click="callApi" />
     <br />
     <label for="result">結果</label>
     <output id="result">{{ result.join(' → ') }}</output>
