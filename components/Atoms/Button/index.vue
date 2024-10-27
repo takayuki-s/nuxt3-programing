@@ -33,7 +33,7 @@ export default defineComponent({
 
 <template>
   <div class="button-style" :class="colorSelector()">
-    <div class="button">{{ text }}</div>
+    <button class="button">{{ text }}</button>
   </div>
 </template>
 
