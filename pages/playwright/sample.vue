@@ -13,4 +13,11 @@ useHead({
       <button>ボタン</button>
     </p>
   </main>
+  <div>
+    <ul>
+      <li id="1">赤</li>
+      <li id="2">青</li>
+      <li id="3">黄</li>
+    </ul>
+  </div>
 </template>

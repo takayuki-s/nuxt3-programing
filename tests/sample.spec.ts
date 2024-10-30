@@ -12,3 +12,8 @@ test('ページ遷移のテスト', async ({ page }) => {
   await page.getByRole('link', { name: 'TOP' }).click()
   await expect(page).toHaveTitle('てけブログ | TOP')
 })
+
+test('リスト取得のテスト', async ({ page }) => {
+  await page.goto('http://localhost:3000/playwright/sample')
+  page.getByRole('listitem').filter({ hasText: /緑/ })
+})
