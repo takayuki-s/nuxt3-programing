@@ -15,5 +15,7 @@ test('ページ遷移のテスト', async ({ page }) => {
 
 test('リスト取得のテスト', async ({ page }) => {
   await page.goto('http://localhost:3000/playwright/sample')
-  page.getByRole('listitem').filter({ hasText: /緑/ })
+  await expect(
+    page.getByRole('listitem').filter({ hasText: /赤/ }),
+  ).toBeVisible()
 })
