@@ -18,4 +18,13 @@ test('リスト取得のテスト', async ({ page }) => {
   await expect(
     page.getByRole('listitem').filter({ hasText: /赤/ }),
   ).toBeVisible()
+  await expect(
+    page.getByRole('listitem').filter({ hasText: /青/ }),
+  ).toBeVisible()
+  await expect(
+    page.getByRole('listitem').filter({ hasText: /黄/ }),
+  ).toBeVisible()
+  await expect(
+    page.getByRole('listitem').filter({ hasText: /緑/ }),
+  ).toBeHidden()
 })
