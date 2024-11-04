@@ -20,4 +20,9 @@ useHead({
       <li id="3">黄</li>
     </ul>
   </div>
+  <div class="paragraph-container">
+    <p>最初の段落</p>
+    <p>中の段落</p>
+    <p>最後の段落</p>
+  </div>
 </template>

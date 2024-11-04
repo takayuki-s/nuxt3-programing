@@ -29,3 +29,16 @@ test('リスト取得のテスト', async ({ page }) => {
     page.getByRole('listitem').filter({ hasText: /緑/ }),
   ).toBeHidden()
 })
+
+test('段落取得のテスト', async ({ page }) => {
+  await page.goto('http://localhost:3000/playwright/sample')
+  await expect(page.locator('.paragraph-container p').first()).toHaveText(
+    /最初の段落/,
+  )
+  await expect(page.locator('.paragraph-container p').nth(1)).toHaveText(
+    /中の段落/,
+  )
+  await expect(page.locator('.paragraph-container p').last()).toHaveText(
+    /最後の段落/,
+  )
+})
