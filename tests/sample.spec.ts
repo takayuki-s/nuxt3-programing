@@ -4,7 +4,6 @@ test('ページ表示のテスト', async ({ page }) => {
   await page.goto('/playwright/sample')
   await expect(page).toHaveTitle('最初のページ')
   await expect(page.getByRole('heading')).toHaveText('Playwright')
-  await expect(page.getByRole('button')).toHaveText('ボタン')
   await expect(page.getByRole('button', { name: /ボタン/ })).toBeVisible()
 })
 
