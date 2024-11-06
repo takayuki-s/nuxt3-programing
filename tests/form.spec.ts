@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test('フォーム操作のテスト', async ({ page }) => {
-  await page.goto('http://localhost:3000/playwright/form')
+  await page.goto('/playwright/form')
   await page.getByLabel(/1人目/).click()
   await page.getByLabel(/1人目/).press('A')
   await page.getByLabel(/2人目/).click()
@@ -11,7 +11,7 @@ test('フォーム操作のテスト', async ({ page }) => {
 })
 
 test('フォーム操作のテスト（3つver）', async ({ page }) => {
-  await page.goto('http://localhost:3000/playwright/form')
+  await page.goto('/playwright/form')
   await page.getByPlaceholder(/1人目の名前を入力/).click()
   await page.getByPlaceholder(/1人目の名前を入力/).press('A')
   await page.getByPlaceholder(/2人目の名前を入力/).click()
