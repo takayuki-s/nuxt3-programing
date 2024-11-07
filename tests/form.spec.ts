@@ -26,3 +26,8 @@ test('フォーム操作のテスト（3つver）', async ({ page }) => {
     /A → B|B → A|A → C|C → A|C → B|B → C/,
   )
 })
+
+test('チェックボックスのテスト', async ({ page }) => {
+  await page.goto('/playwright/form')
+  await page.getByRole('checkbox', { name: /Default/ }).check()
+})

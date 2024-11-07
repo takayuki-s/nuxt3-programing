@@ -61,4 +61,16 @@ const callApi = async () => {
     <label for="result">結果</label>
     <output id="result">{{ result.join(' → ') }}</output>
   </div>
+  <div class="space-y-3">
+    <div class="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        id="example1"
+        class="h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400"
+      />
+      <label for="example1" class="text-sm font-medium text-gray-700"
+        >Default</label
+      >
+    </div>
+  </div>
 </template>
