@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Button from '@/components/Atoms/Button/index.vue'
+import Combobox from '@/components/Molecules/Combobox/index.vue'
 
 const first = ref('')
 const second = ref('')
@@ -72,5 +73,8 @@ const callApi = async () => {
         >Default</label
       >
     </div>
+  </div>
+  <div>
+    <Combobox :additional-items="['beef', 'pork', 'chicken']" />
   </div>
 </template>

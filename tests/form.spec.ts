@@ -35,3 +35,10 @@ test('チェックボックスのテスト', async ({ page }) => {
     .isChecked()
   expect(isChecked).toBe(true)
 })
+
+test('選択プルダウン', async ({ page }) => {
+  await page.goto('/playwright/form')
+  await page.getByPlaceholder('Placeholder...').click()
+  await page.getByLabel('Show popup').click()
+  await page.getByRole('option', { name: 'Apple', exact: true }).click()
+})
