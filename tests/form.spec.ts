@@ -30,4 +30,8 @@ test('フォーム操作のテスト（3つver）', async ({ page }) => {
 test('チェックボックスのテスト', async ({ page }) => {
   await page.goto('/playwright/form')
   await page.getByRole('checkbox', { name: /Default/ }).check()
+  const isChecked = await page
+    .getByRole('checkbox', { name: /Default/ })
+    .isChecked()
+  expect(isChecked).toBe(true)
 })
