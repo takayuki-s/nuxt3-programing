@@ -41,4 +41,6 @@ test('選択プルダウン', async ({ page }) => {
   await page.getByPlaceholder('Placeholder...').click()
   await page.getByLabel('Show popup').click()
   await page.getByRole('option', { name: 'Apple', exact: true }).click()
+  const selectedValue = await page.getByRole('combobox').inputValue()
+  expect(selectedValue).toBe('Apple')
 })
