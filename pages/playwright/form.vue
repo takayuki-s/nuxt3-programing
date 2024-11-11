@@ -77,4 +77,7 @@ const callApi = async () => {
   <div>
     <Combobox :additional-items="['beef', 'pork', 'chicken']" />
   </div>
+  <div>
+    <Combobox :additional-items="['beef', 'pork', 'chicken']" />
+  </div>
 </template>
