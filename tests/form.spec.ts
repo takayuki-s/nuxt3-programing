@@ -38,9 +38,9 @@ test('チェックボックスのテスト', async ({ page }) => {
 
 test('選択プルダウン', async ({ page }) => {
   await page.goto('/playwright/form')
-  await page.getByPlaceholder('Placeholder...').click()
-  await page.getByLabel('Show popup').click()
+  await page.getByPlaceholder('Placeholder...').first().click()
+  await page.getByLabel('Show popup').first().click()
   await page.getByRole('option', { name: 'Apple', exact: true }).click()
-  const selectedValue = await page.getByRole('combobox').inputValue()
+  const selectedValue = await page.getByRole('combobox').first().inputValue()
   expect(selectedValue).toBe('Apple')
 })
