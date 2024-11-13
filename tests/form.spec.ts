@@ -44,3 +44,8 @@ test('選択プルダウン', async ({ page }) => {
   const selectedValue = await page.getByRole('combobox').first().inputValue()
   expect(selectedValue).toBe('Apple')
 })
+
+test('非活性ボタン', async ({ page }) => {
+  await page.goto('/playwright/form')
+  expect(page.getByRole('button', { name: 'Disabled' })).toBeDisabled()
+})
