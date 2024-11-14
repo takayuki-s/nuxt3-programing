@@ -47,5 +47,5 @@ test('選択プルダウン', async ({ page }) => {
 
 test('非活性ボタン', async ({ page }) => {
   await page.goto('/playwright/form')
-  expect(page.getByRole('button', { name: 'Disabled' })).toBeDisabled()
+  await expect(page.getByRole('button', { name: 'Disabled' })).toBeDisabled()
 })
