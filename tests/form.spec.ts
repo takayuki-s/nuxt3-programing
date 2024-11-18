@@ -47,7 +47,7 @@ test('選択プルダウン', async ({ page }) => {
 
 test('非活性ボタン', async ({ page }) => {
   await page.goto('/playwright/form')
-  const button = await page.getByRole('button', { name: 'Disabled' })
+  const button = await page.getByRole('button', { name: '非活性' })
   if (!button) {
     console.error('Button not found!')
   }
