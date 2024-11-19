@@ -52,4 +52,9 @@ test('非活性ボタン', async ({ page }) => {
     console.error('Button not found!')
   }
   await expect(button).toBeDisabled()
+  const nextButton = await page.getByRole('button', { name: 'Disabled' })
+  if (!nextButton) {
+    console.error('nextButton not found!')
+  }
+  await expect(nextButton).toBeDisabled()
 })

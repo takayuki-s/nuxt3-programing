@@ -81,4 +81,5 @@ const callApi = async () => {
     <Combobox :additional-items="['beef', 'pork', 'chicken']" />
   </div>
   <button disabled>非活性</button>
+  <button disabled>disabled</button>
 </template>
