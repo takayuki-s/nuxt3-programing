@@ -7,6 +7,7 @@ const first = ref('')
 const second = ref('')
 const third = ref('')
 const result = ref([])
+const input = ref('')
 
 const callApi = async () => {
   const members = [first.value, second.value, third.value].filter(
@@ -83,5 +84,15 @@ const callApi = async () => {
     </div>
     <button disabled>非活性</button>
     <button disabled>disabled</button>
+    <div>
+      <label htmlFor="first">INPUT:</label>
+      <input
+        type="text"
+        v-model="input"
+        id="input"
+        name="input"
+        placeholder="INPUT"
+      />
+    </div>
   </div>
 </template>
