@@ -85,7 +85,7 @@ const callApi = async () => {
     <button disabled>非活性</button>
     <button disabled>disabled</button>
     <div>
-      <label htmlFor="first">INPUT:</label>
+      <label htmlFor="first">INPUT</label>
       <input
         type="text"
         v-model="input"
