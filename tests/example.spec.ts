@@ -24,4 +24,5 @@ test('スクリーンショット撮影', async ({ page }) => {
 
   // Expects page to have a heading with the name of Installation.
   await page.screenshot({ path: 'screenshot.png' })
+  await page.screenshot({ path: 'screenshot_full.png', fullPage: true })
 })
