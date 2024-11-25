@@ -41,3 +41,7 @@ test('段落取得のテスト', async ({ page }) => {
     /最後の段落/,
   )
 })
+
+test('スクショテスト', async ({ page }) => {
+  await page.screenshot({ fullPage: true })
+})
