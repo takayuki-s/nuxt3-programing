@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import imagePath from '@/assets/images/top.jpg'
 useHead({
   title: '最初のページ',
   meta: [{ name: '最初のステップ', content: 'My amazing site.' }],
@@ -24,5 +25,8 @@ useHead({
     <p>最初の段落</p>
     <p>中の段落</p>
     <p>最後の段落</p>
+  </div>
+  <div>
+    <img class="top-image w-1/4" :src="imagePath" />
   </div>
 </template>
