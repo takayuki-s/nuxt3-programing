@@ -27,6 +27,6 @@ useHead({
     <p>最後の段落</p>
   </div>
   <div>
-    <img class="top-image w-1/4" :src="imagePath" />
+    <img class="w-1/4" :src="imagePath" />
   </div>
 </template>
