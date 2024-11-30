@@ -44,5 +44,5 @@ test('段落取得のテスト', async ({ page }) => {
 
 test('スクショテスト', async ({ page }) => {
   await page.goto('/playwright/sample')
-  // await page.screenshot({ path: 'top.jpg', fullPage: true })
+  await page.screenshot({ path: 'top.jpg', fullPage: true })
 })
