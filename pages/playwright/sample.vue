@@ -29,4 +29,13 @@ useHead({
   <div>
     <img class="w-1/4" :src="imagePath" />
   </div>
+  <div>
+    <a href="/" />
+    <a href="/" />
+    <a href="/" />
+    <a href="/" />
+    <a href="/" />
+    <a href="/" />
+    <a href="/" />
+  </div>
 </template>
