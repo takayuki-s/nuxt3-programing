@@ -54,6 +54,6 @@ test('ランダムリンククリックテスト', async ({ page }) => {
     const _links = await page.locator('a[href^="/"]')
     await page.waitForSelector('a[href^="/"]')
     const linksLength = (await _links.count()) - 1
-    // await _links.nth(Math.floor(Math.random() * linksLength)).click()
+    await _links.nth(Math.floor(Math.random() * linksLength)).click()
   }
 })
