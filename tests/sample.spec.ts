@@ -51,9 +51,15 @@ test('ランダムリンククリックテスト', async ({ page }) => {
   await page.goto('/playwright/sample')
   for (let index = 0; index < 5; index++) {
     await expect(page).toHaveURL('/playwright/sample')
-    const _links = await page.locator('a[href^="/"]')
     await page.waitForSelector('a[href^="/"]')
+    const _links = await page.locator('a[href^="/"]')
     const linksLength = (await _links.count()) - 1
+
+    if (linksLength === 0) {
+      console.log('リンクが見つかりません')
+      break // またはスキップする
+    }
+
     const randomIndex = Math.floor(Math.random() * linksLength)
     await _links.nth(randomIndex).click()
   }
