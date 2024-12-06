@@ -30,11 +30,11 @@ useHead({
     <img class="w-1/4" :src="imagePath" />
   </div>
   <div>
-    <a href="#">test</a>
-    <a href="#">test</a>
-    <a href="#">test</a>
-    <a href="#">test</a>
-    <a href="#">test</a>
-    <a href="#">test</a>
+    <a href="#" name="link-a">test</a>
+    <a href="#" name="link-a">test</a>
+    <a href="#" name="link-a">test</a>
+    <a href="#" name="link-a">test</a>
+    <a href="#" name="link-a">test</a>
+    <a href="#" name="link-a">test</a>
   </div>
 </template>
