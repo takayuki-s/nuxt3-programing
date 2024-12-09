@@ -56,8 +56,7 @@ test('ランダムリンククリックテスト', async ({ page }) => {
     const linksLength = (await _links.count()) - 1
 
     if (linksLength === 0) {
-      console.log('リンクが見つかりません')
-      break // またはスキップする
+      break
     }
 
     const randomIndex = Math.floor(Math.random() * linksLength)
