@@ -51,7 +51,7 @@ test('ランダムリンククリックテスト', async ({ page }) => {
   await page.goto('/playwright/sample')
   for (let index = 0; index < 5; index++) {
     await expect(page).toHaveURL('/playwright/sample')
-    await page.waitForSelector('a[href^="/"]')
+    // await page.waitForSelector('a[href^="/"]')
     const _links = await page.locator('a[href^="#"][name]')
     const linksLength = (await _links.count()) - 1
 
