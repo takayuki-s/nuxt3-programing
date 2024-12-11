@@ -3,6 +3,7 @@ import { useForm } from 'vee-validate'
 import * as yup from 'yup'
 
 import InputText from '@/components/Molecules/InputText/index.vue'
+import Button from '@/components/Atoms/Button/index.vue'
 
 /**
  * Types
@@ -84,7 +85,7 @@ const onSubmit = handleSubmit((values) => {
         name="address"
         @update-value="(value) => (modelValue.address = value)"
       />
-      <button
+      <Button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
         :class="{
           'opacity-50 cursor-not-allowed hover:bg-blue-500': !meta.valid,
@@ -93,7 +94,7 @@ const onSubmit = handleSubmit((values) => {
         @click="handleSubmit"
       >
         Button
-      </button>
+      </Button>
     </form>
   </div>
 </template>
