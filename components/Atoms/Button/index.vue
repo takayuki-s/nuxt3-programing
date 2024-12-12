@@ -12,6 +12,10 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const colorSelector = () => {
@@ -33,7 +37,7 @@ export default defineComponent({
 
 <template>
   <div class="button-style" :class="colorSelector()">
-    <button class="button">{{ text }}</button>
+    <button class="button" :disabled="disabled">{{ text }}</button>
   </div>
 </template>
 
