@@ -19,6 +19,9 @@ export default defineComponent({
   },
   setup(props) {
     const colorSelector = () => {
+      if (props.disabled) {
+        return 'disabled'
+      }
       if (props.color === 'red') {
         return 'button-color--red'
       } else if (props.color === 'blue') {
@@ -37,7 +40,9 @@ export default defineComponent({
 
 <template>
   <div class="button-style" :class="colorSelector()">
-    <button class="button" :disabled="disabled">{{ text }}</button>
+    <button class="button" :disabled="disabled">
+      {{ text }}
+    </button>
   </div>
 </template>
 
@@ -62,5 +67,11 @@ export default defineComponent({
 }
 .button-color--red {
   background-color: #de3c4b;
+}
+.disabled {
+  background-color: #f08700;
+}
+.disabled:hover {
+  background-color: #f08700;
 }
 </style>
