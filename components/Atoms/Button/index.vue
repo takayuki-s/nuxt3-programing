@@ -65,7 +65,13 @@ export default defineComponent({
 .button-color--blue {
   background-color: #23c9ff;
 }
+.button-color--blue:hover {
+  background-color: #23c9ff;
+}
 .button-color--red {
+  background-color: #de3c4b;
+}
+.button-color--red:hover {
   background-color: #de3c4b;
 }
 .disabled {
