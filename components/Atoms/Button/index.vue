@@ -1,45 +1,34 @@
-<script>
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-export default defineComponent({
-  name: 'Button',
-  props: {
-    text: {
-      type: String,
-      default: 'button',
-    },
-    color: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props) {
-    const colorSelector = () => {
-      if (props.disabled) {
-        return 'disabled'
-      }
-      if (props.color === 'red') {
-        return 'button-color--red'
-      } else if (props.color === 'blue') {
-        return 'button-color--blue'
-      } else {
-        return 'button-color'
-      }
-    }
-    return {
-      props,
-      colorSelector,
-    }
-  },
+type Props = {
+  text: string
+  color: string
+  disabled: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  text: 'button',
+  color: '',
+  disabled: false,
+})
+
+const colorSelector = computed(() => {
+  if (props.disabled) {
+    return 'disabled'
+  }
+  if (props.color === 'red') {
+    return 'button-color--red'
+  } else if (props.color === 'blue') {
+    return 'button-color--blue'
+  } else {
+    return 'button-color'
+  }
 })
 </script>
 
 <template>
-  <div class="button-style" :class="colorSelector()">
+  <div class="button-style" :class="colorSelector">
     <button class="button" :disabled="disabled">
       {{ text }}
     </button>
