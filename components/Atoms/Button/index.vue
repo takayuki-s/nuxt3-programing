@@ -14,15 +14,12 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const colorSelector = computed(() => {
-  if (props.disabled) {
-    return 'disabled'
-  }
   if (props.color === 'red') {
     return 'button-color--red'
   } else if (props.color === 'blue') {
     return 'button-color--blue'
   } else {
-    return 'button-color'
+    return 'default-color'
   }
 })
 </script>
@@ -48,10 +45,10 @@ const colorSelector = computed(() => {
   border-radius: 6px;
   width: fit-content;
 }
-.button-color {
+.default-color {
   background-color: #f08700;
 }
-.button-color:hover {
+.default-color:hover {
   background-color: #f08700;
 }
 .button-color--blue {
@@ -65,11 +62,5 @@ const colorSelector = computed(() => {
 }
 .button-color--red:hover {
   background-color: #de3c4b;
-}
-.disabled {
-  background-color: #f08700;
-}
-.disabled:hover {
-  background-color: #f08700;
 }
 </style>
