@@ -90,11 +90,10 @@ const onSubmit = handleSubmit((values) => {
         :class="{
           'opacity-50 cursor-not-allowed hover:bg-blue-500': !meta.valid,
         }"
+        text="送信"
         :disabled="!meta.valid"
         @click="handleSubmit"
-      >
-        Button
-      </Button>
+      />
     </form>
   </div>
 </template>
