@@ -45,7 +45,7 @@ const inputElement = ref<HTMLInputElement | null>(null)
     :disabled="props.disabled"
   />
 
-  <Button @click="inputElement?.click()"> 添付 </Button>
+  <Button @click="inputElement?.click()" text="添付" />
 </template>
 
 <style scoped>
