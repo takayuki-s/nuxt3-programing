@@ -99,7 +99,7 @@ const sortedDates = dates.sort(compareAsc)
     </div>
     <div>
       <h1>Count:{{ count }}</h1>
-      <Button @click="increment" text="+1" />
+      <Button @click="increment" text="+1する" />
     </div>
   </main>
 </template>
