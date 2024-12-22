@@ -10,13 +10,15 @@
     "storybook": "storybook dev -p 6006",
     "generate:component": "scaffdog generate",
     "test": "vitest",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.2",
     "@nuxt/devtools": "^1.5.2",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@pinia/nuxt": "^0.5.5",
+    "@playwright/experimental-ct-vue": "^1.49.1",
     "@playwright/test": "^1.48.1",
     "@storybook/addon-controls": "^7.0.2",
     "@storybook/addon-essentials": "^7.4.0",
