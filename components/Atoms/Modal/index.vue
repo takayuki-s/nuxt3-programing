@@ -1,0 +1,72 @@
+<script setup lang="ts">
+import { defineProps, defineEmits } from 'vue'
+
+// Props
+defineProps({
+  isVisible: {
+    type: Boolean,
+    required: true,
+  },
+})
+
+// Emits
+const emit = defineEmits(['close'])
+
+// Close method
+const close = () => {
+  emit('close')
+}
+</script>
+
+<template>
+  <div v-if="isVisible" class="modal-overlay" @click.self="close">
+    <div class="modal-content">
+      <slot name="header">
+        <h2>Default Header</h2>
+      </slot>
+      <slot name="body">
+        <p>Default body content goes here...</p>
+      </slot>
+      <slot name="footer">
+        <button @click="close">Close</button>
+      </slot>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+</style>
