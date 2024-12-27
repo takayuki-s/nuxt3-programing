@@ -9,6 +9,7 @@ import Dialog from '@/components/Molecules/Dialog/index.vue'
 import Toast from '@/components/Molecules/Toast/index.vue'
 import Switch from '@/components/Molecules/Switch/index.vue'
 import Button from '@/components/Atoms/Button/index.vue'
+import Counter from '@/components/Atoms/Counter/index.vue'
 import { TZDate } from '@date-fns/tz'
 import { format, compareAsc } from 'date-fns'
 import { addHours } from 'date-fns'
@@ -100,6 +101,9 @@ const sortedDates = dates.sort(compareAsc)
     <div>
       <h1>Count:{{ count }}</h1>
       <Button @click="increment" text="+1する" />
+    </div>
+    <div>
+      <Counter />
     </div>
   </main>
 </template>
