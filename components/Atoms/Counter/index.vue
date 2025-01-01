@@ -27,19 +27,53 @@ const decrement = () => {
 
 <style scoped>
 .counter {
-  text-align: center;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 button {
-  margin: 0 5px;
-  padding: 5px 10px;
-  font-size: 16px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
   cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #004085;
+  transform: translateY(0);
 }
 
 button:disabled {
+  background-color: #d6d6d6;
+  color: #9a9a9a;
   cursor: not-allowed;
-  opacity: 0.5;
+  transform: none;
+}
+
+button:disabled:hover {
+  transform: none;
 }
 </style>
