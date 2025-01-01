@@ -7,7 +7,7 @@ export default {
 } as Meta<typeof Counter>
 
 // ストーリーのテンプレート
-const Template: StoryFn<typeof Counter> = (args) => ({
+const Template: StoryFn<typeof Counter> = (args: {}) => ({
   components: { Counter },
   setup() {
     return { args }
