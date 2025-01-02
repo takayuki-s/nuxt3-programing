@@ -20,8 +20,10 @@ const decrement = () => {
 <template>
   <div class="counter">
     <p>Current Count: {{ count }}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement" :disabled="count <= 0">-</button>
+    <div class="flex">
+      <button @click="increment">+</button>
+      <button @click="decrement" :disabled="count <= 0">-</button>
+    </div>
   </div>
 </template>
 
@@ -29,7 +31,6 @@ const decrement = () => {
 .counter {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   color: #333;
   font-family: 'Arial', sans-serif;
