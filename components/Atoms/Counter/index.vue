@@ -19,7 +19,7 @@ const decrement = () => {
 
 <template>
   <div class="counter">
-    <p>Current Count: {{ count }}</p>
+    <p>Count: {{ count }}</p>
     <div class="flex">
       <button @click="increment">+</button>
       <button @click="decrement" :disabled="count <= 0">-</button>
