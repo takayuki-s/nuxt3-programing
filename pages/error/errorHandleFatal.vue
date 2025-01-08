@@ -8,16 +8,7 @@ const onResetButtonClick = (error: Ref) => {
 </script>
 
 <template>
-  <NuxtErrorBoundary>
-    <ErrorGeneratorFatal />
-    <template #error="errorProps">
-      <p>エラーが発生しました</p>
-      <p>{{ errorProps.error }}</p>
-      <button @click="onResetButtonClick(errorProps.error)">
-        エラーリセット
-      </button>
-    </template>
-  </NuxtErrorBoundary>
+  <ErrorGeneratorFatal />
   <p>
     <NuxtLink to="/">戻る</NuxtLink>
   </p>
