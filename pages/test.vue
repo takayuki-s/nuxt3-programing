@@ -105,6 +105,10 @@ const sortedDates = dates.sort(compareAsc)
     <div>
       <Counter />
     </div>
+    <div>
+      <p>v-cloak</p>
+      <p v-cloak>レンダリングまで非表示</p>
+    </div>
   </main>
 </template>
 
@@ -112,5 +116,8 @@ const sortedDates = dates.sort(compareAsc)
 .modal {
   width: 400px;
   height: 400px;
+}
+[v-cloak] {
+  display: none;
 }
 </style>
