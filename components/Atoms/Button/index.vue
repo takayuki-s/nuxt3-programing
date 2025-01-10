@@ -3,8 +3,8 @@ import { computed } from 'vue'
 
 type Props = {
   text: string
-  color: string
-  disabled: boolean
+  color?: string
+  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
