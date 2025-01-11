@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '@/components/Atoms/Button/index.vue'
 const onThrowsErrorClick = () => {
   throw createError({
     message: 'fatalエラー発生',
@@ -9,6 +10,6 @@ const onThrowsErrorClick = () => {
 
 <template>
   <section>
-    fatalエラー<button @click="onThrowsErrorClick">発生</button>
+    fatalエラー<Button @click="onThrowsErrorClick" text="発生" />
   </section>
 </template>
