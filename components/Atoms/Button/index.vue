@@ -44,6 +44,7 @@ const colorSelector = computed(() => {
   padding: 10px 20px;
   border-radius: 6px;
   width: fit-content;
+  cursor: pointer;
 }
 .default-color {
   background-color: #f08700;
