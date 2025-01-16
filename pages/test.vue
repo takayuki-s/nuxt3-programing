@@ -110,6 +110,10 @@ const sortedDates = dates.sort(compareAsc)
       <p>v-cloak</p>
       <p v-cloak>レンダリングまで非表示</p>
     </div>
+    <div>
+      <p>BigNumber</p>
+      <p>{{ new Bignumber(0.1).plus(0.2).toString() }}</p>
+    </div>
   </main>
 </template>
 
