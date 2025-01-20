@@ -1,21 +1,27 @@
 import { describe, expect, test } from 'vitest'
 import { omitText, formatDate, generateDynamicHTMLString } from '../articles'
 
-test('omitText should truncate the string correctly', () => {
-  // Test case 1: string length is less than maxLength
-  expect(omitText('Short string', 20)).toBe('Short string')
+describe('omitText', () => {
+  test('omitText should truncate the string correctly', () => {
+    // Test case 1: string length is less than maxLength
+    expect(omitText('Short string', 20)).toBe('Short string')
 
-  // Test case 2: string length is equal to maxLength
-  expect(omitText('Exactly 10', 10)).toBe('Exactly 10')
+    // Test case 2: string length is equal to maxLength
+    expect(omitText('Exactly 10', 10)).toBe('Exactly 10')
 
-  // Test case 3: string length is greater than maxLength
-  expect(omitText('This is a long string', 10)).toBe('This is a …')
-})
+    // Test case 3: string length is greater than maxLength
+    expect(omitText('This is a long string', 10)).toBe('This is a …')
+  })
 
-test('formatDate should format the date correctly', () => {
-  const inputDateStr = '2023-12-01T06:55:50'
-  const formattedDate = formatDate(inputDateStr)
-  expect(formattedDate).toBe('2023/12/1 (金)')
+  test('formatDate should format the date correctly', () => {
+    const inputDateStr = '2023-12-01T06:55:50'
+    const formattedDate = formatDate(inputDateStr)
+    expect(formattedDate).toBe('2023/12/1 (金)')
+  })
+  test('omitText should return truncated string with ellipsis for long input', () => {
+    const result = omitText('This is a long string', 10)
+    expect(result).toBe('This is a …')
+  })
 })
 
 // 追加のテストケースを追加することもできます
@@ -34,6 +40,10 @@ describe('formatDate', () => {
     const result = formatDate('2025-01-20')
     expect(result).toBe('2025/1/20 (月)') // 曜日は日により変わる
   })
+  test('formatDate should return "Invalid Date" for invalid date input', () => {
+    const result = formatDate('invalid-date')
+    expect(result).toBe('NaN/NaN/NaN (undefined)')
+  })
 })
 
 // generateDynamicHTMLString のテスト
@@ -49,5 +59,10 @@ describe('generateDynamicHTMLString', () => {
   test('should return an empty div for empty input', () => {
     const result = generateDynamicHTMLString('')
     expect(result).toBe('<div></div>')
+  })
+
+  test('generateDynamicHTMLString should handle content without special characters', () => {
+    const result = generateDynamicHTMLString('No special characters')
+    expect(result).toBe('<div>No special characters</div>')
   })
 })
