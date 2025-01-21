@@ -46,6 +46,24 @@ describe('formatDate', () => {
   })
 })
 
+const daysOfWeekTestCases = [
+  { date: '2023-01-01', expected: '2023/1/1 (日)' }, // Sunday (index 0)
+  { date: '2023-01-02', expected: '2023/1/2 (月)' }, // Monday
+  { date: '2023-01-03', expected: '2023/1/3 (火)' }, // Tuesday
+  { date: '2023-01-04', expected: '2023/1/4 (水)' }, // Wednesday
+  { date: '2023-01-05', expected: '2023/1/5 (木)' }, // Thursday
+  { date: '2023-01-06', expected: '2023/1/6 (金)' }, // Friday
+  { date: '2023-01-07', expected: '2023/1/7 (土)' }, // Saturday
+]
+
+describe('formatDate - all day indices', () => {
+  daysOfWeekTestCases.forEach(({ date, expected }) => {
+    test(`should format ${date} correctly as ${expected}`, () => {
+      expect(formatDate(date)).toBe(expected)
+    })
+  })
+})
+
 // generateDynamicHTMLString のテスト
 describe('generateDynamicHTMLString', () => {
   test('should escape special HTML characters', () => {
@@ -64,5 +82,11 @@ describe('generateDynamicHTMLString', () => {
   test('generateDynamicHTMLString should handle content without special characters', () => {
     const result = generateDynamicHTMLString('No special characters')
     expect(result).toBe('<div>No special characters</div>')
+  })
+
+  test('escapeHtml should handle strings with no special characters', () => {
+    const input = 'plain text'
+    const result = generateDynamicHTMLString(input)
+    expect(result).toBe('<div>plain text</div>')
   })
 })
