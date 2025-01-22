@@ -89,4 +89,19 @@ describe('generateDynamicHTMLString', () => {
     const result = generateDynamicHTMLString(input)
     expect(result).toBe('<div>plain text</div>')
   })
+
+  test('should handle strings with no special characters', () => {
+    const result = generateDynamicHTMLString('plain text')
+    expect(result).toBe('<div>plain text</div>')
+  })
+
+  test('should handle numeric strings without escaping', () => {
+    const result = generateDynamicHTMLString('12345')
+    expect(result).toBe('<div>12345</div>')
+  })
+
+  test('should handle special but non-matching characters', () => {
+    const result = generateDynamicHTMLString('abc@def#ghi')
+    expect(result).toBe('<div>abc@def#ghi</div>') // '@'や'#'は変換されない
+  })
 })
