@@ -74,7 +74,8 @@
     "vee-validate": "^4.12.6",
     "vue-chartjs": "^5.3.1",
     "vue-dompurify-html": "^4.1.4",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zod": "^3.24.1"
   },
   "msw": {
     "workerDirectory": "public"
