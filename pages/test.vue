@@ -113,7 +113,7 @@ const sortedDates = dates.sort(compareAsc)
     <div>
       <p>BigNumber</p>
       <p>{{ new Bignumber(0.1).plus(0.2).toString() }}</p>
-      <p></p>{{ new Bignumber(0.3).minus(0.1).toString() }}</p>
+      <p>{{ new Bignumber(0.3).minus(0.1).toString() }}</p>
     </div>
   </main>
 </template>
