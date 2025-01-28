@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Form from '@/components/Organisms/Form/index.vue'
 import FormNew from '@/components/Organisms/FormNew/index.vue'
+import FormZod from '@/components/Organisms/FormZod/index.vue'
 
 type FormValue = {
   name: string
@@ -41,6 +42,7 @@ const submit = () => {
       v-model="formData"
     />
     <FormNew @submit="submit" v-model="formValue" />
+    <FormZod />
   </div>
 </template>
 

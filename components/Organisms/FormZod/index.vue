@@ -19,7 +19,10 @@ const emit = defineEmits<Emits>()
  */
 const createUserSchema = z.object({
   name: z.string().nonempty('名前は必須です'),
-  email: z.string().email('有効なメールアドレスを入力してください').nonempty('メールアドレスは必須です'),
+  email: z
+    .string()
+    .email('有効なメールアドレスを入力してください')
+    .nonempty('メールアドレスは必須です'),
   phone: z.string().optional(),
   postcode: z.string().optional(),
   address: z.string().optional(),
@@ -28,7 +31,7 @@ const createUserSchema = z.object({
 /**
  * VeeValidate Integration
  */
-const { handleSubmit, setFieldError, isSubmitting } = useForm({
+const { setFieldError, isSubmitting } = useForm({
   initialValues: {
     name: '',
     email: '',
@@ -102,7 +105,9 @@ const validateField = async (field: string) => {
     </InputSlotForm>
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
-      :class="{ 'opacity-50 cursor-not-allowed hover:bg-blue-500': isSubmitting }"
+      :class="{
+        'opacity-50 cursor-not-allowed hover:bg-blue-500': isSubmitting,
+      }"
       :disabled="isSubmitting"
       @click="submitForm"
     >
@@ -130,3 +135,4 @@ const validateField = async (field: string) => {
     margin-bottom: 10px;
   }
 }
+</style>
