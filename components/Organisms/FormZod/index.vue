@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { z, ZodError } from 'zod'
 
 // バリデーションスキーマ定義
@@ -31,6 +31,22 @@ const errors = reactive<Record<keyof FormData, string | null>>({
 // 提出中フラグ
 const isSubmitting = ref(false)
 
+// エラーの有無
+const hasErrors = computed(() => {
+  return Object.values(errors).some((error) => error !== null)
+})
+
+// 入力内容を監視してリアルタイムバリデーション
+watch(
+  () => formData,
+  (newValues) => {
+    Object.keys(newValues).forEach((key) => {
+      validateField(key as keyof FormData)
+    })
+  },
+  { deep: true },
+)
+
 // フィールド単体のバリデーション
 const validateField = (fieldName: keyof FormData) => {
   const fieldSchema = validationSchema.pick({ [fieldName]: true })
@@ -44,7 +60,7 @@ const validateField = (fieldName: keyof FormData) => {
   }
 }
 
-// フォーム全体のバリデーションと送信
+// フォーム全体の送信
 const submitForm = async () => {
   isSubmitting.value = true
   try {
