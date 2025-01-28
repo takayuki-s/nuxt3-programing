@@ -1,117 +1,118 @@
 <script setup lang="ts">
-import { defineEmits } from 'vue'
-import InputSlotForm from '@/components/Atoms/InputSlotForm/index.vue'
-import { useForm, useField } from 'vee-validate'
-import { z } from 'zod'
+import { reactive, ref } from 'vue'
+import { z, ZodError } from 'zod'
 
-/**
- * Emits
- */
-type Emits = {
-  (e: 'updateIsValid', value: boolean): void
-  (e: 'updateFormData', value: Record<string, any>): void
-  (e: 'submit', value: Record<string, any>): void
-}
-const emit = defineEmits<Emits>()
-
-/**
- * Validation Schema using Zod
- */
-const createUserSchema = z.object({
-  name: z.string().nonempty('名前は必須です'),
-  email: z
+// バリデーションスキーマ定義
+const validationSchema = z.object({
+  name: z.string().min(1, '名前は必須です'),
+  email: z.string().email('正しいメールアドレスを入力してください'),
+  phone: z
     .string()
-    .email('有効なメールアドレスを入力してください')
-    .nonempty('メールアドレスは必須です'),
-  phone: z.string().optional(),
-  postcode: z.string().optional(),
-  address: z.string().optional(),
+    .regex(/^\d{10,11}$/, '電話番号は10桁または11桁の数字で入力してください'),
 })
 
-/**
- * VeeValidate Integration
- */
-const { setFieldError, isSubmitting } = useForm({
-  initialValues: {
-    name: '',
-    email: '',
-    phone: '',
-    postcode: '',
-    address: '',
-  },
-  validate: (values) => {
-    const result = createUserSchema.safeParse(values)
-    if (result.success) {
-      return {} // No errors
+// 型定義
+type FormData = z.infer<typeof validationSchema>
+
+// フォームデータ
+const formData = reactive<FormData>({
+  name: '',
+  email: '',
+  phone: '',
+})
+
+// エラー管理
+const errors = reactive<Record<keyof FormData, string | null>>({
+  name: null,
+  email: null,
+  phone: null,
+})
+
+// 提出中フラグ
+const isSubmitting = ref(false)
+
+// フィールド単体のバリデーション
+const validateField = (fieldName: keyof FormData) => {
+  const fieldSchema = validationSchema.pick({ [fieldName]: true })
+  try {
+    fieldSchema.parse({ [fieldName]: formData[fieldName] })
+    errors[fieldName] = null // エラーをクリア
+  } catch (e) {
+    if (e instanceof ZodError) {
+      errors[fieldName] = e.errors[0].message
     }
-    // Map Zod errors to vee-validate errors
-    const errors: Record<string, string> = {}
-    result.error.errors.forEach((err) => {
-      if (err.path.length > 0) {
-        errors[err.path[0]] = err.message
-      }
-    })
-    return errors
-  },
-})
-
-const { value: name, errorMessage: nameError } = useField('name')
-const { value: email, errorMessage: emailError } = useField('email')
-const { value: phone, errorMessage: phoneError } = useField('phone')
-const { value: postcode, errorMessage: postcodeError } = useField('postcode')
-const { value: address, errorMessage: addressError } = useField('address')
-
-/**
- * Submission
- */
-const handleSubmit = () => {
-  if (!isValid.value) {
-    return
   }
-  emit('submit')
 }
 
-/**
- * Manually trigger validation for specific fields
- */
-const validateField = async (field: string) => {
-  const result = createUserSchema.safeParse({ [field]: values[field] })
-  if (!result.success) {
-    const fieldError = result.error.errors.find((err) => err.path[0] === field)
-    if (fieldError) {
-      setFieldError(field, fieldError.message)
+// フォーム全体のバリデーションと送信
+const submitForm = async () => {
+  isSubmitting.value = true
+  try {
+    validationSchema.parse(formData) // 全体を検証
+    alert('フォームを正常に送信しました！')
+    Object.keys(errors).forEach((key) => (errors[key as keyof FormData] = null))
+  } catch (e) {
+    if (e instanceof ZodError) {
+      e.errors.forEach((error) => {
+        errors[error.path[0] as keyof FormData] = error.message
+      })
     }
+  } finally {
+    isSubmitting.value = false
   }
 }
 </script>
 
 <template>
-  <div class="validation-form-field">
-    <h1>バリデーションテスト（必須）</h1>
-    <InputSlotForm label="名前" :error-message="nameError">
-      <input v-model="name" @blur="validateField('name')" />
-    </InputSlotForm>
-    <InputSlotForm label="メールアドレス" :error-message="emailError">
-      <input v-model="email" @blur="validateField('email')" />
-    </InputSlotForm>
-    <InputSlotForm label="電話番号" :error-message="phoneError">
-      <input v-model="phone" @blur="validateField('phone')" />
-    </InputSlotForm>
-    <InputSlotForm label="郵便番号" :error-message="postcodeError">
-      <input v-model="postcode" @blur="validateField('postcode')" />
-    </InputSlotForm>
-    <InputSlotForm label="住所" :error-message="addressError">
-      <input v-model="address" @blur="validateField('address')" />
-    </InputSlotForm>
+  <div class="validation-form">
+    <h1>簡単なバリデーションフォーム</h1>
+
+    <!-- 名前 -->
+    <div>
+      <label for="name">名前</label>
+      <input
+        id="name"
+        v-model="formData.name"
+        type="text"
+        @blur="validateField('name')"
+        :class="{ 'border-red-500': errors.name }"
+      />
+      <p v-if="errors.name" class="text-red-500">{{ errors.name }}</p>
+    </div>
+
+    <!-- メールアドレス -->
+    <div>
+      <label for="email">メールアドレス</label>
+      <input
+        id="email"
+        v-model="formData.email"
+        type="email"
+        @blur="validateField('email')"
+        :class="{ 'border-red-500': errors.email }"
+      />
+      <p v-if="errors.email" class="text-red-500">{{ errors.email }}</p>
+    </div>
+
+    <!-- 電話番号 -->
+    <div>
+      <label for="phone">電話番号</label>
+      <input
+        id="phone"
+        v-model="formData.phone"
+        type="text"
+        @blur="validateField('phone')"
+        :class="{ 'border-red-500': errors.phone }"
+      />
+      <p v-if="errors.phone" class="text-red-500">{{ errors.phone }}</p>
+    </div>
+
+    <!-- 提出ボタン -->
     <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-1/6"
-      :class="{
-        'opacity-50 cursor-not-allowed hover:bg-blue-500': isSubmitting,
-      }"
-      :disabled="isSubmitting"
       @click="submitForm"
+      :disabled="isSubmitting"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
     >
-      Button
+      提出
     </button>
   </div>
 </template>
@@ -134,5 +135,21 @@ const validateField = async (field: string) => {
     flex-direction: column;
     margin-bottom: 10px;
   }
+}
+
+input {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+  background-color: white;
+}
+input.border-red-500 {
+  border-color: red;
+}
+.text-red-500 {
+  color: red;
 }
 </style>
