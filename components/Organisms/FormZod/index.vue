@@ -49,7 +49,10 @@ watch(
 
 // フィールド単体のバリデーション
 const validateField = (fieldName: keyof FormData) => {
-  const fieldSchema = validationSchema.pick({ [fieldName]: true })
+  const fieldSchema = validationSchema.pick({ [fieldName]: true } as Record<
+    keyof FormData,
+    true
+  >)
   try {
     fieldSchema.parse({ [fieldName]: formData[fieldName] })
     errors[fieldName] = null // エラーをクリア
