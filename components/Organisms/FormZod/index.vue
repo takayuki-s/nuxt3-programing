@@ -36,17 +36,6 @@ const hasErrors = computed(() => {
   return Object.values(errors).some((error) => error !== null)
 })
 
-// 入力内容を監視してリアルタイムバリデーション
-watch(
-  () => formData,
-  (newValues) => {
-    Object.keys(newValues).forEach((key) => {
-      validateField(key as keyof FormData)
-    })
-  },
-  { deep: true },
-)
-
 // フィールド単体のバリデーション
 const validateField = (fieldName: keyof FormData) => {
   const fieldSchema = validationSchema.pick({ [fieldName]: true } as Record<
@@ -94,6 +83,7 @@ const submitForm = async () => {
         v-model="formData.name"
         type="text"
         @blur="validateField('name')"
+        @input="validateField('name')"
         :class="{ 'border-red-500': errors.name }"
       />
       <p v-if="errors.name" class="text-red-500">{{ errors.name }}</p>
@@ -107,6 +97,7 @@ const submitForm = async () => {
         v-model="formData.email"
         type="email"
         @blur="validateField('email')"
+        @input="validateField('email')"
         :class="{ 'border-red-500': errors.email }"
       />
       <p v-if="errors.email" class="text-red-500">{{ errors.email }}</p>
@@ -120,6 +111,7 @@ const submitForm = async () => {
         v-model="formData.phone"
         type="text"
         @blur="validateField('phone')"
+        @input="validateField('phone')"
         :class="{ 'border-red-500': errors.phone }"
       />
       <p v-if="errors.phone" class="text-red-500">{{ errors.phone }}</p>
