@@ -2,15 +2,20 @@
 import { reactive, ref } from 'vue'
 import { z, ZodError } from 'zod'
 
-// バリデーションスキーマ定義
-const validationSchema = z.object({
-  name: z.string().min(1, '名前は必須です'),
-  email: z.string().email('正しいメールアドレスを入力してください'),
-  phone: z
-    .string()
-    .regex(/^\d{10,11}$/, '電話番号は10桁または11桁の数字で入力してください'),
-  password: z.string().min(6, 'パスワードは6文字以上で入力してください'),
-})
+const validationSchema = z
+  .object({
+    name: z.string().min(1, '名前は必須です'),
+    email: z.string().email('正しいメールアドレスを入力してください'),
+    phone: z
+      .string()
+      .regex(/^\d{10,11}$/, '電話番号は10桁または11桁の数字で入力してください'),
+    password: z.string().min(6, 'パスワードは6文字以上で入力してください'),
+    passwordConfirm: z.string(),
+  })
+  .refine((data) => data.password === data.passwordConfirm, {
+    message: 'パスワードが一致しません',
+    path: ['passwordConfirm'],
+  })
 
 // 型定義
 type FormData = z.infer<typeof validationSchema>
@@ -21,6 +26,7 @@ const formData = reactive<FormData>({
   email: '',
   phone: '',
   password: '',
+  passwordConfirm: '',
 })
 
 // エラー管理
@@ -29,6 +35,7 @@ const errors = reactive<Record<keyof FormData, string | null>>({
   email: null,
   phone: null,
   password: null,
+  passwordConfirm: null,
 })
 
 // 提出中フラグ
@@ -41,10 +48,11 @@ const hasErrors = computed(() => {
 
 // フィールド単体のバリデーション
 const validateField = (fieldName: keyof FormData) => {
-  const fieldSchema = validationSchema.pick({ [fieldName]: true } as Record<
-    keyof FormData,
-    true
-  >)
+  // `innerType()` を使って ZodObject を取得
+  const fieldSchema = validationSchema
+    .innerType()
+    .pick({ [fieldName]: true } as Record<keyof FormData, true>)
+
   try {
     fieldSchema.parse({ [fieldName]: formData[fieldName] })
     errors[fieldName] = null // エラーをクリア
@@ -132,6 +140,22 @@ const submitForm = async () => {
         :class="{ 'border-red-500': errors.password }"
       />
       <p v-if="errors.password" class="text-red-500">{{ errors.password }}</p>
+    </div>
+
+    <!-- パスワード(確認) -->
+    <div>
+      <label for="passwordConfirm">パスワード（確認）</label>
+      <input
+        id="passwordConfirm"
+        v-model="formData.passwordConfirm"
+        type="text"
+        @blur="validateField('passwordConfirm')"
+        @input="validateField('passwordConfirm')"
+        :class="{ 'border-red-500': errors.passwordConfirm }"
+      />
+      <p v-if="errors.passwordConfirm" class="text-red-500">
+        {{ errors.passwordConfirm }}
+      </p>
     </div>
 
     <!-- 提出ボタン -->
