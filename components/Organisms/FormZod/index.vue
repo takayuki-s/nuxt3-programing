@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref } from 'vue'
 import { z, ZodError } from 'zod'
 
 // バリデーションスキーマ定義
@@ -9,6 +9,7 @@ const validationSchema = z.object({
   phone: z
     .string()
     .regex(/^\d{10,11}$/, '電話番号は10桁または11桁の数字で入力してください'),
+  password: z.string().min(6, 'パスワードは6文字以上で入力してください'),
 })
 
 // 型定義
@@ -19,6 +20,7 @@ const formData = reactive<FormData>({
   name: '',
   email: '',
   phone: '',
+  password: '',
 })
 
 // エラー管理
@@ -26,6 +28,7 @@ const errors = reactive<Record<keyof FormData, string | null>>({
   name: null,
   email: null,
   phone: null,
+  password: null,
 })
 
 // 提出中フラグ
@@ -115,6 +118,20 @@ const submitForm = async () => {
         :class="{ 'border-red-500': errors.phone }"
       />
       <p v-if="errors.phone" class="text-red-500">{{ errors.phone }}</p>
+    </div>
+
+    <!-- パスワード -->
+    <div>
+      <label for="password">パスワード</label>
+      <input
+        id="password"
+        v-model="formData.password"
+        type="text"
+        @blur="validateField('password')"
+        @input="validateField('password')"
+        :class="{ 'border-red-500': errors.password }"
+      />
+      <p v-if="errors.password" class="text-red-500">{{ errors.password }}</p>
     </div>
 
     <!-- 提出ボタン -->
