@@ -48,14 +48,13 @@ const hasErrors = computed(() => {
 
 // フィールド単体のバリデーション
 const validateField = (fieldName: keyof FormData) => {
-  // `innerType()` を使って ZodObject を取得
   const fieldSchema = validationSchema
     .innerType()
     .pick({ [fieldName]: true } as Record<keyof FormData, true>)
 
   try {
     fieldSchema.parse({ [fieldName]: formData[fieldName] })
-    errors[fieldName] = null // エラーをクリア
+    errors[fieldName] = null
   } catch (e) {
     if (e instanceof ZodError) {
       errors[fieldName] = e.errors[0].message
