@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { z, ZodError } from 'zod'
 
 const validationSchema = z
@@ -21,7 +21,7 @@ const validationSchema = z
 type FormData = z.infer<typeof validationSchema>
 
 // フォームデータ
-const formData = reactive<FormData>({
+const formData = ref<FormData>({
   name: '',
   email: '',
   phone: '',
@@ -30,7 +30,7 @@ const formData = reactive<FormData>({
 })
 
 // エラー管理
-const errors = reactive<Record<keyof FormData, string | null>>({
+const errors = ref<Record<keyof FormData, string | null>>({
   name: null,
   email: null,
   phone: null,
@@ -53,11 +53,11 @@ const validateField = (fieldName: keyof FormData) => {
     .pick({ [fieldName]: true } as Record<keyof FormData, true>)
 
   try {
-    fieldSchema.parse({ [fieldName]: formData[fieldName] })
-    errors[fieldName] = null
+    fieldSchema.parse({ [fieldName]: formData.value[fieldName] })
+    errors.value[fieldName] = null
   } catch (e) {
     if (e instanceof ZodError) {
-      errors[fieldName] = e.errors[0].message
+      errors.value[fieldName] = e.errors[0].message
     }
   }
 }
@@ -68,11 +68,13 @@ const submitForm = async () => {
   try {
     validationSchema.parse(formData) // 全体を検証
     alert('フォームを正常に送信しました！')
-    Object.keys(errors).forEach((key) => (errors[key as keyof FormData] = null))
+    Object.keys(errors).forEach(
+      (key) => (errors.value[key as keyof FormData] = null),
+    )
   } catch (e) {
     if (e instanceof ZodError) {
       e.errors.forEach((error) => {
-        errors[error.path[0] as keyof FormData] = error.message
+        errors.value[error.path[0] as keyof FormData] = error.message
       })
     }
   } finally {
