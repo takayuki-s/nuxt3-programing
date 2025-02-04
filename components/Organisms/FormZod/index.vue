@@ -48,16 +48,13 @@ const hasErrors = computed(() => {
 
 // フィールド単体のバリデーション
 const validateField = (fieldName: keyof FormData) => {
-  const fieldSchema = validationSchema
-    .innerType()
-    .pick({ [fieldName]: true } as Record<keyof FormData, true>)
-
   try {
-    fieldSchema.parse({ [fieldName]: formData.value[fieldName] })
+    validationSchema.parse(formData.value)
     errors.value[fieldName] = null
   } catch (e) {
     if (e instanceof ZodError) {
-      errors.value[fieldName] = e.errors[0].message
+      const fieldError = e.errors.find((error) => error.path[0] === fieldName)
+      errors.value[fieldName] = fieldError ? fieldError.message : null
     }
   }
 }
@@ -66,9 +63,11 @@ const validateField = (fieldName: keyof FormData) => {
 const submitForm = async () => {
   isSubmitting.value = true
   try {
-    validationSchema.parse(formData) // 全体を検証
+    validationSchema.parse(formData.value)
     alert('フォームを正常に送信しました！')
-    Object.keys(errors).forEach(
+
+    // 全てのエラーをクリア
+    Object.keys(errors.value).forEach(
       (key) => (errors.value[key as keyof FormData] = null),
     )
   } catch (e) {
