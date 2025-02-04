@@ -9,7 +9,10 @@ const validationSchema = z
     phone: z
       .string()
       .regex(/^\d{10,11}$/, '電話番号は10桁または11桁の数字で入力してください'),
-    password: z.string().min(6, 'パスワードは6文字以上で入力してください'),
+    password: z
+      .string()
+      .min(6, 'パスワードは6文字以上で入力してください')
+      .max(20, 'パスワードは20文字以下で入力してください'),
     passwordConfirm: z.string(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
