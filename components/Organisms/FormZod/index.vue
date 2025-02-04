@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { z, ZodError } from 'zod'
+
+const { t } = useI18n()
 
 const validationSchema = z
   .object({
-    name: z.string().min(1, '名前は必須です'),
-    email: z.string().email('正しいメールアドレスを入力してください'),
-    phone: z
-      .string()
-      .regex(/^\d{10,11}$/, '電話番号は10桁または11桁の数字で入力してください'),
+    name: z.string().min(1, t('validation.required')),
+    email: z.string().email(t('validation.email')),
+    phone: z.string().regex(/^\d{10,11}$/, t('validation.phone')),
     password: z
       .string()
-      .min(6, 'パスワードは6文字以上で入力してください')
-      .max(20, 'パスワードは20文字以下で入力してください'),
+      .min(6, t('validation.greater_than', { num: 6 }))
+      .max(20, t('validation.less_than', { num: 20 })),
     passwordConfirm: z.string(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
-    message: 'パスワードが一致しません',
+    message: t('validation.password_confirm'),
     path: ['passwordConfirm'],
   })
 

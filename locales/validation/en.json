@@ -1,0 +1,10 @@
+{
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "greater_than": "Please enter at least {num} characters",
+    "less_than": "Please enter at most {num} characters",
+    "phone": "Please enter a 10 or 11 digit phone number",
+    "password_confirm": "Passwords do not match"
+  }
+}
