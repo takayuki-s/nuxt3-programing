@@ -15,6 +15,11 @@ const validationSchema = z
       .min(6, t('validation.greater_than', { num: 6 }))
       .max(20, t('validation.less_than', { num: 20 })),
     passwordConfirm: z.string(),
+    stringNumber: z
+      .string()
+      .min(1, t('validation.required'))
+      .regex(/^\d{1,20}(\.\d+)?$/, t('validation.max_digits', { mum: 20 })) // 整数部最大20桁
+      .regex(/^\d+(\.\d{1,5})?$/, t('validation.max_decimal', { num: 5 })), // 小数部最大5桁
   })
   .refine((data) => data.password === data.passwordConfirm, {
     message: t('validation.password_confirm'),
@@ -31,6 +36,7 @@ const formData = ref<FormData>({
   phone: '',
   password: '',
   passwordConfirm: '',
+  stringNumber: '',
 })
 
 // エラー管理
@@ -40,6 +46,7 @@ const errors = ref<Record<keyof FormData, string | null>>({
   phone: null,
   password: null,
   passwordConfirm: null,
+  stringNumber: null,
 })
 
 // 提出中フラグ
@@ -159,6 +166,22 @@ const submitForm = async () => {
       />
       <p v-if="errors.passwordConfirm" class="text-red-500">
         {{ errors.passwordConfirm }}
+      </p>
+    </div>
+
+    <!-- 数値 -->
+    <div>
+      <label for="passwordConfirm">数値（string）</label>
+      <input
+        id="passwordConfirm"
+        v-model="formData.stringNumber"
+        type="text"
+        @blur="validateField('stringNumber')"
+        @input="validateField('stringNumber')"
+        :class="{ 'border-red-500': errors.stringNumber }"
+      />
+      <p v-if="errors.stringNumber" class="text-red-500">
+        {{ errors.stringNumber }}
       </p>
     </div>
 

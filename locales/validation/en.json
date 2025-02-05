@@ -5,6 +5,9 @@
     "greater_than": "Please enter at least {num} characters",
     "less_than": "Please enter at most {num} characters",
     "phone": "Please enter a 10 or 11 digit phone number",
-    "password_confirm": "Passwords do not match"
+    "password_confirm": "Passwords do not match",
+    "integer": "Please enter an integer",
+    "max_digits": "Please enter at most {num} digits",
+    "max_decimal": "Please enter at most {num} decimal places"
   }
 }

@@ -5,6 +5,9 @@
     "greater_than": "{num}文字以上で入力してください",
     "less_than": "{num}文字以下で入力してください",
     "phone": "電話番号は10桁または11桁の数字で入力してください",
-    "password_confirm": "パスワードが一致しません"
+    "password_confirm": "パスワードが一致しません",
+    "integer": "整数で入力してください",
+    "max_digits": "{num}桁以下で入力してください",
+    "max_decimal": "{num}桁以下で入力してください"
   }
 }
