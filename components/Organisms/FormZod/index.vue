@@ -5,6 +5,9 @@ import { z, ZodError } from 'zod'
 
 const { t } = useI18n()
 
+const minValue = '10'
+const maxValue = '100'
+
 const validationSchema = z
   .object({
     name: z.string().min(1, t('validation.required')),
@@ -12,8 +15,8 @@ const validationSchema = z
     phone: z.string().regex(/^\d{10,11}$/, t('validation.phone')),
     password: z
       .string()
-      .min(6, t('validation.greater_than', { num: 6 }))
-      .max(20, t('validation.less_than', { num: 20 })),
+      .min(6, t('validation.greater_than_length', { num: 6 }))
+      .max(20, t('validation.less_than_length', { num: 20 })),
     passwordConfirm: z.string(),
     stringNumber: z
       .string()
@@ -24,6 +27,28 @@ const validationSchema = z
   .refine((data) => data.password === data.passwordConfirm, {
     message: t('validation.password_confirm'),
     path: ['passwordConfirm'],
+  })
+  .superRefine((data, ctx) => {
+    if (minValue) {
+      const num = parseFloat(data.stringNumber)
+      if (num < 10) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['stringNumber'],
+          message: t('validation.greater_than_number', { num: minValue }),
+        })
+      }
+    }
+    if (maxValue) {
+      const num = parseFloat(data.stringNumber)
+      if (num > 100) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['stringNumber'],
+          message: t('validation.less_than_number', { num: maxValue }),
+        })
+      }
+    }
   })
 
 // 型定義
@@ -95,7 +120,7 @@ const submitForm = async () => {
 
 <template>
   <div class="validation-form">
-    <h1>簡単なバリデーションフォーム</h1>
+    <h1>簡単なバリデーションフォーム{{ errors }}</h1>
 
     <!-- 名前 -->
     <div>
