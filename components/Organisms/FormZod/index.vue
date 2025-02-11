@@ -7,6 +7,10 @@ const { t } = useI18n()
 
 const minValue = '10'
 const maxValue = '100'
+const comparisonValueMeta = {
+  value: '50',
+  messageMeta: '比較問題',
+}
 
 const validationSchema = z
   .object({
@@ -46,6 +50,17 @@ const validationSchema = z
           code: 'custom',
           path: ['stringNumber'],
           message: t('validation.less_than_number', { num: maxValue }),
+        })
+      }
+    }
+    if (comparisonValueMeta) {
+      const num = parseFloat(data.stringNumber)
+      const comparisonNum = parseFloat(comparisonValueMeta.value)
+      if (num > comparisonNum) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['stringNumber'],
+          message: t('validation.less_than_number', { num: comparisonNum }),
         })
       }
     }
