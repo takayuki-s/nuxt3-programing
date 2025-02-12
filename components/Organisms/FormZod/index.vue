@@ -10,6 +10,7 @@ const maxValue = '100'
 const comparisonValueMeta = {
   value: '50',
   messageMeta: '比較問題',
+  type: 'LESS_THAN',
 }
 
 const validationSchema = z
@@ -27,6 +28,7 @@ const validationSchema = z
       .min(1, t('validation.required'))
       .regex(/^\d{1,20}(\.\d+)?$/, t('validation.max_digits', { mum: 20 })) // 整数部最大20桁
       .regex(/^\d+(\.\d{1,5})?$/, t('validation.max_decimal', { num: 5 })), // 小数部最大5桁
+    comparisonNumber: z.string(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
     message: t('validation.password_confirm'),
@@ -54,12 +56,12 @@ const validationSchema = z
       }
     }
     if (comparisonValueMeta) {
-      const num = parseFloat(data.stringNumber)
+      const num = parseFloat(data.comparisonNumber)
       const comparisonNum = parseFloat(comparisonValueMeta.value)
       if (num > comparisonNum) {
         ctx.addIssue({
           code: 'custom',
-          path: ['stringNumber'],
+          path: ['comparisonNumber'],
           message: t('validation.less_than_number', { num: comparisonNum }),
         })
       }
@@ -77,6 +79,7 @@ const formData = ref<FormData>({
   password: '',
   passwordConfirm: '',
   stringNumber: '',
+  comparisonNumber: '',
 })
 
 // エラー管理
@@ -87,6 +90,7 @@ const errors = ref<Record<keyof FormData, string | null>>({
   password: null,
   passwordConfirm: null,
   stringNumber: null,
+  comparisonNumber: null,
 })
 
 // 提出中フラグ
@@ -222,6 +226,22 @@ const submitForm = async () => {
       />
       <p v-if="errors.stringNumber" class="text-red-500">
         {{ errors.stringNumber }}
+      </p>
+    </div>
+
+    <!-- 数値 -->
+    <div>
+      <label for="comparisonNumber">比較数値（string）</label>
+      <input
+        id="comparisonNumber"
+        v-model="formData.comparisonNumber"
+        type="text"
+        @blur="validateField('comparisonNumber')"
+        @input="validateField('comparisonNumber')"
+        :class="{ 'border-red-500': errors.comparisonNumber }"
+      />
+      <p v-if="errors.comparisonNumber" class="text-red-500">
+        {{ errors.comparisonNumber }}
       </p>
     </div>
 
