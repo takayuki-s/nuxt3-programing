@@ -32,6 +32,13 @@ const submit = () => {
   console.log(formData.value)
   console.log(formValue.value)
 }
+
+// 定数（仮）
+const comparisonValueMeta = {
+  value: '50',
+  messageMeta: '比較問題',
+  type: 'LESS_THAN',
+}
 </script>
 
 <template>
@@ -42,7 +49,7 @@ const submit = () => {
       v-model="formData"
     />
     <FormNew @submit="submit" v-model="formValue" />
-    <FormZod />
+    <FormZod :comparison-value-meta="comparisonValueMeta" />
   </div>
 </template>
 

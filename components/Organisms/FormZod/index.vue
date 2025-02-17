@@ -3,15 +3,22 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { z, ZodError } from 'zod'
 
+type Props = {
+  comparisonValueMeta?: {
+    value: string
+    messageMeta: string
+    type: string
+  }
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  comparisonValueMeta: undefined,
+})
+
 const { t } = useI18n()
 
 const minValue = '10'
 const maxValue = '100'
-const comparisonValueMeta = {
-  value: '50',
-  messageMeta: '比較問題',
-  type: 'LESS_THAN',
-}
 
 const validationSchema = z
   .object({
@@ -55,9 +62,9 @@ const validationSchema = z
         })
       }
     }
-    if (comparisonValueMeta) {
+    if (props.comparisonValueMeta) {
       const num = parseFloat(data.comparisonNumber)
-      const comparisonNum = parseFloat(comparisonValueMeta.value)
+      const comparisonNum = parseFloat(props.comparisonValueMeta.value)
       if (num > comparisonNum) {
         ctx.addIssue({
           code: 'custom',
