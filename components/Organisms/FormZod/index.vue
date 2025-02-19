@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { z, ZodError } from 'zod'
 
+import Button from '@/components/Atoms/Button/index.vue'
+
 type Props = {
   comparisonValueMeta?: {
     value: string
@@ -253,13 +255,12 @@ const submitForm = async () => {
     </div>
 
     <!-- 提出ボタン -->
-    <button
+    <Button
       @click="submitForm"
+      text="提出"
       :disabled="isSubmitting || hasErrors"
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-    >
-      提出
-    </button>
+    />
   </div>
 </template>
 
