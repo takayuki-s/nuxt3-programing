@@ -259,7 +259,6 @@ const submitForm = async () => {
       @click="submitForm"
       text="提出"
       :disabled="isSubmitting || hasErrors"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
     />
   </div>
 </template>
