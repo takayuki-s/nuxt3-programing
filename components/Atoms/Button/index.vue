@@ -26,8 +26,12 @@ const colorSelector = computed(() => {
 
 <template>
   <div class="button-style" :class="colorSelector">
-    <button class="button" :disabled="disabled">
-      {{ text }}{{ disabled }}
+    <button
+      class="button"
+      :disabled="disabled"
+      :class="{ 'opacity-50': disabled }"
+    >
+      {{ text }}
     </button>
   </div>
 </template>
